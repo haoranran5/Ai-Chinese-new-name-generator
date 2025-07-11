@@ -16,7 +16,7 @@ export interface GenerateResponse {
   names: NameData[];
 }
 
-// 🔧 使用新的API key和DeepSeek模型
+// 🔧 使用新的API key和DeepSeek模型（删除重复定义）
 const OPENROUTER_API_KEY = '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';
 
 // 🔧 方法2：使用环境变量（推荐）
@@ -65,7 +65,7 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://bolt.new', // 添加引用来源
+        'HTTP-Referer': 'https://chinesecharactername.top', // 使用你的实际域名
         'X-Title': 'Chinese Name Generator' // 添加应用标题
       },
       body: JSON.stringify({
