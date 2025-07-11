@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Kiinalainen Nimigeneraattori",
+    "home": "Koti",
+    "favorites": "Omat Suosikit"
+  },
+  "home": {
+    "title": "Hanki kiinalainen nimesi",
+    "subtitle": "Syötä englanninkielinen nimesi ja luomme sinulle merkityksellisiä kiinalaisia nimiä",
+    "form": {
+      "nameLabel": "Englanninkielinen nimesi",
+      "namePlaceholder": "esim. David, Sarah, Michael...",
+      "genderLabel": "Sukupuoli",
+      "genderMale": "Mies",
+      "genderFemale": "Nainen",
+      "genderNeutral": "Neutraali",
+      "styleLabel": "Tyylipreferenssi (Valinnainen)",
+      "styleTraditional": "Perinteinen",
+      "styleTraditionalDesc": "Klassinen & elegantti",
+      "styleModern": "Moderni",
+      "styleModernDesc": "Nykyaikainen tyyli",
+      "styleBusiness": "Liike-elämä",
+      "styleBusinessDesc": "Ammatillinen sävy",
+      "styleCute": "Söpö",
+      "styleCuteDesc": "Leikkisä & viehättävä",
+      "styleNeutral": "Neutraali",
+      "styleNeutralDesc": "Tasapainoinen harmonia",
+      "generateButton": "Luo kiinalaisia nimiä"
+    }
+  },
+  "results": {
+    "title": "Kiinalaiset nimet nimelle \"{{name}}\"",
+    "backToHome": "Takaisin kotiin",
+    "regenerate": "Luo uudelleen",
+    "gender": "Sukupuoli",
+    "style": "Tyyli",
+    "meaning": "Merkitys",
+    "pronunciation": "Ääntäminen",
+    "addToFavorites": "Lisää suosikkeihin",
+    "removeFromFavorites": "Poista suosikeista",
+    "errorTitle": "Luonti epäonnistui",
+    "errorMessage": "Kiinalaisia nimiä ei voitu luoda. Yritä myöhemmin uudelleen.",
+    "tryAgain": "Yritä uudelleen"
+  },
+  "favorites": {
+    "title": "Omat Suosikit",
+    "subtitle": "Suosikki kiinalaiset nimesi on tallennettu tänne",
+    "backToHome": "Takaisin kotiin",
+    "count": "{{count}} suosikkia",
+    "empty": {
+      "title": "Ei vielä suosikkeja",
+      "message": "Et ole vielä tallentanut kiinalaisia nimiä",
+      "button": "Aloita nimien luominen"
+    },
+    "removeFromFavorites": "Poista suosikeista"
+  },
+  "genders": {
+    "male": "Mies",
+    "female": "Nainen",
+    "uncertain": "Neutraali"
+  },
+  "styles": {
+    "traditional": "Perinteinen",
+    "modern": "Moderni",
+    "business": "Liike-elämä",
+    "cute": "Söpö",
+    "neutral": "Neutraali"
+  }
+}

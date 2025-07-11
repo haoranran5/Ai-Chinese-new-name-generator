@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "مولد الأسماء الصينية",
+    "home": "الرئيسية",
+    "favorites": "المفضلة"
+  },
+  "home": {
+    "title": "احصل على اسمك الصيني",
+    "subtitle": "أدخل اسمك الإنجليزي وسنولد لك أسماء صينية ذات معنى",
+    "form": {
+      "nameLabel": "اسمك الإنجليزي",
+      "namePlaceholder": "مثل David, Sarah, Michael...",
+      "genderLabel": "الجنس",
+      "genderMale": "ذكر",
+      "genderFemale": "أنثى",
+      "genderNeutral": "محايد",
+      "styleLabel": "تفضيل الأسلوب (اختياري)",
+      "styleTraditional": "تقليدي",
+      "styleTraditionalDesc": "كلاسيكي وأنيق",
+      "styleModern": "حديث",
+      "styleModernDesc": "أسلوب معاصر",
+      "styleBusiness": "تجاري",
+      "styleBusinessDesc": "نبرة مهنية",
+      "styleCute": "لطيف",
+      "styleCuteDesc": "مرح وساحر",
+      "styleNeutral": "محايد",
+      "styleNeutralDesc": "انسجام متوازن",
+      "generateButton": "توليد أسماء صينية"
+    }
+  },
+  "results": {
+    "title": "أسماء صينية لـ \"{{name}}\"",
+    "backToHome": "العودة للرئيسية",
+    "regenerate": "إعادة التوليد",
+    "gender": "الجنس",
+    "style": "الأسلوب",
+    "meaning": "المعنى",
+    "pronunciation": "النطق",
+    "addToFavorites": "إضافة للمفضلة",
+    "removeFromFavorites": "إزالة من المفضلة",
+    "errorTitle": "فشل التوليد",
+    "errorMessage": "غير قادر على توليد أسماء صينية. يرجى المحاولة مرة أخرى لاحقاً.",
+    "tryAgain": "حاول مرة أخرى"
+  },
+  "favorites": {
+    "title": "المفضلة",
+    "subtitle": "أسماؤك الصينية المفضلة محفوظة هنا",
+    "backToHome": "العودة للرئيسية",
+    "count": "{{count}} مفضلة",
+    "empty": {
+      "title": "لا توجد مفضلة بعد",
+      "message": "لم تحفظ أي أسماء صينية بعد",
+      "button": "ابدأ توليد الأسماء"
+    },
+    "removeFromFavorites": "إزالة من المفضلة"
+  },
+  "genders": {
+    "male": "ذكر",
+    "female": "أنثى",
+    "uncertain": "محايد"
+  },
+  "styles": {
+    "traditional": "تقليدي",
+    "modern": "حديث",
+    "business": "تجاري",
+    "cute": "لطيف",
+    "neutral": "محايد"
+  }
+}

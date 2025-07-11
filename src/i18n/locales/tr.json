@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Çince İsim Üreticisi",
+    "home": "Ana Sayfa",
+    "favorites": "Favorilerim"
+  },
+  "home": {
+    "title": "Çince İsminizi Alın",
+    "subtitle": "İngilizce isminizi girin ve sizin için anlamlı Çince isimler üretelim",
+    "form": {
+      "nameLabel": "İngilizce İsminiz",
+      "namePlaceholder": "örn. David, Sarah, Michael...",
+      "genderLabel": "Cinsiyet",
+      "genderMale": "Erkek",
+      "genderFemale": "Kadın",
+      "genderNeutral": "Nötr",
+      "styleLabel": "Stil Tercihi (İsteğe Bağlı)",
+      "styleTraditional": "Geleneksel",
+      "styleTraditionalDesc": "Klasik ve zarif",
+      "styleModern": "Modern",
+      "styleModernDesc": "Çağdaş stil",
+      "styleBusiness": "İş",
+      "styleBusinessDesc": "Profesyonel ton",
+      "styleCute": "Sevimli",
+      "styleCuteDesc": "Oyuncu ve büyüleyici",
+      "styleNeutral": "Nötr",
+      "styleNeutralDesc": "Dengeli uyum",
+      "generateButton": "Çince İsimler Üret"
+    }
+  },
+  "results": {
+    "title": "\"{{name}}\" için Çince İsimler",
+    "backToHome": "Ana Sayfaya Dön",
+    "regenerate": "Yeniden Üret",
+    "gender": "Cinsiyet",
+    "style": "Stil",
+    "meaning": "Anlam",
+    "pronunciation": "Telaffuz",
+    "addToFavorites": "Favorilere ekle",
+    "removeFromFavorites": "Favorilerden çıkar",
+    "errorTitle": "Üretim Başarısız",
+    "errorMessage": "Çince isimler üretilemiyor. Lütfen daha sonra tekrar deneyin.",
+    "tryAgain": "Tekrar Dene"
+  },
+  "favorites": {
+    "title": "Favorilerim",
+    "subtitle": "Favori Çince isimleriniz burada kaydedilir",
+    "backToHome": "Ana Sayfaya Dön",
+    "count": "{{count}} favori",
+    "empty": {
+      "title": "Henüz Favori Yok",
+      "message": "Henüz hiç Çince isim kaydetmediniz",
+      "button": "İsim Üretmeye Başla"
+    },
+    "removeFromFavorites": "Favorilerden çıkar"
+  },
+  "genders": {
+    "male": "Erkek",
+    "female": "Kadın",
+    "uncertain": "Nötr"
+  },
+  "styles": {
+    "traditional": "Geleneksel",
+    "modern": "Modern",
+    "business": "İş",
+    "cute": "Sevimli",
+    "neutral": "Nötr"
+  }
+}

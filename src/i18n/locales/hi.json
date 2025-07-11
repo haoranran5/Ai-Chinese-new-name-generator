@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "चीनी नाम जेनरेटर",
+    "home": "होम",
+    "favorites": "मेरे पसंदीदा"
+  },
+  "home": {
+    "title": "अपना चीनी नाम प्राप्त करें",
+    "subtitle": "अपना अंग्रेजी नाम दर्ज करें और हम आपके लिए अर्थपूर्ण चीनी नाम बनाएंगे",
+    "form": {
+      "nameLabel": "आपका अंग्रेजी नाम",
+      "namePlaceholder": "जैसे David, Sarah, Michael...",
+      "genderLabel": "लिंग",
+      "genderMale": "पुरुष",
+      "genderFemale": "महिला",
+      "genderNeutral": "तटस्थ",
+      "styleLabel": "शैली प्राथमिकता (वैकल्पिक)",
+      "styleTraditional": "पारंपरिक",
+      "styleTraditionalDesc": "क्लासिक और सुरुचिपूर्ण",
+      "styleModern": "आधुनिक",
+      "styleModernDesc": "समकालीन शैली",
+      "styleBusiness": "व्यापारिक",
+      "styleBusinessDesc": "पेशेवर टोन",
+      "styleCute": "प्यारा",
+      "styleCuteDesc": "चंचल और आकर्षक",
+      "styleNeutral": "तटस्थ",
+      "styleNeutralDesc": "संतुलित सामंजस्य",
+      "generateButton": "चीनी नाम बनाएं"
+    }
+  },
+  "results": {
+    "title": "\"{{name}}\" के लिए चीनी नाम",
+    "backToHome": "होम पर वापस जाएं",
+    "regenerate": "पुनः बनाएं",
+    "gender": "लिंग",
+    "style": "शैली",
+    "meaning": "अर्थ",
+    "pronunciation": "उच्चारण",
+    "addToFavorites": "पसंदीदा में जोड़ें",
+    "removeFromFavorites": "पसंदीदा से हटाएं",
+    "errorTitle": "जेनरेशन असफल",
+    "errorMessage": "चीनी नाम बनाने में असमर्थ। कृपया बाद में पुनः प्रयास करें।",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "favorites": {
+    "title": "मेरे पसंदीदा",
+    "subtitle": "आपके पसंदीदा चीनी नाम यहाँ सहेजे गए हैं",
+    "backToHome": "होम पर वापस जाएं",
+    "count": "{{count}} पसंदीदा",
+    "empty": {
+      "title": "अभी तक कोई पसंदीदा नहीं",
+      "message": "आपने अभी तक कोई चीनी नाम सहेजा नहीं है",
+      "button": "नाम बनाना शुरू करें"
+    },
+    "removeFromFavorites": "पसंदीदा से हटाएं"
+  },
+  "genders": {
+    "male": "पुरुष",
+    "female": "महिला",
+    "uncertain": "तटस्थ"
+  },
+  "styles": {
+    "traditional": "पारंपरिक",
+    "modern": "आधुनिक",
+    "business": "व्यापारिक",
+    "cute": "प्यारा",
+    "neutral": "तटस्थ"
+  }
+}

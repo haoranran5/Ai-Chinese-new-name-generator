@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Kinesisk Navngenerator",
+    "home": "Hjem",
+    "favorites": "Mine Favoritter"
+  },
+  "home": {
+    "title": "Få dit kinesiske navn",
+    "subtitle": "Indtast dit engelske navn, og vi genererer meningsfulde kinesiske navne til dig",
+    "form": {
+      "nameLabel": "Dit engelske navn",
+      "namePlaceholder": "f.eks. David, Sarah, Michael...",
+      "genderLabel": "Køn",
+      "genderMale": "Mand",
+      "genderFemale": "Kvinde",
+      "genderNeutral": "Neutral",
+      "styleLabel": "Stilpræference (Valgfrit)",
+      "styleTraditional": "Traditionel",
+      "styleTraditionalDesc": "Klassisk & elegant",
+      "styleModern": "Moderne",
+      "styleModernDesc": "Moderne stil",
+      "styleBusiness": "Business",
+      "styleBusinessDesc": "Professionel tone",
+      "styleCute": "Sød",
+      "styleCuteDesc": "Legende & charmerende",
+      "styleNeutral": "Neutral",
+      "styleNeutralDesc": "Balanceret harmoni",
+      "generateButton": "Generer kinesiske navne"
+    }
+  },
+  "results": {
+    "title": "Kinesiske navne for \"{{name}}\"",
+    "backToHome": "Tilbage til hjem",
+    "regenerate": "Regenerer",
+    "gender": "Køn",
+    "style": "Stil",
+    "meaning": "Betydning",
+    "pronunciation": "Udtale",
+    "addToFavorites": "Tilføj til favoritter",
+    "removeFromFavorites": "Fjern fra favoritter",
+    "errorTitle": "Generering mislykkedes",
+    "errorMessage": "Kunne ikke generere kinesiske navne. Prøv igen senere.",
+    "tryAgain": "Prøv igen"
+  },
+  "favorites": {
+    "title": "Mine Favoritter",
+    "subtitle": "Dine favorit kinesiske navne er gemt her",
+    "backToHome": "Tilbage til hjem",
+    "count": "{{count}} favoritter",
+    "empty": {
+      "title": "Ingen favoritter endnu",
+      "message": "Du har ikke gemt nogen kinesiske navne endnu",
+      "button": "Start med at generere navne"
+    },
+    "removeFromFavorites": "Fjern fra favoritter"
+  },
+  "genders": {
+    "male": "Mand",
+    "female": "Kvinde",
+    "uncertain": "Neutral"
+  },
+  "styles": {
+    "traditional": "Traditionel",
+    "modern": "Moderne",
+    "business": "Business",
+    "cute": "Sød",
+    "neutral": "Neutral"
+  }
+}

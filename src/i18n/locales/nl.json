@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Chinese Naam Generator",
+    "home": "Home",
+    "favorites": "Mijn Favorieten"
+  },
+  "home": {
+    "title": "Krijg je Chinese naam",
+    "subtitle": "Voer je Engelse naam in en we genereren betekenisvolle Chinese namen voor je",
+    "form": {
+      "nameLabel": "Je Engelse naam",
+      "namePlaceholder": "bijv. David, Sarah, Michael...",
+      "genderLabel": "Geslacht",
+      "genderMale": "Mannelijk",
+      "genderFemale": "Vrouwelijk",
+      "genderNeutral": "Neutraal",
+      "styleLabel": "Stijlvoorkeur (Optioneel)",
+      "styleTraditional": "Traditioneel",
+      "styleTraditionalDesc": "Klassiek & elegant",
+      "styleModern": "Modern",
+      "styleModernDesc": "Hedendaagse stijl",
+      "styleBusiness": "Zakelijk",
+      "styleBusinessDesc": "Professionele toon",
+      "styleCute": "Schattig",
+      "styleCuteDesc": "Speels & charmant",
+      "styleNeutral": "Neutraal",
+      "styleNeutralDesc": "Gebalanceerde harmonie",
+      "generateButton": "Genereer Chinese namen"
+    }
+  },
+  "results": {
+    "title": "Chinese namen voor \"{{name}}\"",
+    "backToHome": "Terug naar home",
+    "regenerate": "Opnieuw genereren",
+    "gender": "Geslacht",
+    "style": "Stijl",
+    "meaning": "Betekenis",
+    "pronunciation": "Uitspraak",
+    "addToFavorites": "Toevoegen aan favorieten",
+    "removeFromFavorites": "Verwijderen uit favorieten",
+    "errorTitle": "Generatie mislukt",
+    "errorMessage": "Kan geen Chinese namen genereren. Probeer het later opnieuw.",
+    "tryAgain": "Opnieuw proberen"
+  },
+  "favorites": {
+    "title": "Mijn Favorieten",
+    "subtitle": "Je favoriete Chinese namen zijn hier opgeslagen",
+    "backToHome": "Terug naar home",
+    "count": "{{count}} favorieten",
+    "empty": {
+      "title": "Nog geen favorieten",
+      "message": "Je hebt nog geen Chinese namen opgeslagen",
+      "button": "Begin met namen genereren"
+    },
+    "removeFromFavorites": "Verwijderen uit favorieten"
+  },
+  "genders": {
+    "male": "Mannelijk",
+    "female": "Vrouwelijk",
+    "uncertain": "Neutraal"
+  },
+  "styles": {
+    "traditional": "Traditioneel",
+    "modern": "Modern",
+    "business": "Zakelijk",
+    "cute": "Schattig",
+    "neutral": "Neutraal"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Chinesischer Name Generator",
+    "home": "Startseite",
+    "favorites": "Meine Favoriten"
+  },
+  "home": {
+    "title": "Erhalten Sie Ihren chinesischen Namen",
+    "subtitle": "Geben Sie Ihren englischen Namen ein und wir generieren bedeutungsvolle chinesische Namen für Sie",
+    "form": {
+      "nameLabel": "Ihr englischer Name",
+      "namePlaceholder": "z.B. David, Sarah, Michael...",
+      "genderLabel": "Geschlecht",
+      "genderMale": "Männlich",
+      "genderFemale": "Weiblich",
+      "genderNeutral": "Neutral",
+      "styleLabel": "Stil-Präferenz (Optional)",
+      "styleTraditional": "Traditionell",
+      "styleTraditionalDesc": "Klassisch & elegant",
+      "styleModern": "Modern",
+      "styleModernDesc": "Zeitgenössischer Stil",
+      "styleBusiness": "Business",
+      "styleBusinessDesc": "Professioneller Ton",
+      "styleCute": "Niedlich",
+      "styleCuteDesc": "Verspielt & charmant",
+      "styleNeutral": "Neutral",
+      "styleNeutralDesc": "Ausgewogene Harmonie",
+      "generateButton": "Chinesische Namen generieren"
+    }
+  },
+  "results": {
+    "title": "Chinesische Namen für \"{{name}}\"",
+    "backToHome": "Zurück zur Startseite",
+    "regenerate": "Neu generieren",
+    "gender": "Geschlecht",
+    "style": "Stil",
+    "meaning": "Bedeutung",
+    "pronunciation": "Aussprache",
+    "addToFavorites": "Zu Favoriten hinzufügen",
+    "removeFromFavorites": "Aus Favoriten entfernen",
+    "errorTitle": "Generierung fehlgeschlagen",
+    "errorMessage": "Chinesische Namen konnten nicht generiert werden. Bitte versuchen Sie es später erneut.",
+    "tryAgain": "Erneut versuchen"
+  },
+  "favorites": {
+    "title": "Meine Favoriten",
+    "subtitle": "Ihre favorisierten chinesischen Namen werden hier gespeichert",
+    "backToHome": "Zurück zur Startseite",
+    "count": "{{count}} Favoriten",
+    "empty": {
+      "title": "Noch keine Favoriten",
+      "message": "Sie haben noch keine chinesischen Namen gespeichert",
+      "button": "Namen generieren starten"
+    },
+    "removeFromFavorites": "Aus Favoriten entfernen"
+  },
+  "genders": {
+    "male": "Männlich",
+    "female": "Weiblich",
+    "uncertain": "Neutral"
+  },
+  "styles": {
+    "traditional": "Traditionell",
+    "modern": "Modern",
+    "business": "Business",
+    "cute": "Niedlich",
+    "neutral": "Neutral"
+  }
+}

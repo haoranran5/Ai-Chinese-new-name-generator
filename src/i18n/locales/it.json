@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Generatore di Nomi Cinesi",
+    "home": "Home",
+    "favorites": "I Miei Preferiti"
+  },
+  "home": {
+    "title": "Ottieni il tuo nome cinese",
+    "subtitle": "Inserisci il tuo nome inglese e genereremo nomi cinesi significativi per te",
+    "form": {
+      "nameLabel": "Il tuo nome inglese",
+      "namePlaceholder": "es. David, Sarah, Michael...",
+      "genderLabel": "Genere",
+      "genderMale": "Maschile",
+      "genderFemale": "Femminile",
+      "genderNeutral": "Neutro",
+      "styleLabel": "Preferenza di stile (Opzionale)",
+      "styleTraditional": "Tradizionale",
+      "styleTraditionalDesc": "Classico & elegante",
+      "styleModern": "Moderno",
+      "styleModernDesc": "Stile contemporaneo",
+      "styleBusiness": "Business",
+      "styleBusinessDesc": "Tono professionale",
+      "styleCute": "Carino",
+      "styleCuteDesc": "Giocoso & affascinante",
+      "styleNeutral": "Neutro",
+      "styleNeutralDesc": "Armonia equilibrata",
+      "generateButton": "Genera nomi cinesi"
+    }
+  },
+  "results": {
+    "title": "Nomi cinesi per \"{{name}}\"",
+    "backToHome": "Torna alla home",
+    "regenerate": "Rigenera",
+    "gender": "Genere",
+    "style": "Stile",
+    "meaning": "Significato",
+    "pronunciation": "Pronuncia",
+    "addToFavorites": "Aggiungi ai preferiti",
+    "removeFromFavorites": "Rimuovi dai preferiti",
+    "errorTitle": "Generazione fallita",
+    "errorMessage": "Impossibile generare nomi cinesi. Riprova più tardi.",
+    "tryAgain": "Riprova"
+  },
+  "favorites": {
+    "title": "I Miei Preferiti",
+    "subtitle": "I tuoi nomi cinesi preferiti sono salvati qui",
+    "backToHome": "Torna alla home",
+    "count": "{{count}} preferiti",
+    "empty": {
+      "title": "Nessun preferito ancora",
+      "message": "Non hai ancora salvato nessun nome cinese",
+      "button": "Inizia a generare nomi"
+    },
+    "removeFromFavorites": "Rimuovi dai preferiti"
+  },
+  "genders": {
+    "male": "Maschile",
+    "female": "Femminile",
+    "uncertain": "Neutro"
+  },
+  "styles": {
+    "traditional": "Tradizionale",
+    "modern": "Moderno",
+    "business": "Business",
+    "cute": "Carino",
+    "neutral": "Neutro"
+  }
+}
