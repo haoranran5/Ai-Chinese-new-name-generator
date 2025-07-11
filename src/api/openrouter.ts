@@ -61,19 +61,19 @@ Example format:
         'Authorization': `Bearer ${OPENROUTER_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'mistralai/mistral-7b-instruct:free',
+        model: 'mistralai/devstral-medium',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.7,
         max_tokens: 1000
       })
     });
 
-    // --- 日志打印 ---
+    // 日志打印
     console.log('Fetch status:', response.status, response.statusText);
     const rawText = await response.text();
     console.log('Fetch response text:', rawText);
 
-    // 尝试将 rawText 转为 JSON
+    // 解析 response.text
     let data: any;
     try {
       data = JSON.parse(rawText);
@@ -112,13 +112,43 @@ Example format:
   } catch (error) {
     console.error('Error in generateNames:', error);
 
-    // 兜底示例数据
+    // 兜底示例数据（已更新）
     const fallbackNames: NameData[] = [
-      { id: Math.random().toString(36).substr(2, 9), name: '明杰', pinyin: 'Míng Jié', meaning: 'Bright and outstanding...', gender },
-      { id: Math.random().toString(36).substr(2, 9), name: '文华', pinyin: 'Wén Huá', meaning: 'Cultured and elegant...', gender },
-      { id: Math.random().toString(36).substr(2, 9), name: '志强', pinyin: 'Zhì Qiáng', meaning: 'Strong-willed and determined...', gender },
-      { id: Math.random().toString(36).substr(2, 9), name: '思雅', pinyin: 'Sī Yǎ', meaning: 'Thoughtful and refined...', gender },
-      { id: Math.random().toString(36).substr(2, 9), name: '博文', pinyin: 'Bó Wén', meaning: 'Knowledgeable and literary...', gender }
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: '晓峰',
+        pinyin: 'Xiǎo Fēng',
+        meaning: '晨光中的山峰，象征清新与坚定',
+        gender
+      },
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: '雅轩',
+        pinyin: 'Yǎ Xuān',
+        meaning: '优雅的轩窗，寓意高雅与舒适',
+        gender
+      },
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: '泽宇',
+        pinyin: 'Zé Yǔ',
+        meaning: '恩泽普照天地，象征广阔与福气',
+        gender
+      },
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: '思源',
+        pinyin: 'Sī Yuán',
+        meaning: '不忘初心，常念根源，寓意感恩与踏实',
+        gender
+      },
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: '茗熙',
+        pinyin: 'Míng Xī',
+        meaning: '茶香与晨曦，象征清雅与朝气',
+        gender
+      }
     ];
 
     return { names: fallbackNames };
