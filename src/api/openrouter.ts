@@ -16,6 +16,12 @@ export interface GenerateResponse {
   names: NameData[];
 }
 
+// 确保请求头包含正确的认证信息
+headers: {
+  'Authorization': `Bearer ${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}`,
+  'Content-Type': 'application/json'
+}
+
 // 🔧 使用新的API key和DeepSeek模型（删除重复定义）
 const OPENROUTER_API_KEY = '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';
 
