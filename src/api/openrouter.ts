@@ -16,17 +16,23 @@ export interface GenerateResponse {
   names: NameData[];
 }
 
-// 确保请求头包含正确的认证信息
-headers: {
-  'Authorization': `Bearer ${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}`,
-  'Content-Type': 'application/json'
-}
-
-// 🔧 使用新的API key和DeepSeek模型（删除重复定义）
-const OPENROUTER_API_KEY = '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';
-
-// 🔧 方法2：使用环境变量（推荐）
-// const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || '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';
+// 🔧 安全的API密钥管理
+const getApiKey = (): string => {
+  // 优先使用环境变量
+  if (typeof process !== 'undefined' && process.env?.OPENROUTER_API_KEY) {
+    return process.env.OPENROUTER_API_KEY;
+  }
+  
+  // 浏览器环境下从配置文件或其他安全方式获取
+  // 注意：永远不要在前端代码中硬编码API密钥
+  const apiKey = import.meta.env?.VITE_OPENROUTER_API_KEY;
+  
+  if (!apiKey) {
+    throw new Error('OpenRouter API密钥未配置。请设置环境变量OPENROUTER_API_KEY或VITE_OPENROUTER_API_KEY');
+  }
+  
+  return apiKey;
+};
 
 export const generateNames = async (request: GenerateRequest): Promise<GenerateResponse> => {
   const { englishName, gender, style } = request;
@@ -34,6 +40,7 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
   const genderText = gender === 'male' ? 'male'
                    : gender === 'female' ? 'female'
                    : 'neutral';
+  
   const styleText = {
     traditional: 'traditional and classic',
     modern: 'modern and contemporary',
@@ -66,60 +73,69 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
   try {
     console.log('🚀 发送API请求...');
     
+    // 获取API密钥
+    const apiKey = getApiKey();
+    
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://chinesecharactername.top', // 使用你的实际域名
-        'X-Title': 'Chinese Name Generator' // 添加应用标题
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': 'https://chinesecharactername.top',
+        'X-Title': 'Chinese Name Generator'
       },
       body: JSON.stringify({
-        model: 'deepseek/deepseek-r1-distill-llama-70b:free', // 🔧 使用DeepSeek免费模型
+        model: 'deepseek/deepseek-r1-distill-llama-70b:free',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.7,
         max_tokens: 1000
       })
     });
 
-    // 日志打印
-    console.log('📊 API响应状态:', response.status, response.statusText);
-    const rawText = await response.text();
-    console.log('📄 API响应内容:', rawText);
-
-    // 检查响应状态
+    console.log('📊 API响应状态:', response.status);
+    
     if (!response.ok) {
-      console.error('❌ API请求失败:', response.status, response.statusText);
-      throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+      const errorText = await response.text();
+      console.error('❌ API请求失败:', response.status, errorText);
+      
+      // 解析错误信息
+      let errorMessage = `API请求失败: ${response.status}`;
+      try {
+        const errorData = JSON.parse(errorText);
+        errorMessage = errorData.error?.message || errorMessage;
+      } catch (e) {
+        // 忽略JSON解析错误
+      }
+      
+      throw new Error(errorMessage);
     }
 
-    // 解析响应
-    let data: any;
-    try {
-      data = JSON.parse(rawText);
-    } catch (jsonErr) {
-      console.error('❌ JSON解析失败:', jsonErr);
-      throw new Error('Invalid JSON from API');
-    }
+    const data = await response.json();
+    console.log('📄 API响应内容:', data);
 
     const content = data.choices?.[0]?.message?.content;
     console.log('🎯 GPT返回内容:', content);
     
     if (!content) {
-      throw new Error('No content received from API');
+      throw new Error('API未返回有效内容');
     }
 
     // 清理并解析 JSON 数组
-    const clean = content
+    const cleanContent = content
       .replace(/```json\s*/g, '')
       .replace(/```\s*/g, '')
       .replace(/^[^[\{]*/, '')
       .replace(/[^}\]]*$/, '')
       .trim();
     
-    console.log('🧹 清理后的JSON:', clean);
+    console.log('🧹 清理后的JSON:', cleanContent);
     
-    const parsedNames = JSON.parse(clean) as Array<{ name: string; pinyin: string; meaning: string }>;
+    const parsedNames = JSON.parse(cleanContent) as Array<{ 
+      name: string; 
+      pinyin: string; 
+      meaning: string; 
+    }>;
+    
     console.log('✅ 解析成功:', parsedNames);
 
     // 格式化输出
@@ -136,44 +152,82 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
   } catch (error) {
     console.error('❌ generateNames错误:', error);
 
-    // 兜底示例数据
-    const fallbackNames: NameData[] = [
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '晓峰',
-        pinyin: 'Xiǎo Fēng',
-        meaning: '晨光中的山峰，象征清新与坚定',
-        gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '雅轩',
-        pinyin: 'Yǎ Xuān',
-        meaning: '优雅的轩窗，寓意高雅与舒适',
-        gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '泽宇',
-        pinyin: 'Zé Yǔ',
-        meaning: '恩泽普照天地，象征广阔与福气',
-        gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '思源',
-        pinyin: 'Sī Yuán',
-        meaning: '不忘初心，常念根源，寓意感恩与踏实',
-        gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '茗熙',
-        pinyin: 'Míng Xī',
-        meaning: '茶香与晨曦，象征清雅与朝气',
-        gender
-      }
-    ];
+    // 增强的兜底数据
+    const fallbackNames: NameData[] = gender === 'female' 
+      ? [
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '雅琪',
+            pinyin: 'Yǎ Qí',
+            meaning: '优雅如美玉，象征高贵与纯洁',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '诗涵',
+            pinyin: 'Shī Hán',
+            meaning: '诗意盎然，内涵丰富，寓意才华与智慧',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '梦瑶',
+            pinyin: 'Mèng Yáo',
+            meaning: '如梦似幻，美玉般珍贵，象征美好与希望',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '晓萱',
+            pinyin: 'Xiǎo Xuān',
+            meaning: '晨曦中的萱草，寓意清新与活力',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '语桐',
+            pinyin: 'Yǔ Tóng',
+            meaning: '语言如梧桐叶，寓意优雅与智慧',
+            gender
+          }
+        ]
+      : [
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '晓峰',
+            pinyin: 'Xiǎo Fēng',
+            meaning: '晨光中的山峰，象征清新与坚定',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '雅轩',
+            pinyin: 'Yǎ Xuān',
+            meaning: '优雅的轩窗，寓意高雅与舒适',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '泽宇',
+            pinyin: 'Zé Yǔ',
+            meaning: '恩泽普照天地，象征广阔与福气',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '思源',
+            pinyin: 'Sī Yuán',
+            meaning: '不忘初心，常念根源，寓意感恩与踏实',
+            gender
+          },
+          {
+            id: Math.random().toString(36).substr(2, 9),
+            name: '茗熙',
+            pinyin: 'Míng Xī',
+            meaning: '茶香与晨曦，象征清雅与朝气',
+            gender
+          }
+        ];
 
     console.log('🔄 使用兜底数据');
     return { names: fallbackNames };
