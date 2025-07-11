@@ -21,7 +21,9 @@ const OPENROUTER_API_KEY = 'sk-or-v1-7345da6f4a81e6af53ce22f132670313afd7ce2c5ae
 export const generateNames = async (request: GenerateRequest): Promise<GenerateResponse> => {
   const { englishName, gender, style } = request;
 
-  const genderText = gender === 'male' ? 'male' : gender === 'female' ? 'female' : 'neutral';
+  const genderText = gender === 'male' ? 'male'
+                   : gender === 'female' ? 'female'
+                   : 'neutral';
   const styleText = {
     traditional: 'traditional and classic',
     modern: 'modern and contemporary',
@@ -35,12 +37,13 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
 2. Style: ${styleText}
 3. Each name should include: Chinese characters, pinyin pronunciation, and English meaning explanation
 4. Names should follow Chinese cultural traditions with positive meanings
-5. Please return strictly in the following JSON format with no other text:
-
+5. Please return only the JSON array, with no additional explanation or markdown.
+  
+Example format:
 [
   {
     "name": "明杰",
-    "pinyin": "Míng Jié", 
+    "pinyin": "Míng Jié",
     "meaning": "Bright and outstanding, representing intelligence and excellence"
   },
   {
@@ -59,86 +62,63 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
       },
       body: JSON.stringify({
         model: 'mistralai/mistral-7b-instruct:free',
-        messages: [
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
+        messages: [{ role: 'user', content: prompt }],
         temperature: 0.7,
         max_tokens: 1000
       })
     });
 
+    // --- 日志打印 ---
+    console.log('Fetch status:', response.status, response.statusText);
+    const rawText = await response.text();
+    console.log('Fetch response text:', rawText);
+
+    // 尝试将 rawText 转为 JSON
+    let data: any;
+    try {
+      data = JSON.parse(rawText);
+    } catch (jsonErr) {
+      console.error('Failed to JSON.parse response text:', jsonErr);
+      throw new Error('Invalid JSON from API');
+    }
+
     if (!response.ok) {
       throw new Error(`API request failed: ${response.status} ${response.statusText}`);
     }
 
-    const data = await response.json();
     const content = data.choices?.[0]?.message?.content;
-
+    console.log('GPT raw content:', content);
     if (!content) {
       throw new Error('No content received from API');
     }
 
-    let parsedNames;
-    try {
-      const cleanContent = content.replace(/```json\n?|\n?```/g, '').trim();
-      parsedNames = JSON.parse(cleanContent);
-    } catch (parseError) {
-      console.error('Failed to parse API response:', content);
-      throw new Error('Failed to parse API response');
-    }
+    // 清理并解析 JSON 数组
+    const clean = content.replace(/```json[\s\S]*?```/g, '').trim();
+    console.log('Cleaned content for JSON.parse:', clean);
+    const parsedNames = JSON.parse(clean) as Array<{ name: string; pinyin: string; meaning: string }>;
+    console.log('Parsed names array:', parsedNames);
 
-    const formattedNames: NameData[] = parsedNames.map((name: any, index: number) => ({
+    // 格式化输出
+    const formattedNames: NameData[] = parsedNames.map((item, idx) => ({
       id: Math.random().toString(36).substr(2, 9),
-      name: name.name || `Name${index + 1}`,
-      pinyin: name.pinyin || '',
-      meaning: name.meaning || 'Beautiful meaning',
-      gender: request.gender
+      name: item.name || `Name${idx + 1}`,
+      pinyin: item.pinyin || '',
+      meaning: item.meaning || '',
+      gender
     }));
 
     return { names: formattedNames };
 
   } catch (error) {
-    console.error('Error generating names:', error);
+    console.error('Error in generateNames:', error);
 
+    // 兜底示例数据
     const fallbackNames: NameData[] = [
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '明杰',
-        pinyin: 'Míng Jié',
-        meaning: 'Bright and outstanding, representing intelligence and excellence',
-        gender: request.gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '文华',
-        pinyin: 'Wén Huá',
-        meaning: 'Cultured and elegant, symbolizing literary talent and refinement',
-        gender: request.gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '志强',
-        pinyin: 'Zhì Qiáng',
-        meaning: 'Strong-willed and determined, embodying ambition and resilience',
-        gender: request.gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '思雅',
-        pinyin: 'Sī Yǎ',
-        meaning: 'Thoughtful and refined, representing wisdom and grace',
-        gender: request.gender
-      },
-      {
-        id: Math.random().toString(36).substr(2, 9),
-        name: '博文',
-        pinyin: 'Bó Wén',
-        meaning: 'Knowledgeable and literary, signifying vast learning and culture',
-        gender: request.gender
-      }
+      { id: Math.random().toString(36).substr(2, 9), name: '明杰', pinyin: 'Míng Jié', meaning: 'Bright and outstanding...', gender },
+      { id: Math.random().toString(36).substr(2, 9), name: '文华', pinyin: 'Wén Huá', meaning: 'Cultured and elegant...', gender },
+      { id: Math.random().toString(36).substr(2, 9), name: '志强', pinyin: 'Zhì Qiáng', meaning: 'Strong-willed and determined...', gender },
+      { id: Math.random().toString(36).substr(2, 9), name: '思雅', pinyin: 'Sī Yǎ', meaning: 'Thoughtful and refined...', gender },
+      { id: Math.random().toString(36).substr(2, 9), name: '博文', pinyin: 'Bó Wén', meaning: 'Knowledgeable and literary...', gender }
     ];
 
     return { names: fallbackNames };
