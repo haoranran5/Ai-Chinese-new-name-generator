@@ -1,10 +1,29 @@
 import React from 'react';
-import HomePage from './pages/HomePage';
+import { useState } from 'react';
+import './i18n';
 import { FavoritesProvider } from './contexts/FavoritesContext';
+import Navigation from './components/Navigation';
+import AIElements from './components/AIElements';
+import HomePage from './pages/HomePage';
+import FavoritesPage from './pages/FavoritesPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'favorites':
+        return <FavoritesPage />;
+      case 'about':
+        return <AboutPage />;
+      default:
+        return <HomePage />;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden" dir="ltr">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 rounded-full animate-float"></div>
@@ -14,8 +33,12 @@ function App() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
       </div>
       
+      {/* AI Elements */}
+      <AIElements />
+      
       <FavoritesProvider>
-        <HomePage />
+        <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
+        {renderPage()}
       </FavoritesProvider>
     </div>
   );

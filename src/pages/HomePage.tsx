@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, User, Palette, ArrowRight } from 'lucide-react';
+import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe } from 'lucide-react';
 import { generateNames } from '../services/chineseNameGenerator';
 import NameCard from '../components/NameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
@@ -68,8 +68,8 @@ const HomePage: React.FC = () => {
       <div className="max-w-2xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full mb-8 backdrop-blur-sm border border-white/20 relative group shadow-2xl">
-            <Sparkles className="w-12 h-12 text-cyan-400 group-hover:animate-pulse drop-shadow-lg" />
+          <div className="inline-flex items-center justify-center w-28 h-28 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full mb-8 backdrop-blur-sm border border-white/20 relative group shadow-2xl">
+            <Brain className="w-14 h-14 text-cyan-400 group-hover:animate-pulse drop-shadow-lg" />
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
             <div className="absolute -inset-4 bg-gradient-conic from-cyan-400/10 via-purple-400/10 to-cyan-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           </div>
@@ -79,6 +79,22 @@ const HomePage: React.FC = () => {
           <p className="text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
             {t('home.subtitle')}
           </p>
+          
+          {/* AI Features */}
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <div className="flex items-center space-x-2 bg-cyan-500/10 backdrop-blur-sm border border-cyan-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Zap className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-cyan-300 font-medium">{t('home.aiPowered')}</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Globe className="w-4 h-4 text-purple-400" />
+              <span className="text-sm text-purple-300 font-medium">{t('home.culturalIntelligence')}</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-emerald-500/10 backdrop-blur-sm border border-emerald-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Sparkles className="w-4 h-4 text-emerald-400" />
+              <span className="text-sm text-emerald-300 font-medium">{t('home.instantGeneration')}</span>
+            </div>
+          </div>
         </div>
 
         {/* Form */}
@@ -111,9 +127,9 @@ const HomePage: React.FC = () => {
             </label>
             <div className="grid grid-cols-3 gap-3">
               {[
-                { value: 'male', label: '男性', emoji: '👨' },
-                { value: 'female', label: '女性', emoji: '👩' },
-                { value: 'neutral', label: '中性', emoji: '👤' }
+                { value: 'male', label: t('home.genders.male'), emoji: '👨' },
+                { value: 'female', label: t('home.genders.female'), emoji: '👩' },
+                { value: 'neutral', label: t('home.genders.neutral'), emoji: '👤' }
               ].map((option) => (
                 <label key={option.value} className="relative">
                   <input
@@ -145,11 +161,11 @@ const HomePage: React.FC = () => {
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
-                { value: 'traditional', label: '传统', desc: '经典优雅' },
-                { value: 'modern', label: '现代', desc: '时尚潮流' },
-                { value: 'business', label: '商务', desc: '专业正式' },
-                { value: 'cute', label: '可爱', desc: '活泼俏皮' },
-                { value: 'neutral', label: '中性', desc: '平衡和谐' }
+                { value: 'traditional', label: t('home.styles.traditional'), desc: 'Classic & Elegant' },
+                { value: 'modern', label: t('home.styles.modern'), desc: 'Trendy & Fresh' },
+                { value: 'business', label: t('home.styles.business'), desc: 'Professional' },
+                { value: 'cute', label: t('home.styles.cute'), desc: 'Playful & Sweet' },
+                { value: 'neutral', label: t('home.styles.neutral'), desc: 'Balanced' }
               ].map((option) => (
                 <label key={option.value} className="relative">
                   <input
@@ -186,12 +202,12 @@ const HomePage: React.FC = () => {
                 {loading ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    <span>生成中...</span>
+                    <span>{t('home.form.generating')}</span>
                   </>
                 ) : (
                   <>
-                    <Sparkles className="w-5 h-5" />
-                    <span>生成中文名</span>
+                    <Brain className="w-5 h-5" />
+                    <span>{t('home.form.generateButton')}</span>
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -205,10 +221,10 @@ const HomePage: React.FC = () => {
           <div className="mt-12">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-purple-200 bg-clip-text text-transparent mb-4">
-                {hasGenerated ? `"${englishName}" 的中文名` : '示例中文名'}
+                {hasGenerated ? t('home.results.title') : t('home.results.example')}
               </h2>
               {!hasGenerated && (
-                <p className="text-white/70">以下是一些示例名字，输入您的英文名获取专属中文名</p>
+                <p className="text-white/70">Sample names to inspire you - enter your name for personalized results</p>
               )}
             </div>
             
@@ -230,7 +246,7 @@ const HomePage: React.FC = () => {
                   className="inline-flex items-center space-x-2 bg-white/10 text-cyan-400 px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-300 disabled:opacity-50 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl"
                 >
                   <Sparkles className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                  <span>重新生成</span>
+                  <span>{t('home.results.regenerate')}</span>
                 </button>
               </div>
             )}
