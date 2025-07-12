@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { generateNames, type GenerateRequest, type NameData } from '../api/puter-ai';
+import { generateNames, type GenerateRequest } from '../api/puter-ai';
 import NameCard from '../components/NameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import { NameData } from '../contexts/FavoritesContext';
-import { generateNames } from '../api/openrouter';
 
 const ResultsPage: React.FC = () => {
   const { t } = useTranslation();
