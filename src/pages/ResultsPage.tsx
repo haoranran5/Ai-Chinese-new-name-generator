@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, RefreshCw } from 'lucide-react';
+import { generateNames, type GenerateRequest, type NameData } from '../api/puter-ai';
 import NameCard from '../components/NameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import { NameData } from '../contexts/FavoritesContext';
