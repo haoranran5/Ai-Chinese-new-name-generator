@@ -16,25 +16,15 @@ export interface GenerateResponse {
   names: NameData[];
 }
 
-// 🔧 安全的API密钥管理
-const getApiKey = (): string => {
-  // 优先使用环境变量
-  if (typeof process !== 'undefined' && process.env?.OPENROUTER_API_KEY) {
-    return process.env.OPENROUTER_API_KEY;
-  }
-  
-  // 浏览器环境下从配置文件或其他安全方式获取
-  // 注意：永远不要在前端代码中硬编码API密钥
-  const apiKey = import.meta.env?.VITE_OPENROUTER_API_KEY;
-  
-  if (!apiKey) {
-    throw new Error('OpenRouter API密钥未配置。请设置环境变量OPENROUTER_API_KEY或VITE_OPENROUTER_API_KEY');
-  }
-  
-  return apiKey;
-};
+// 🔧 安全的API密钥获取
+const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 
 export const generateNames = async (request: GenerateRequest): Promise<GenerateResponse> => {
+  // 检查API密钥是否配置
+  if (!OPENROUTER_API_KEY) {
+    throw new Error('OpenRouter API密钥未配置，请检查环境变量');
+  }
+
   const { englishName, gender, style } = request;
 
   const genderText = gender === 'male' ? 'male'
@@ -73,14 +63,11 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
   try {
     console.log('🚀 发送API请求...');
     
-    // 获取API密钥
-    const apiKey = getApiKey();
-    
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
         'HTTP-Referer': 'https://chinesecharactername.top',
         'X-Title': 'Chinese Name Generator'
       },
@@ -97,17 +84,7 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
     if (!response.ok) {
       const errorText = await response.text();
       console.error('❌ API请求失败:', response.status, errorText);
-      
-      // 解析错误信息
-      let errorMessage = `API请求失败: ${response.status}`;
-      try {
-        const errorData = JSON.parse(errorText);
-        errorMessage = errorData.error?.message || errorMessage;
-      } catch (e) {
-        // 忽略JSON解析错误
-      }
-      
-      throw new Error(errorMessage);
+      throw new Error(`API请求失败: ${response.status}`);
     }
 
     const data = await response.json();
@@ -152,7 +129,7 @@ export const generateNames = async (request: GenerateRequest): Promise<GenerateR
   } catch (error) {
     console.error('❌ generateNames错误:', error);
 
-    // 增强的兜底数据
+    // 兜底数据
     const fallbackNames: NameData[] = gender === 'female' 
       ? [
           {
