@@ -17,7 +17,7 @@ export interface GenerateResponse {
 }
 
 // 🔧 API密钥配置
-const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
+const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
 
 export const generateNames = async (request: GenerateRequest): Promise<GenerateResponse> => {
   const { englishName, gender, style } = request;
