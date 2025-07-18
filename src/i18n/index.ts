@@ -7,15 +7,39 @@ const resources = {
     translation: {
       nav: {
         home: 'Home',
-        favorites: 'Favorites',
+        nameGenerator: 'Chinese Name Generator',
+        fengShuiTips: 'Feng Shui Tips',
+        astrology: 'Chinese Astrology',
+        zodiac: 'Chinese Zodiac',
+        aiTools: 'AI Tools',
         about: 'About'
       },
       home: {
-        title: 'AI Chinese Name Generator',
-        subtitle: 'Transform your English name into a beautiful Chinese name with AI-powered cultural intelligence',
-        aiPowered: 'AI-Powered',
-        culturalIntelligence: 'Cultural Intelligence',
-        instantGeneration: 'Instant Generation',
+        title: 'Feng Shui & Chinese Astrology',
+        subtitle: 'Discover ancient wisdom with modern AI digital tools for perfect harmony and Chi balance',
+        heroDescription: 'Master the art of Feng Shui, explore Chinese Astrology, and unlock the secrets of your Chinese Zodiac with our revolutionary AI-powered digital tools.',
+        aiPowered: 'AI Digital Tools',
+        culturalIntelligence: 'Ancient Wisdom',
+        instantGeneration: 'Instant Analysis',
+        services: {
+          title: 'Our Feng Shui & Astrology Services',
+          nameGenerator: {
+            title: 'Chinese Name Generator',
+            description: 'Generate authentic Chinese names using BaZi principles and Chinese Astrology for perfect harmony.'
+          },
+          fengShuiTips: {
+            title: 'Feng Shui Tips',
+            description: 'Master essential Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your spaces.'
+          },
+          astrology: {
+            title: 'Chinese Astrology',
+            description: 'Explore Chinese Astrology through detailed analysis and BaZi readings for destiny insights.'
+          },
+          zodiac: {
+            title: 'Chinese Zodiac',
+            description: 'Discover your Chinese Zodiac characteristics and compatibility for better life harmony.'
+          }
+        },
         form: {
           nameLabel: 'Your English Name',
           namePlaceholder: 'Enter your English name...',
@@ -42,14 +66,34 @@ const resources = {
           regenerate: 'Generate New Names'
         }
       },
-      favorites: {
-        title: 'Favorite Names',
-        empty: 'No favorite names yet',
-        emptyDesc: 'Start generating names and save your favorites!'
+      fengShuiTips: {
+        title: 'Essential Feng Shui Tips for Better Qi Flow',
+        subtitle: 'Master Feng Shui principles to improve Qi flow and achieve perfect Chi balance',
+        tips: {
+          home: 'Home Feng Shui',
+          office: 'Office Feng Shui',
+          bedroom: 'Bedroom Harmony',
+          wealth: 'Wealth Corner'
+        }
+      },
+      astrology: {
+        title: 'Chinese Astrology Guide - Zodiac Signs and BaZi',
+        subtitle: 'Explore Chinese Astrology through detailed Chinese Zodiac analysis and BaZi readings',
+        description: 'Understand your destiny with ancient wisdom and modern AI insights'
+      },
+      zodiac: {
+        title: 'Chinese Zodiac Signs - Complete Guide',
+        subtitle: 'Discover your Chinese Zodiac sign characteristics and compatibility',
+        description: 'Learn how to use Feng Shui principles to enhance your Chinese Astrology fortune'
+      },
+      aiTools: {
+        title: 'AI Digital Tools for Feng Shui and Chi Balancing',
+        subtitle: 'Revolutionary AI digital tools for Feng Shui analysis and Chi balancing',
+        description: 'Modern technology meets ancient wisdom for optimal life harmony'
       },
       about: {
-        title: 'About AI Chinese Name Generator',
-        description: 'Our AI-powered system combines traditional Chinese naming wisdom with modern technology to create meaningful names.'
+        title: 'About Our Feng Shui & Chinese Astrology Platform',
+        description: 'Our AI-powered system combines ancient Feng Shui wisdom and Chinese Astrology with modern digital tools to bring harmony and balance to your life.'
       }
     }
   },
@@ -57,15 +101,39 @@ const resources = {
     translation: {
       nav: {
         home: '首页',
-        favorites: '收藏',
+        nameGenerator: '中文名生成器',
+        fengShuiTips: '风水建议',
+        astrology: '中国占星学',
+        zodiac: '中国生肖',
+        aiTools: 'AI工具',
         about: '关于'
       },
       home: {
-        title: 'AI中文名生成器',
-        subtitle: '运用AI文化智能，将您的英文名转换为优美的中文名字',
-        aiPowered: 'AI驱动',
-        culturalIntelligence: '文化智能',
-        instantGeneration: '即时生成',
+        title: '风水与中国占星学',
+        subtitle: '运用现代AI数字工具探索古老智慧，实现完美和谐与气场平衡',
+        heroDescription: '掌握风水艺术，探索中国占星学，用我们革命性的AI数字工具解锁您的生肖秘密。',
+        aiPowered: 'AI数字工具',
+        culturalIntelligence: '古老智慧',
+        instantGeneration: '即时分析',
+        services: {
+          title: '我们的风水与占星服务',
+          nameGenerator: {
+            title: '中文名生成器',
+            description: '运用八字原理和中国占星学生成正宗中文名字，实现完美和谐。'
+          },
+          fengShuiTips: {
+            title: '风水建议',
+            description: '掌握基本风水建议，改善气场流动，在您的空间中实现完美的气场平衡。'
+          },
+          astrology: {
+            title: '中国占星学',
+            description: '通过详细分析和八字解读探索中国占星学，获得命运洞察。'
+          },
+          zodiac: {
+            title: '中国生肖',
+            description: '发现您的中国生肖特征和兼容性，获得更好的生活和谐。'
+          }
+        },
         form: {
           nameLabel: '您的英文名',
           namePlaceholder: '请输入您的英文名...',
@@ -92,14 +160,34 @@ const resources = {
           regenerate: '重新生成'
         }
       },
-      favorites: {
-        title: '收藏的名字',
-        empty: '暂无收藏的名字',
-        emptyDesc: '开始生成名字并保存您的收藏吧！'
+      fengShuiTips: {
+        title: '改善气场流动的基本风水建议',
+        subtitle: '掌握风水原理，改善气场流动，实现完美的气场平衡',
+        tips: {
+          home: '家居风水',
+          office: '办公室风水',
+          bedroom: '卧室和谐',
+          wealth: '财富角'
+        }
+      },
+      astrology: {
+        title: '中国占星学指南 - 生肖与八字',
+        subtitle: '通过详细的中国生肖分析和八字解读探索中国占星学',
+        description: '用古老智慧和现代AI洞察了解您的命运'
+      },
+      zodiac: {
+        title: '中国生肖 - 完整指南',
+        subtitle: '发现您的中国生肖特征和兼容性',
+        description: '学习如何运用风水原理增强您的中国占星运势'
+      },
+      aiTools: {
+        title: '风水和气场平衡的AI数字工具',
+        subtitle: '用于风水分析和气场平衡的革命性AI数字工具',
+        description: '现代技术与古老智慧相结合，实现最佳生活和谐'
       },
       about: {
-        title: '关于AI中文名生成器',
-        description: '我们的AI系统结合传统中文命名智慧与现代技术，创造有意义的名字。'
+        title: '关于我们的风水与中国占星学平台',
+        description: '我们的AI系统结合古老的风水智慧和中国占星学与现代数字工具，为您的生活带来和谐与平衡。'
       }
     }
   },
