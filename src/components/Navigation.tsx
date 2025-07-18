@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Home, Heart, Info, Sparkles } from 'lucide-react';
+import { Home, Heart, Info, Sparkles, Compass, Sun, Users } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 
 interface NavigationProps {
@@ -14,9 +14,9 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
   const navItems = [
     { id: 'home', label: t('nav.home'), icon: Home },
     { id: 'nameGenerator', label: 'Name Generator', icon: Sparkles },
-    { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Heart },
-    { id: 'astrology', label: 'Chinese Astrology', icon: Info },
-    { id: 'compatibility', label: 'Compatibility', icon: Heart },
+    { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Compass },
+    { id: 'astrology', label: 'Chinese Astrology', icon: Sun },
+    { id: 'compatibility', label: 'Compatibility', icon: Users },
     { id: 'about', label: t('nav.about'), icon: Info }
   ];
 
