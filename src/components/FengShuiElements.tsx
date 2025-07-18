@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, Zap, Sparkles, Compass, Yin, Yang } from 'lucide-react';
+import { Sun, Moon, Zap, Sparkles, Compass, Pin as Yin, Tangent as Yang } from 'lucide-react';
 
 const FengShuiElements: React.FC = () => {
   return (

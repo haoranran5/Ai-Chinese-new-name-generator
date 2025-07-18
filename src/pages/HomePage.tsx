@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, Sun, Compass, Yin, ArrowRight, Brain, Zap, Globe, Heart, Info } from 'lucide-react';
+import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info } from 'lucide-react';
 
 interface NameData {
   id: string;
