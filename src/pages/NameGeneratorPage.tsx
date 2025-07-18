@@ -74,10 +74,24 @@ const NameGeneratorPage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
-            Chinese Name Generator - BaZi Based Naming Tool
+            Free Chinese Name Generator - BaZi Based Naming Tool
           </h1>
           <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            Generate authentic Chinese names using BaZi principles and Chinese Astrology. Our AI-powered Chinese name generator creates meaningful names with cultural significance.
+            Generate authentic Chinese names using BaZi principles and Chinese Astrology. Our free AI-powered Chinese name generator creates meaningful names with cultural significance for babies, business, and personal use.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <div className="flex items-center space-x-2 bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Heart className="w-4 h-4 text-green-400" />
+              <span className="text-sm text-green-300 font-medium">100% Free</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Brain className="w-4 h-4 text-blue-400" />
+              <span className="text-sm text-blue-300 font-medium">BaZi Analysis</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="text-sm text-purple-300 font-medium">Cultural Meaning</span>
+            </div>
           </p>
         </div>
 

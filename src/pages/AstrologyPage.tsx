@@ -68,10 +68,24 @@ const AstrologyPage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
-            Chinese Astrology Guide - Zodiac Signs and BaZi
+            Chinese Astrology Guide - Zodiac Signs and BaZi Analysis
           </h1>
           <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            Explore Chinese Astrology through detailed Chinese Zodiac analysis and BaZi readings. Understand your destiny with ancient wisdom and modern insights.
+            Explore Chinese Astrology through detailed Chinese Zodiac analysis and BaZi readings. Understand your destiny with ancient wisdom and modern AI insights for Western users.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <div className="flex items-center space-x-2 bg-yellow-500/10 backdrop-blur-sm border border-yellow-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Sun className="w-4 h-4 text-yellow-400" />
+              <span className="text-sm text-yellow-300 font-medium">12 Zodiac Signs</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Star className="w-4 h-4 text-red-400" />
+              <span className="text-sm text-red-300 font-medium">BaZi Analysis</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="text-sm text-purple-300 font-medium">Fortune Prediction</span>
+            </div>
           </p>
         </div>
 

@@ -13,9 +13,10 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
 
   const navItems = [
     { id: 'home', label: t('nav.home'), icon: Home },
-    { id: 'nameGenerator', label: t('nav.nameGenerator'), icon: Sparkles },
-    { id: 'fengShuiTips', label: t('nav.fengShuiTips'), icon: Heart },
-    { id: 'astrology', label: t('nav.astrology'), icon: Info },
+    { id: 'nameGenerator', label: 'Name Generator', icon: Sparkles },
+    { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Heart },
+    { id: 'astrology', label: 'Chinese Astrology', icon: Info },
+    { id: 'compatibility', label: 'Compatibility', icon: Heart },
     { id: 'about', label: t('nav.about'), icon: Info }
   ];
 

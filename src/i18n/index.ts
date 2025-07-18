@@ -15,29 +15,40 @@ const resources = {
         about: 'About'
       },
       home: {
-        title: 'Feng Shui & Chinese Astrology',
+        title: 'Free Chinese Name Generator & Feng Shui',
         subtitle: 'Discover ancient wisdom with modern AI digital tools for perfect harmony and Chi balance',
-        heroDescription: 'Master the art of Feng Shui, explore Chinese Astrology, and unlock the secrets of your Chinese Zodiac with our revolutionary AI-powered digital tools.',
+        heroDescription: 'Generate authentic Chinese names with BaZi analysis, master Feng Shui tips for home and office, explore Chinese Astrology, and unlock your Chinese Zodiac secrets with our revolutionary AI-powered digital tools.',
         aiPowered: 'AI Digital Tools',
         culturalIntelligence: 'Ancient Wisdom',
         instantGeneration: 'Instant Analysis',
+        freeTools: 'Free Tools',
+        personalizedAnalysis: 'Personalized Analysis',
+        culturalAuthenticity: 'Cultural Authenticity',
         services: {
           title: 'Our Feng Shui & Astrology Services',
           nameGenerator: {
-            title: 'Chinese Name Generator',
-            description: 'Generate authentic Chinese names using BaZi principles and Chinese Astrology for perfect harmony.'
+            title: 'Free Chinese Name Generator',
+            description: 'Generate authentic Chinese names using BaZi principles and Chinese Astrology. Perfect for babies, business names, and personal use with detailed meaning explanations.'
           },
           fengShuiTips: {
-            title: 'Feng Shui Tips',
-            description: 'Master essential Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your spaces.'
+            title: 'Feng Shui Tips for Home & Office',
+            description: 'Master proven Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your home and office spaces. Practical guidance for Western homes.'
           },
           astrology: {
-            title: 'Chinese Astrology',
-            description: 'Explore Chinese Astrology through detailed analysis and BaZi readings for destiny insights.'
+            title: 'Chinese Astrology & BaZi Analysis',
+            description: 'Explore Chinese Astrology through detailed analysis and BaZi readings. Understand your destiny with personalized fortune predictions and compatibility analysis.'
           },
           zodiac: {
-            title: 'Chinese Zodiac',
-            description: 'Discover your Chinese Zodiac characteristics and compatibility for better life harmony.'
+            title: 'Chinese Zodiac Compatibility',
+            description: 'Discover your Chinese Zodiac characteristics and compatibility analysis for relationships, business partnerships, and family harmony.'
+          },
+          aiTools: {
+            title: 'AI Feng Shui Analysis',
+            description: 'Revolutionary AI-powered tools for house analysis, personal fortune calendar, and digital Feng Shui compass for modern living.'
+          },
+          compatibility: {
+            title: 'Relationship Compatibility',
+            description: 'Advanced compatibility analysis for love relationships, business partnerships, and team building based on Chinese Zodiac and BaZi principles.'
           }
         },
         form: {

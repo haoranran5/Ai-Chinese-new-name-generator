@@ -38,10 +38,10 @@ const AboutPage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
-            {t('about.title')}
+            About Our Free Chinese Name Generator & Feng Shui Platform
           </h1>
           <p className="text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-            {t('about.description')}
+            Our AI-powered platform combines ancient Chinese wisdom with modern technology to bring harmony and balance to Western users. All tools are completely free and designed for cultural authenticity.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ const AboutPage: React.FC = () => {
             return (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl p-8 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 group relative overflow-hidden hover:scale-105"
+                className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl p-8 hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500 group relative overflow-hidden hover:scale-105"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
@@ -76,14 +76,17 @@ const AboutPage: React.FC = () => {
           <div className="text-center mb-8">
             <Sparkles className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-              How It Works
+              How Our Free Platform Works
             </h2>
+            <p className="text-white/80">
+              Designed specifically for Western users seeking authentic Chinese wisdom
+            </p>
           </div>
           
           <div className="space-y-6 text-white/80 leading-relaxed">
             <p>
-              Our AI platform combines ancient Feng Shui principles and Chinese Astrology with modern digital tools 
-              to provide comprehensive harmony and balance guidance. The process involves:
+              Our completely free AI platform combines ancient Feng Shui principles and Chinese Astrology with modern digital tools 
+              to provide comprehensive harmony and balance guidance for Western users. The process involves:
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
@@ -91,9 +94,9 @@ const AboutPage: React.FC = () => {
                 <div className="w-16 h-16 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-yellow-400">1</span>
                 </div>
-                <h4 className="font-semibold text-white mb-2">Energy Assessment</h4>
+                <h4 className="font-semibold text-white mb-2">Cultural Analysis</h4>
                 <p className="text-sm text-white/70">
-                  Analyzing your personal energy patterns and environmental factors
+                  Analyzing your personal information using authentic Chinese principles adapted for Western understanding
                 </p>
               </div>
               
@@ -103,7 +106,7 @@ const AboutPage: React.FC = () => {
                 </div>
                 <h4 className="font-semibold text-white mb-2">AI Processing</h4>
                 <p className="text-sm text-white/70">
-                  Processing data through ancient wisdom algorithms and modern AI
+                  Processing data through ancient wisdom algorithms enhanced with modern AI for accuracy and personalization
                 </p>
               </div>
               
@@ -111,10 +114,34 @@ const AboutPage: React.FC = () => {
                 <div className="w-16 h-16 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-red-400">3</span>
                 </div>
-                <h4 className="font-semibold text-white mb-2">Personalized Guidance</h4>
+                <h4 className="font-semibold text-white mb-2">Free Results</h4>
                 <p className="text-sm text-white/70">
-                  Delivering customized recommendations for optimal harmony and balance
+                  Delivering completely free, customized recommendations with detailed explanations and cultural context
                 </p>
+              </div>
+            </div>
+            
+            <div className="mt-8 p-6 bg-green-500/10 rounded-2xl border border-green-400/20">
+              <h4 className="text-xl font-bold text-green-400 mb-3 text-center">
+                Why Choose Our Platform?
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div className="flex items-center space-x-2">
+                  <Heart className="w-4 h-4 text-green-400" />
+                  <span>100% Free - No hidden costs or subscriptions</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Globe className="w-4 h-4 text-blue-400" />
+                  <span>Designed for Western users and culture</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Brain className="w-4 h-4 text-purple-400" />
+                  <span>AI-enhanced accuracy and personalization</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Sparkles className="w-4 h-4 text-yellow-400" />
+                  <span>Authentic Chinese wisdom with modern explanations</span>
+                </div>
               </div>
             </div>
           </div>

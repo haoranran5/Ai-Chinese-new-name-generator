@@ -97,10 +97,24 @@ const FengShuiTipsPage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
-            Essential Feng Shui Tips for Better Qi Flow
+            Ultimate Feng Shui Tips Guide - Improve Qi Flow and Balance Chi
           </h1>
           <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            Master Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your home and office. Expert guidance for harmonious living spaces.
+            Master proven Feng Shui tips to enhance Qi flow and achieve perfect Chi balance in your home and office. Expert guidance for harmonious living spaces with measurable results.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <div className="flex items-center space-x-2 bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Home className="w-4 h-4 text-green-400" />
+              <span className="text-sm text-green-300 font-medium">Home & Office</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Building className="w-4 h-4 text-blue-400" />
+              <span className="text-sm text-blue-300 font-medium">Western Homes</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-4 py-2 shadow-lg">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="text-sm text-purple-300 font-medium">Practical Tips</span>
+            </div>
           </p>
         </div>
 

@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import NameGeneratorPage from './pages/NameGeneratorPage';
 import FengShuiTipsPage from './pages/FengShuiTipsPage';
 import AstrologyPage from './pages/AstrologyPage';
+import CompatibilityPage from './pages/CompatibilityPage';
 import AboutPage from './pages/AboutPage';
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         return <FengShuiTipsPage />;
       case 'astrology':
         return <AstrologyPage />;
+      case 'compatibility':
+        return <CompatibilityPage />;
       case 'about':
         return <AboutPage />;
       default:
