@@ -28,11 +28,6 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
             <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
               <Sparkles className="w-6 h-6 text-white" />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                AI Chinese Names
-              </h1>
-            </div>
           </div>
 
           {/* Navigation Items */}
