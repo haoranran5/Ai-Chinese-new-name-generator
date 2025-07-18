@@ -41,11 +41,26 @@ const FengShuiElements: React.FC = () => {
         <div className="absolute bottom-32 left-16 w-24 h-24 opacity-15">
           <div className="w-full h-full relative animate-spin-reverse">
             <svg viewBox="0 0 200 200" className="w-full h-full">
-              <circle cx="100" cy="100" r="98" fill="white" stroke="#666" strokeWidth="2"/>
+              <defs>
+                <linearGradient id="yinGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#000000" />
+                  <stop offset="100%" stopColor="#1a1a1a" />
+                </linearGradient>
+                <linearGradient id="yangGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="100%" stopColor="#f0f0f0" />
+                </linearGradient>
+              </defs>
+              
+              <circle cx="100" cy="100" r="98" fill="url(#yangGradient2)" stroke="#666" strokeWidth="2"/>
               <path d="M 100 2 A 98 98 0 0 0 100 198 A 49 49 0 0 0 100 100 A 49 49 0 0 1 100 2 Z" 
-                    fill="black"/>
-              <circle cx="100" cy="50" r="16" fill="white"/>
-              <circle cx="100" cy="150" r="16" fill="black"/>
+                    fill="url(#yinGradient2)"/>
+              
+              {/* 阳鱼眼 (白点) */}
+              <circle cx="100" cy="50" r="16" fill="url(#yangGradient2)"/>
+              
+              {/* 阴鱼眼 (黑点) */}
+              <circle cx="100" cy="150" r="16" fill="url(#yinGradient2)"/>
             </svg>
           </div>
         </div>
@@ -54,11 +69,26 @@ const FengShuiElements: React.FC = () => {
         <div className="absolute top-1/3 left-1/4 w-16 h-16 opacity-10">
           <div className="w-full h-full relative animate-spin-slow">
             <svg viewBox="0 0 200 200" className="w-full h-full">
-              <circle cx="100" cy="100" r="98" fill="white"/>
+              <defs>
+                <linearGradient id="yinGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#000000" />
+                  <stop offset="100%" stopColor="#1a1a1a" />
+                </linearGradient>
+                <linearGradient id="yangGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="100%" stopColor="#f0f0f0" />
+                </linearGradient>
+              </defs>
+              
+              <circle cx="100" cy="100" r="98" fill="url(#yangGradient3)" stroke="#666" strokeWidth="2"/>
               <path d="M 100 2 A 98 98 0 0 0 100 198 A 49 49 0 0 0 100 100 A 49 49 0 0 1 100 2 Z" 
-                    fill="black"/>
-              <circle cx="100" cy="50" r="16" fill="white"/>
-              <circle cx="100" cy="150" r="16" fill="black"/>
+                    fill="url(#yinGradient3)"/>
+              
+              {/* 阳鱼眼 (白点) */}
+              <circle cx="100" cy="50" r="16" fill="url(#yangGradient3)"/>
+              
+              {/* 阴鱼眼 (黑点) */}
+              <circle cx="100" cy="150" r="16" fill="url(#yinGradient3)"/>
             </svg>
             </div>
           </div>
