@@ -6,17 +6,62 @@ const FengShuiElements: React.FC = () => {
     <>
       {/* Feng Shui Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Yin Yang Symbol */}
-        <div className="absolute top-20 right-20 w-32 h-32 opacity-10">
-          <div className="w-full h-full relative">
-            <div className="w-full h-full bg-white rounded-full relative overflow-hidden animate-spin-slow">
-              <div className="absolute top-0 left-0 w-full h-1/2 bg-black"></div>
-              <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-black rounded-full"></div>
-              <div className="absolute top-0 right-1/4 w-1/4 h-1/4 bg-white rounded-full"></div>
-              <div className="absolute bottom-0 left-1/4 w-1/4 h-1/4 bg-black rounded-full"></div>
-            </div>
+        {/* 标准道家太极图 */}
+        <div className="absolute top-20 right-20 w-32 h-32 opacity-20">
+          <div className="w-full h-full relative animate-spin-slow">
+            <svg viewBox="0 0 200 200" className="w-full h-full">
+              <defs>
+                <linearGradient id="yinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#000000" />
+                  <stop offset="100%" stopColor="#1a1a1a" />
+                </linearGradient>
+                <linearGradient id="yangGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="100%" stopColor="#f0f0f0" />
+                </linearGradient>
+              </defs>
+              
+              {/* 外圆 */}
+              <circle cx="100" cy="100" r="98" fill="url(#yangGradient)" stroke="#666" strokeWidth="2"/>
+              
+              {/* 阴半部分 */}
+              <path d="M 100 2 A 98 98 0 0 0 100 198 A 49 49 0 0 0 100 100 A 49 49 0 0 1 100 2 Z" 
+                    fill="url(#yinGradient)"/>
+              
+              {/* 阳鱼眼 (白点) */}
+              <circle cx="100" cy="50" r="16" fill="url(#yangGradient)"/>
+              
+              {/* 阴鱼眼 (黑点) */}
+              <circle cx="100" cy="150" r="16" fill="url(#yinGradient)"/>
+            </svg>
           </div>
         </div>
+
+        {/* 添加更多太极图在不同位置 */}
+        <div className="absolute bottom-32 left-16 w-24 h-24 opacity-15">
+          <div className="w-full h-full relative animate-spin-reverse">
+            <svg viewBox="0 0 200 200" className="w-full h-full">
+              <circle cx="100" cy="100" r="98" fill="white" stroke="#666" strokeWidth="2"/>
+              <path d="M 100 2 A 98 98 0 0 0 100 198 A 49 49 0 0 0 100 100 A 49 49 0 0 1 100 2 Z" 
+                    fill="black"/>
+              <circle cx="100" cy="50" r="16" fill="white"/>
+              <circle cx="100" cy="150" r="16" fill="black"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* 小型太极图装饰 */}
+        <div className="absolute top-1/3 left-1/4 w-16 h-16 opacity-10">
+          <div className="w-full h-full relative animate-spin-slow">
+            <svg viewBox="0 0 200 200" className="w-full h-full">
+              <circle cx="100" cy="100" r="98" fill="white"/>
+              <path d="M 100 2 A 98 98 0 0 0 100 198 A 49 49 0 0 0 100 100 A 49 49 0 0 1 100 2 Z" 
+                    fill="black"/>
+              <circle cx="100" cy="50" r="16" fill="white"/>
+              <circle cx="100" cy="150" r="16" fill="black"/>
+            </svg>
+            </div>
+          </div>
 
         {/* Bagua Pattern */}
         <div className="absolute bottom-20 left-10 w-48 h-48 opacity-10">
