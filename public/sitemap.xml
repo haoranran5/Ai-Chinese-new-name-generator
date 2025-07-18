@@ -1,16 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-
+<!-- Homepage - Highest priority -->
 <url>
   <loc>https://chinesecharactername.top/</loc>
-  <lastmod>2025-07-11T05:51:18+00:00</lastmod>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
 </url>
 
+<!-- Chinese Name Generator - Core functionality -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-name-generator</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Boy Names -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-boy-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Girl Names -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-girl-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Baby Names -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-baby-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Unisex Names -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-unisex-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Traditional Chinese Names -->
+<url>
+  <loc>https://chinesecharactername.top/traditional-chinese-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Modern Chinese Names -->
+<url>
+  <loc>https://chinesecharactername.top/modern-chinese-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Names by Elements (Wu Xing) -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-names-by-elements</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Names from Poetry -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-names-from-poetry</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Popular Chinese Names -->
+<url>
+  <loc>https://chinesecharactername.top/popular-chinese-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Chinese Name Meanings -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-name-meanings</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Chinese Surnames -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-surnames</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Name Pronunciation Guide -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-name-pronunciation</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- Chinese Naming Culture -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-naming-culture</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- How to Choose Chinese Names -->
+<url>
+  <loc>https://chinesecharactername.top/how-to-choose-chinese-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- Chinese Zodiac Names -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-zodiac-names</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- Name Calligraphy -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-name-calligraphy</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<!-- Character Combinations -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-character-combinations</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Names for Twins -->
+<url>
+  <loc>https://chinesecharactername.top/chinese-names-for-twins</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<!-- Blog/Articles -->
+<url>
+  <loc>https://chinesecharactername.top/blog</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- FAQ -->
+<url>
+  <loc>https://chinesecharactername.top/faq</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<!-- About Us -->
+<url>
+  <loc>https://chinesecharactername.top/about</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.4</priority>
+</url>
+
+<!-- Privacy Policy -->
+<url>
+  <loc>https://chinesecharactername.top/privacy-policy</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+</url>
+
+<!-- Terms of Service -->
+<url>
+  <loc>https://chinesecharactername.top/terms-of-service</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+</url>
+
+<!-- Contact Us -->
+<url>
+  <loc>https://chinesecharactername.top/contact</loc>
+  <lastmod>2025-07-18T07:30:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.4</priority>
+</url>
 
 </urlset>
