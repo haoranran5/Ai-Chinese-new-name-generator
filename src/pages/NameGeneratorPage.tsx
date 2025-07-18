@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe } from 'lucide-react';
+import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart } from 'lucide-react';
 import { generateNames } from '../services/chineseNameGenerator';
 import NameCard from '../components/NameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
@@ -92,6 +92,7 @@ const NameGeneratorPage: React.FC = () => {
               <Sparkles className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-purple-300 font-medium">Cultural Meaning</span>
             </div>
+          </div>
         </div>
 
         {/* Form */}
