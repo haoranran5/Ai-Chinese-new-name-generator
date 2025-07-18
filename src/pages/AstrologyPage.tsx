@@ -86,7 +86,7 @@ const AstrologyPage: React.FC = () => {
               <Sparkles className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-purple-300 font-medium">Fortune Prediction</span>
             </div>
-          </p>
+          </div>
         </div>
 
         {/* Chinese Zodiac Section */}

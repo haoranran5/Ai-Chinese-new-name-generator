@@ -115,7 +115,7 @@ const FengShuiTipsPage: React.FC = () => {
               <Sparkles className="w-4 h-4 text-purple-400" />
               <span className="text-sm text-purple-300 font-medium">Practical Tips</span>
             </div>
-          </p>
+          </div>
         </div>
 
         {/* Main Feng Shui Tips */}
