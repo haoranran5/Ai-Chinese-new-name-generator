@@ -65,40 +65,40 @@ const NameGeneratorPage: React.FC = () => {
   }, [hasGenerated]);
 
   return (
-    <div className="container mx-auto px-4 py-8 pt-24 relative z-10">
+    <div className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 pt-20 sm:pt-24 relative z-10">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mb-6 backdrop-blur-sm border border-yellow-400/20 relative group shadow-2xl">
-            <Sparkles className="w-10 h-10 text-yellow-400 group-hover:animate-pulse drop-shadow-lg" />
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mb-4 sm:mb-6 backdrop-blur-sm border border-yellow-400/20 relative group shadow-2xl">
+            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 group-hover:animate-pulse drop-shadow-lg" />
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 leading-tight drop-shadow-lg px-2">
             Free Chinese Name Generator - BaZi Based Naming Tool
           </h1>
-          <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto px-2">
             Generate authentic Chinese names using BaZi principles and Chinese Astrology. Our free AI-powered Chinese name generator creates meaningful names with cultural significance for babies, business, and personal use.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <div className="flex items-center space-x-2 bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-full px-4 py-2 shadow-lg">
+          <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
+            <div className="flex items-center space-x-2 bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
               <Heart className="w-4 h-4 text-green-400" />
-              <span className="text-sm text-green-300 font-medium">100% Free</span>
+              <span className="text-xs sm:text-sm text-green-300 font-medium">100% Free</span>
             </div>
-            <div className="flex items-center space-x-2 bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full px-4 py-2 shadow-lg">
+            <div className="flex items-center space-x-2 bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
               <Brain className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-blue-300 font-medium">BaZi Analysis</span>
+              <span className="text-xs sm:text-sm text-blue-300 font-medium">BaZi Analysis</span>
             </div>
-            <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-4 py-2 shadow-lg">
+            <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-purple-300 font-medium">Cultural Meaning</span>
+              <span className="text-xs sm:text-sm text-purple-300 font-medium">Cultural Meaning</span>
             </div>
           </div>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-8 space-y-8 relative overflow-hidden mb-12">
+        <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-2xl p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 relative overflow-hidden mb-8 sm:mb-12">
           {/* Form background glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-orange-500/5 to-red-500/5 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 via-orange-500/5 to-red-500/5 rounded-2xl sm:rounded-3xl"></div>
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent"></div>
           
           {/* English Name Input */}
@@ -112,7 +112,7 @@ const NameGeneratorPage: React.FC = () => {
               value={englishName}
               onChange={(e) => setEnglishName(e.target.value)}
               placeholder={t('home.form.namePlaceholder')}
-              className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all duration-300 text-white placeholder-white/50 backdrop-blur-sm shadow-inner"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all duration-300 text-white placeholder-white/50 backdrop-blur-sm shadow-inner text-sm sm:text-base"
               required
             />
           </div>
@@ -123,7 +123,7 @@ const NameGeneratorPage: React.FC = () => {
               <User className="w-4 h-4" />
               <span>{t('home.form.genderLabel')}</span>
             </label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
                 { value: 'male', label: t('home.genders.male'), emoji: '👨' },
                 { value: 'female', label: t('home.genders.female'), emoji: '👩' },
@@ -138,13 +138,13 @@ const NameGeneratorPage: React.FC = () => {
                     onChange={(e) => setGender(e.target.value)}
                     className="sr-only"
                   />
-                  <div className={`flex items-center justify-center space-x-2 p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 backdrop-blur-sm shadow-lg ${
+                  <div className={`flex items-center justify-center space-x-2 p-3 sm:p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 backdrop-blur-sm shadow-lg ${
                     gender === option.value 
                       ? 'border-yellow-400 bg-yellow-400/20 text-yellow-300 shadow-xl shadow-yellow-400/30 scale-105' 
                       : 'border-white/20 hover:border-yellow-400/50 hover:bg-white/10 text-white/80 hover:scale-102'
                   }`}>
-                    <span className="text-lg">{option.emoji}</span>
-                    <span className="font-semibold">{option.label}</span>
+                    <span className="text-base sm:text-lg">{option.emoji}</span>
+                    <span className="font-semibold text-sm sm:text-base">{option.label}</span>
                   </div>
                 </label>
               ))}
@@ -157,7 +157,7 @@ const NameGeneratorPage: React.FC = () => {
               <Palette className="w-4 h-4" />
               <span>{t('home.form.styleLabel')}</span>
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
                 { value: 'traditional', label: t('home.styles.traditional'), desc: 'Classic & Elegant' },
                 { value: 'modern', label: t('home.styles.modern'), desc: 'Trendy & Fresh' },
@@ -174,12 +174,12 @@ const NameGeneratorPage: React.FC = () => {
                     onChange={(e) => setStyle(e.target.value)}
                     className="sr-only"
                   />
-                  <div className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 backdrop-blur-sm shadow-lg ${
+                  <div className={`p-3 sm:p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 backdrop-blur-sm shadow-lg ${
                     style === option.value 
                       ? 'border-yellow-400 bg-yellow-400/20 text-yellow-300 shadow-xl shadow-yellow-400/30 scale-105' 
                       : 'border-white/20 hover:border-yellow-400/50 hover:bg-white/10 text-white/80 hover:scale-102'
                   }`}>
-                    <div className="font-semibold">{option.label}</div>
+                    <div className="font-semibold text-sm sm:text-base">{option.label}</div>
                     <div className="text-xs text-white/70 mt-1">{option.desc}</div>
                   </div>
                 </label>
@@ -192,7 +192,7 @@ const NameGeneratorPage: React.FC = () => {
             <button
               type="submit"
               disabled={loading || !englishName.trim()}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 text-white py-5 px-8 rounded-xl font-bold text-lg hover:from-yellow-400 hover:to-orange-500 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-yellow-500/30 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 text-white py-4 sm:py-5 px-6 sm:px-8 rounded-xl font-bold text-base sm:text-lg hover:from-yellow-400 hover:to-orange-500 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-yellow-500/30 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
@@ -217,19 +217,19 @@ const NameGeneratorPage: React.FC = () => {
         {/* Results Section */}
         {(hasGenerated || names.length > 0) && (
           <div>
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 px-2">
                 {hasGenerated ? t('home.results.title') : t('home.results.example')}
               </h2>
               {!hasGenerated && (
-                <p className="text-white/70">Sample names to inspire you - enter your name for personalized results</p>
+                <p className="text-white/70 text-sm sm:text-base px-2">Sample names to inspire you - enter your name for personalized results</p>
               )}
             </div>
             
             {loading ? (
               <LoadingSkeleton />
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {names.map((name) => (
                   <NameCard key={name.id} name={name} />
                 ))}
@@ -237,11 +237,11 @@ const NameGeneratorPage: React.FC = () => {
             )}
             
             {hasGenerated && (
-              <div className="text-center mt-8">
+              <div className="text-center mt-6 sm:mt-8">
                 <button
                   onClick={() => handleSubmit({ preventDefault: () => {} } as React.FormEvent)}
                   disabled={loading}
-                  className="inline-flex items-center space-x-2 bg-white/10 text-yellow-400 px-6 py-3 rounded-xl hover:bg-white/20 transition-all duration-300 disabled:opacity-50 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center space-x-2 bg-white/10 text-yellow-400 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl hover:bg-white/20 transition-all duration-300 disabled:opacity-50 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 >
                   <Sparkles className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
                   <span>{t('home.results.regenerate')}</span>

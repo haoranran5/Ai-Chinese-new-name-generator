@@ -16,6 +16,8 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'home':
+        return <NameGeneratorPage />;
       case 'nameGenerator':
         return <NameGeneratorPage />;
       case 'fengShuiTips':
@@ -27,7 +29,7 @@ function App() {
       case 'about':
         return <AboutPage />;
       default:
-        return <HomePage />;
+        return <NameGeneratorPage />;
     }
   };
 
