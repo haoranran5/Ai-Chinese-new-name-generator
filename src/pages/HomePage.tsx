@@ -53,8 +53,52 @@ const HomePage: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mb-8 backdrop-blur-sm border border-yellow-400/20 relative group shadow-2xl">
-            <Sun className="w-16 h-16 text-yellow-400 group-hover:animate-spin drop-shadow-lg" />
+          <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mb-8 backdrop-blur-sm border border-yellow-400/20 relative group shadow-2xl overflow-hidden">
+            {/* 科技网格背景 */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,128,0.1)_1px,transparent_1px)] bg-[size:8px_8px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            {/* 主图标 - 科技感"名"字 */}
+            <div className="relative z-10 w-16 h-16 group-hover:scale-110 transition-transform duration-500">
+              <svg viewBox="0 0 64 64" className="w-full h-full drop-shadow-2xl">
+                <defs>
+                  <linearGradient id="heroIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#00d4ff" />
+                    <stop offset="50%" stopColor="#fbbf24" />
+                    <stop offset="100%" stopColor="#ff0080" />
+                  </linearGradient>
+                  <filter id="heroGlow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge> 
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                
+                {/* 现代化"名"字设计 */}
+                <g fill="none" stroke="url(#heroIconGradient)" strokeWidth="3" strokeLinecap="round" filter="url(#heroGlow)">
+                  {/* 夕字部分 */}
+                  <line x1="12" y1="20" x2="28" y2="20" />
+                  <path d="M18 25 Q15 35 22 48" />
+                  <circle cx="24" cy="26" r="2" fill="url(#heroIconGradient)" />
+                  
+                  {/* 口字部分 - 科技化设计 */}
+                  <rect x="32" y="16" width="20" height="32" rx="3" />
+                  <line x1="34" y1="24" x2="50" y2="24" strokeWidth="1.5" />
+                  <line x1="34" y1="32" x2="50" y2="32" strokeWidth="1.5" />
+                  <line x1="34" y1="40" x2="50" y2="40" strokeWidth="1.5" />
+                </g>
+                
+                {/* 科技装饰元素 */}
+                <g stroke="url(#heroIconGradient)" fill="none" strokeWidth="1" opacity="0.6">
+                  <path d="M8,8 L4,8 L4,12" />
+                  <path d="M56,8 L60,8 L60,12" />
+                  <path d="M8,56 L4,56 L4,52" />
+                  <path d="M56,56 L60,56 L60,52" />
+                </g>
+              </svg>
+            </div>
+            
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
             <div className="absolute -inset-4 bg-gradient-conic from-yellow-400/10 via-orange-400/10 to-yellow-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           </div>

@@ -1,0 +1,91 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0f23;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glow192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+    </linearGradient>
+    <filter id="neon192" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="outerGlow192" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="192" height="192" fill="url(#bg192)" rx="24"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid192" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="192" height="192" fill="url(#grid192)"/>
+  
+  <!-- Outer glow effect -->
+  <g filter="url(#outerGlow192)">
+    <!-- "名" character main structure -->
+    <g fill="url(#glow192)" stroke="url(#glow192)" stroke-width="4" filter="url(#neon192)">
+      <!-- Top horizontal line -->
+      <rect x="32" y="38" width="128" height="10" rx="5"/>
+      <!-- Main vertical line -->
+      <rect x="91" y="38" width="10" height="116" rx="5"/>
+      <!-- Middle horizontal line -->
+      <rect x="48" y="86" width="96" height="10" rx="5"/>
+      <!-- Bottom left element -->
+      <rect x="58" y="122" width="28" height="28" rx="5"/>
+      <!-- Bottom right element -->
+      <rect x="106" y="122" width="28" height="28" rx="5"/>
+    </g>
+  </g>
+  
+  <!-- Corner tech accents -->
+  <g opacity="0.9">
+    <!-- Top left -->
+    <rect x="16" y="16" width="24" height="4" fill="#00d4ff"/>
+    <rect x="16" y="16" width="4" height="24" fill="#00d4ff"/>
+    <rect x="12" y="12" width="8" height="1" fill="#00d4ff" opacity="0.6"/>
+    <rect x="12" y="12" width="1" height="8" fill="#00d4ff" opacity="0.6"/>
+    
+    <!-- Top right -->
+    <rect x="152" y="16" width="24" height="4" fill="#0099cc"/>
+    <rect x="172" y="16" width="4" height="24" fill="#0099cc"/>
+    
+    <!-- Bottom left -->
+    <rect x="16" y="152" width="24" height="4" fill="#cc0066"/>
+    <rect x="16" y="172" width="4" height="24" fill="#cc0066"/>
+    
+    <!-- Bottom right -->
+    <rect x="152" y="172" width="24" height="4" fill="#ff0080"/>
+    <rect x="172" y="152" width="4" height="24" fill="#ff0080"/>
+    <rect x="180" y="180" width="8" height="1" fill="#ff0080" opacity="0.6"/>
+    <rect x="187" y="172" width="1" height="8" fill="#ff0080" opacity="0.6"/>
+  </g>
+  
+  <!-- Additional tech elements -->
+  <g opacity="0.5">
+    <circle cx="48" cy="48" r="3" fill="#00d4ff"/>
+    <circle cx="144" cy="48" r="3" fill="#0099cc"/>
+    <circle cx="48" cy="144" r="3" fill="#cc0066"/>
+    <circle cx="144" cy="144" r="3" fill="#ff0080"/>
+    
+    <!-- Small accent lines -->
+    <rect x="24" y="96" width="8" height="1" fill="#00d4ff" opacity="0.6"/>
+    <rect x="160" y="96" width="8" height="1" fill="#ff0080" opacity="0.6"/>
+  </g>
+</svg>

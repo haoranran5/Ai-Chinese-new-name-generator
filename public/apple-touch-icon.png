@@ -1,0 +1,87 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg180" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0f23;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glow180" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+    </linearGradient>
+    <filter id="neon180" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="180" height="180" fill="url(#bg180)" rx="20"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid180" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="180" height="180" fill="url(#grid180)"/>
+  
+  <!-- Outer glow effect -->
+  <g filter="url(#outerGlow)">
+    <!-- "名" character main structure -->
+    <g fill="url(#glow180)" stroke="url(#glow180)" stroke-width="3" filter="url(#neon180)">
+      <!-- Top horizontal line -->
+      <rect x="30" y="35" width="120" height="8" rx="4"/>
+      <!-- Main vertical line -->
+      <rect x="86" y="35" width="8" height="110" rx="4"/>
+      <!-- Middle horizontal line -->
+      <rect x="45" y="80" width="90" height="8" rx="4"/>
+      <!-- Bottom left element -->
+      <rect x="55" y="115" width="25" height="25" rx="4"/>
+      <!-- Bottom right element -->
+      <rect x="100" y="115" width="25" height="25" rx="4"/>
+    </g>
+  </g>
+  
+  <!-- Corner tech accents -->
+  <g opacity="0.9">
+    <!-- Top left -->
+    <rect x="15" y="15" width="20" height="3" fill="#00d4ff"/>
+    <rect x="15" y="15" width="3" height="20" fill="#00d4ff"/>
+    <rect x="12" y="12" width="6" height="1" fill="#00d4ff" opacity="0.6"/>
+    <rect x="12" y="12" width="1" height="6" fill="#00d4ff" opacity="0.6"/>
+    
+    <!-- Top right -->
+    <rect x="145" y="15" width="20" height="3" fill="#0099cc"/>
+    <rect x="162" y="15" width="3" height="20" fill="#0099cc"/>
+    
+    <!-- Bottom left -->
+    <rect x="15" y="145" width="20" height="3" fill="#cc0066"/>
+    <rect x="15" y="162" width="3" height="20" fill="#cc0066"/>
+    
+    <!-- Bottom right -->
+    <rect x="145" y="162" width="20" height="3" fill="#ff0080"/>
+    <rect x="162" y="145" width="3" height="20" fill="#ff0080"/>
+    <rect x="168" y="168" width="6" height="1" fill="#ff0080" opacity="0.6"/>
+    <rect x="173" y="162" width="1" height="6" fill="#ff0080" opacity="0.6"/>
+  </g>
+  
+  <!-- Additional tech elements -->
+  <g opacity="0.4">
+    <circle cx="45" cy="45" r="2" fill="#00d4ff"/>
+    <circle cx="135" cy="45" r="2" fill="#0099cc"/>
+    <circle cx="45" cy="135" r="2" fill="#cc0066"/>
+    <circle cx="135" cy="135" r="2" fill="#ff0080"/>
+  </g>
+</svg>

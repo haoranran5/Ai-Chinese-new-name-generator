@@ -1,0 +1,114 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="techBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="neonBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0080;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff3399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6bb3;stop-opacity:1" />
+    </linearGradient>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 深色科技背景 -->
+  <rect width="512" height="512" rx="100" ry="100" fill="url(#techBg)"/>
+  
+  <!-- 网格背景效果 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" rx="100" ry="100" fill="url(#grid)" opacity="0.4"/>
+  
+  <!-- 外层发光圆环 -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="url(#neonBlue)" stroke-width="2" opacity="0.6" filter="url(#neonGlow)"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#neonPink)" stroke-width="1" opacity="0.8"/>
+  
+  <!-- 中央主体 - 现代化的"名"字设计 -->
+  <g transform="translate(256,256)">
+    <!-- 外层光晕 -->
+    <circle r="120" fill="url(#neonBlue)" opacity="0.1" filter="url(#neonGlow)"/>
+    
+    <!-- 简化的现代汉字"名"设计 -->
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <!-- 夕字部分 - 现代几何化 -->
+      <g stroke="url(#neonBlue)" fill="none" stroke-width="8" filter="url(#innerGlow)">
+        <!-- 横线 -->
+        <line x1="-60" y1="-40" x2="-20" y2="-40"/>
+        <!-- 竖撇，用曲线模拟 -->
+        <path d="M-55,-25 Q-65,0 -45,50"/>
+        <!-- 点，用小圆表示 -->
+        <circle cx="-35" cy="-15" r="4" fill="url(#neonBlue)"/>
+      </g>
+      
+      <!-- 口字部分 - 科技化矩形 -->
+      <g stroke="url(#neonPink)" fill="none" stroke-width="6" filter="url(#innerGlow)">
+        <rect x="10" y="-35" width="60" height="70" rx="8"/>
+        <!-- 内部科技装饰 -->
+        <line x1="20" y1="-25" x2="60" y2="-25" stroke-width="2"/>
+        <line x1="20" y1="0" x2="60" y2="0" stroke-width="2"/>
+        <line x1="20" y1="25" x2="60" y2="25" stroke-width="2"/>
+      </g>
+    </g>
+    
+    <!-- 科技感装饰元素 -->
+    <g opacity="0.7">
+      <!-- 四个角的科技角标 -->
+      <g stroke="url(#neonBlue)" fill="none" stroke-width="3">
+        <!-- 左上 -->
+        <path d="M-80,-80 L-95,-80 L-95,-65"/>
+        <!-- 右上 -->
+        <path d="M80,-80 L95,-80 L95,-65"/>
+        <!-- 左下 -->
+        <path d="M-80,80 L-95,80 L-95,65"/>
+        <!-- 右下 -->
+        <path d="M80,80 L95,80 L95,65"/>
+      </g>
+      
+      <!-- 旋转的装饰线条 -->
+      <g stroke="url(#neonPink)" stroke-width="2" opacity="0.5">
+        <line x1="-100" y1="0" x2="-85" y2="0" transform="rotate(45)"/>
+        <line x1="85" y1="0" x2="100" y2="0" transform="rotate(45)"/>
+        <line x1="0" y1="-100" x2="0" y2="-85" transform="rotate(45)"/>
+        <line x1="0" y1="85" x2="0" y2="100" transform="rotate(45)"/>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 数字化边框效果 -->
+  <rect width="512" height="512" rx="100" ry="100" fill="none" stroke="url(#neonBlue)" stroke-width="2" opacity="0.8"/>
+  
+  <!-- 角落的数字化装饰 -->
+  <g stroke="url(#neonPink)" fill="none" stroke-width="2" opacity="0.6">
+    <!-- 左上角 -->
+    <path d="M50,50 L30,50 L30,70"/>
+    <!-- 右上角 -->
+    <path d="M462,50 L482,50 L482,70"/>
+    <!-- 左下角 -->
+    <path d="M50,462 L30,462 L30,442"/>
+    <!-- 右下角 -->
+    <path d="M462,462 L482,462 L482,442"/>
+  </g>
+</svg>

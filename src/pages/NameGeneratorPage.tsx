@@ -69,8 +69,44 @@ const NameGeneratorPage: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mb-4 sm:mb-6 backdrop-blur-sm border border-yellow-400/20 relative group shadow-2xl">
-            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 group-hover:animate-pulse drop-shadow-lg" />
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mb-4 sm:mb-6 backdrop-blur-sm border border-yellow-400/20 relative group shadow-2xl overflow-hidden">
+            {/* 科技网格背景 */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,128,0.1)_1px,transparent_1px)] bg-[size:6px_6px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            {/* 科技感"名"字图标 */}
+            <div className="relative z-10 w-8 h-8 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform duration-500">
+              <svg viewBox="0 0 40 40" className="w-full h-full drop-shadow-lg">
+                <defs>
+                  <linearGradient id="nameGenIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#fbbf24" />
+                    <stop offset="50%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#d97706" />
+                  </linearGradient>
+                  <filter id="nameGenGlow">
+                    <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+                    <feMerge> 
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                
+                {/* 简化"名"字 */}
+                <g fill="none" stroke="url(#nameGenIconGradient)" strokeWidth="2" strokeLinecap="round" filter="url(#nameGenGlow)">
+                  {/* 夕字部分 */}
+                  <line x1="8" y1="12" x2="18" y2="12" />
+                  <path d="M12 15 Q10 22 15 30" />
+                  <circle cx="15" cy="16" r="1" fill="url(#nameGenIconGradient)" />
+                  
+                  {/* 口字部分 */}
+                  <rect x="20" y="10" width="12" height="20" rx="2" />
+                  <line x1="22" y1="16" x2="30" y2="16" strokeWidth="1" />
+                  <line x1="22" y1="20" x2="30" y2="20" strokeWidth="1" />
+                  <line x1="22" y1="24" x2="30" y2="24" strokeWidth="1" />
+                </g>
+              </svg>
+            </div>
+            
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 leading-tight drop-shadow-lg px-2">

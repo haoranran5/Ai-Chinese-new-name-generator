@@ -1,0 +1,42 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glow16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="16" height="16" fill="url(#bg16)" rx="2"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid16" width="2" height="2" patternUnits="userSpaceOnUse">
+      <path d="M 2 0 L 0 0 0 2" fill="none" stroke="#00d4ff" stroke-width="0.1" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="16" height="16" fill="url(#grid16)"/>
+  
+  <!-- Simplified "名" character -->
+  <g fill="url(#glow16)" stroke="url(#glow16)" stroke-width="0.5">
+    <!-- Top horizontal line -->
+    <rect x="3" y="3" width="10" height="1" rx="0.5"/>
+    <!-- Vertical line -->
+    <rect x="7.5" y="3" width="1" height="10" rx="0.5"/>
+    <!-- Middle horizontal -->
+    <rect x="4" y="7" width="8" height="1" rx="0.5"/>
+    <!-- Bottom elements -->
+    <rect x="5" y="10" width="2" height="2" rx="0.5"/>
+    <rect x="9" y="10" width="2" height="2" rx="0.5"/>
+  </g>
+  
+  <!-- Corner accents -->
+  <rect x="1" y="1" width="2" height="0.5" fill="#00d4ff" opacity="0.8"/>
+  <rect x="1" y="1" width="0.5" height="2" fill="#00d4ff" opacity="0.8"/>
+  <rect x="13" y="14.5" width="2" height="0.5" fill="#ff0080" opacity="0.8"/>
+  <rect x="14.5" y="13" width="0.5" height="2" fill="#ff0080" opacity="0.8"/>
+</svg>
