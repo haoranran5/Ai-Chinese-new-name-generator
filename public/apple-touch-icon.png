@@ -1,24 +1,29 @@
 <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg180" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    <linearGradient id="techBg180" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
       <stop offset="50%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f0f23;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="glow180" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="neonBlue180" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#0099cc;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
     </linearGradient>
-    <filter id="neon180" x="-50%" y="-50%" width="200%" height="200%">
+    <linearGradient id="neonPink180" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0080;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff3399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6bb3;stop-opacity:1" />
+    </linearGradient>
+    <filter id="neonGlow180">
       <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+    <filter id="innerGlow180">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -26,62 +31,70 @@
     </filter>
   </defs>
   
-  <!-- Background -->
-  <rect width="180" height="180" fill="url(#bg180)" rx="20"/>
+  <!-- 背景 -->
+  <rect width="180" height="180" rx="35" fill="url(#techBg180)"/>
   
-  <!-- Grid pattern -->
+  <!-- 网格效果 -->
   <defs>
-    <pattern id="grid180" width="10" height="10" patternUnits="userSpaceOnUse">
-      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#00d4ff" stroke-width="0.5" opacity="0.2"/>
+    <pattern id="grid180" width="15" height="15" patternUnits="userSpaceOnUse">
+      <path d="M 15 0 L 0 0 0 15" fill="none" stroke="#00d4ff" stroke-width="0.3" opacity="0.3"/>
     </pattern>
   </defs>
-  <rect width="180" height="180" fill="url(#grid180)"/>
+  <rect width="180" height="180" rx="35" fill="url(#grid180)" opacity="0.4"/>
   
-  <!-- Outer glow effect -->
-  <g filter="url(#outerGlow)">
-    <!-- "名" character main structure -->
-    <g fill="url(#glow180)" stroke="url(#glow180)" stroke-width="3" filter="url(#neon180)">
-      <!-- Top horizontal line -->
-      <rect x="30" y="35" width="120" height="8" rx="4"/>
-      <!-- Main vertical line -->
-      <rect x="86" y="35" width="8" height="110" rx="4"/>
-      <!-- Middle horizontal line -->
-      <rect x="45" y="80" width="90" height="8" rx="4"/>
-      <!-- Bottom left element -->
-      <rect x="55" y="115" width="25" height="25" rx="4"/>
-      <!-- Bottom right element -->
-      <rect x="100" y="115" width="25" height="25" rx="4"/>
+  <!-- 外层光环 -->
+  <circle cx="90" cy="90" r="70" fill="none" stroke="url(#neonBlue180)" stroke-width="1.5" opacity="0.6" filter="url(#neonGlow180)"/>
+  <circle cx="90" cy="90" r="56" fill="none" stroke="url(#neonPink180)" stroke-width="1" opacity="0.8"/>
+  
+  <!-- 中央主体 -->
+  <g transform="translate(90,90)">
+    <!-- 外层光晕 -->
+    <circle r="42" fill="url(#neonBlue180)" opacity="0.1" filter="url(#neonGlow180)"/>
+    
+    <!-- "名"字设计 -->
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <!-- 夕字部分 -->
+      <g stroke="url(#neonBlue180)" fill="none" stroke-width="3" filter="url(#innerGlow180)">
+        <line x1="-21" y1="-14" x2="-7" y2="-14"/>
+        <path d="M-19,-9 Q-23,0 -16,18"/>
+        <circle cx="-12" cy="-5" r="1.5" fill="url(#neonBlue180)"/>
+      </g>
+      
+      <!-- 口字部分 -->
+      <g stroke="url(#neonPink180)" fill="none" stroke-width="2.5" filter="url(#innerGlow180)">
+        <rect x="4" y="-12" width="21" height="25" rx="3"/>
+        <line x1="7" y1="-9" x2="21" y2="-9" stroke-width="0.8"/>
+        <line x1="7" y1="0" x2="21" y2="0" stroke-width="0.8"/>
+        <line x1="7" y1="9" x2="21" y2="9" stroke-width="0.8"/>
+      </g>
+    </g>
+    
+    <!-- 科技装饰 -->
+    <g opacity="0.7">
+      <g stroke="url(#neonBlue180)" fill="none" stroke-width="1.5">
+        <path d="M-28,-28 L-33,-28 L-33,-23"/>
+        <path d="M28,-28 L33,-28 L33,-23"/>
+        <path d="M-28,28 L-33,28 L-33,23"/>
+        <path d="M28,28 L33,28 L33,23"/>
+      </g>
+      
+      <g stroke="url(#neonPink180)" stroke-width="1" opacity="0.5">
+        <line x1="-35" y1="0" x2="-30" y2="0" transform="rotate(45)"/>
+        <line x1="30" y1="0" x2="35" y2="0" transform="rotate(45)"/>
+        <line x1="0" y1="-35" x2="0" y2="-30" transform="rotate(45)"/>
+        <line x1="0" y1="30" x2="0" y2="35" transform="rotate(45)"/>
+      </g>
     </g>
   </g>
   
-  <!-- Corner tech accents -->
-  <g opacity="0.9">
-    <!-- Top left -->
-    <rect x="15" y="15" width="20" height="3" fill="#00d4ff"/>
-    <rect x="15" y="15" width="3" height="20" fill="#00d4ff"/>
-    <rect x="12" y="12" width="6" height="1" fill="#00d4ff" opacity="0.6"/>
-    <rect x="12" y="12" width="1" height="6" fill="#00d4ff" opacity="0.6"/>
-    
-    <!-- Top right -->
-    <rect x="145" y="15" width="20" height="3" fill="#0099cc"/>
-    <rect x="162" y="15" width="3" height="20" fill="#0099cc"/>
-    
-    <!-- Bottom left -->
-    <rect x="15" y="145" width="20" height="3" fill="#cc0066"/>
-    <rect x="15" y="162" width="3" height="20" fill="#cc0066"/>
-    
-    <!-- Bottom right -->
-    <rect x="145" y="162" width="20" height="3" fill="#ff0080"/>
-    <rect x="162" y="145" width="3" height="20" fill="#ff0080"/>
-    <rect x="168" y="168" width="6" height="1" fill="#ff0080" opacity="0.6"/>
-    <rect x="173" y="162" width="1" height="6" fill="#ff0080" opacity="0.6"/>
-  </g>
+  <!-- 边框 -->
+  <rect width="180" height="180" rx="35" fill="none" stroke="url(#neonBlue180)" stroke-width="1" opacity="0.8"/>
   
-  <!-- Additional tech elements -->
-  <g opacity="0.4">
-    <circle cx="45" cy="45" r="2" fill="#00d4ff"/>
-    <circle cx="135" cy="45" r="2" fill="#0099cc"/>
-    <circle cx="45" cy="135" r="2" fill="#cc0066"/>
-    <circle cx="135" cy="135" r="2" fill="#ff0080"/>
+  <!-- 角落装饰 -->
+  <g stroke="url(#neonPink180)" fill="none" stroke-width="1" opacity="0.6">
+    <path d="M18,18 L11,18 L11,25"/>
+    <path d="M162,18 L169,18 L169,25"/>
+    <path d="M18,162 L11,162 L11,155"/>
+    <path d="M162,162 L169,162 L169,155"/>
   </g>
 </svg>
