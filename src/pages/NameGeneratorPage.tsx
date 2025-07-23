@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart, Users, Star } from 'lucide-react';
 import { generateNames } from '../services/chineseNameGenerator';
 import NameCard from '../components/NameCard';
@@ -14,7 +13,6 @@ interface NameData {
 }
 
 const NameGeneratorPage: React.FC = () => {
-  const { t } = useTranslation();
   const [englishName, setEnglishName] = useState('');
   const [gender, setGender] = useState('neutral');
   const [style, setStyle] = useState('neutral');
@@ -141,13 +139,13 @@ const NameGeneratorPage: React.FC = () => {
           <div className="space-y-3 relative z-10">
             <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
               <User className="w-4 h-4" />
-              <span>{t('home.form.nameLabel')}</span>
+              <span>Your English Name</span>
             </label>
             <input
               type="text"
               value={englishName}
               onChange={(e) => setEnglishName(e.target.value)}
-              placeholder={t('home.form.namePlaceholder')}
+              placeholder="Enter your English name..."
               className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all duration-300 text-white placeholder-white/50 backdrop-blur-sm shadow-inner text-sm sm:text-base"
               required
             />
@@ -157,13 +155,13 @@ const NameGeneratorPage: React.FC = () => {
           <div className="space-y-3 relative z-10">
             <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
               <User className="w-4 h-4" />
-              <span>{t('home.form.genderLabel')}</span>
+              <span>Gender Preference</span>
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[
-                { value: 'male', label: t('home.genders.male'), emoji: '👨' },
-                { value: 'female', label: t('home.genders.female'), emoji: '👩' },
-                { value: 'neutral', label: t('home.genders.neutral'), emoji: '👤' }
+                { value: 'male', label: 'Male', emoji: '👨' },
+                { value: 'female', label: 'Female', emoji: '👩' },
+                { value: 'neutral', label: 'Neutral', emoji: '👤' }
               ].map((option) => (
                 <label key={option.value} className="relative">
                   <input
@@ -191,15 +189,15 @@ const NameGeneratorPage: React.FC = () => {
           <div className="space-y-3 relative z-10">
             <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
               <Palette className="w-4 h-4" />
-              <span>{t('home.form.styleLabel')}</span>
+              <span>Name Style</span>
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
-                { value: 'traditional', label: t('home.styles.traditional'), desc: 'Classic & Elegant' },
-                { value: 'modern', label: t('home.styles.modern'), desc: 'Trendy & Fresh' },
-                { value: 'business', label: t('home.styles.business'), desc: 'Professional' },
-                { value: 'cute', label: t('home.styles.cute'), desc: 'Playful & Sweet' },
-                { value: 'neutral', label: t('home.styles.neutral'), desc: 'Balanced' }
+                { value: 'traditional', label: 'Traditional', desc: 'Classic & Elegant' },
+                { value: 'modern', label: 'Modern', desc: 'Trendy & Fresh' },
+                { value: 'business', label: 'Business', desc: 'Professional' },
+                { value: 'cute', label: 'Cute', desc: 'Playful & Sweet' },
+                { value: 'neutral', label: 'Neutral', desc: 'Balanced' }
               ].map((option) => (
                 <label key={option.value} className="relative">
                   <input
@@ -241,7 +239,7 @@ const NameGeneratorPage: React.FC = () => {
                 ) : (
                   <>
                     <Brain className="w-5 h-5" />
-                    <span>{t('home.form.generateButton')}</span>
+                    <span>Generate Chinese Names</span>
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -255,7 +253,7 @@ const NameGeneratorPage: React.FC = () => {
           <div>
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 px-2">
-                {hasGenerated ? t('home.results.title') : t('home.results.example')}
+                {hasGenerated ? 'Your Chinese Names' : 'Example Chinese Names'}
               </h2>
               {!hasGenerated && (
                 <p className="text-white/70 text-sm sm:text-base px-2">Sample names to inspire you - enter your name for personalized results</p>
@@ -280,7 +278,7 @@ const NameGeneratorPage: React.FC = () => {
                   className="inline-flex items-center space-x-2 bg-white/10 text-yellow-400 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl hover:bg-white/20 transition-all duration-300 disabled:opacity-50 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 >
                   <Sparkles className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                  <span>{t('home.results.regenerate')}</span>
+                  <span>Generate New Names</span>
                 </button>
               </div>
             )}

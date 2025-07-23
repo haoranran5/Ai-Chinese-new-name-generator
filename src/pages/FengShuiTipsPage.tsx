@@ -1,9 +1,7 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Compass, Home, Building, Bed, DollarSign, Sparkles, Sun, Moon } from 'lucide-react';
 
 const FengShuiTipsPage: React.FC = () => {
-  const { t } = useTranslation();
 
   const fengShuiTips = [
     {

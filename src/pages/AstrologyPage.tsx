@@ -1,9 +1,7 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Sun, Moon, Star, Sparkles } from 'lucide-react';
 
 const AstrologyPage: React.FC = () => {
-  const { t } = useTranslation();
 
   const zodiacSigns = [
     { name: 'Rat', year: '2020, 2008, 1996', traits: 'Intelligent, Adaptable, Quick-witted', element: 'Water', color: 'Blue' },

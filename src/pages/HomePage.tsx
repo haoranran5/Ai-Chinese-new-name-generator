@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info, Users } from 'lucide-react';
 
 interface NameData {
@@ -11,8 +10,6 @@ interface NameData {
 }
 
 const HomePage: React.FC = () => {
-  const { t } = useTranslation();
-  
   // 龙虎生肖图标组件
   const DragonTigerIcon: React.FC<{ className?: string }> = ({ className = "w-6 h-6" }) => {
     return (

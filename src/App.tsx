@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import './i18n';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import Navigation from './components/Navigation';
 import FengShuiElements from './components/FengShuiElements';

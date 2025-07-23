@@ -1,9 +1,7 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Info, Brain, Sparkles, Globe, Heart, Zap, Sun } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
-  const { t } = useTranslation();
 
   const features = [
     {
