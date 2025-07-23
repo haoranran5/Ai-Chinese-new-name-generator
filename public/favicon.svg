@@ -1,21 +1,21 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="techBgFavicon" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="techBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
       <stop offset="50%" style="stop-color:#1a1a2e;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="neonBlueFavicon" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="neonBlue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
       <stop offset="50%" style="stop-color:#0099ff;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="neonPinkFavicon" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ff0080;stop-opacity:1" />
       <stop offset="50%" style="stop-color:#ff3399;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#ff6bb3;stop-opacity:1" />
     </linearGradient>
-    <filter id="glowFavicon">
+    <filter id="glow">
       <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
@@ -25,30 +25,30 @@
   </defs>
   
   <!-- 背景 -->
-  <rect width="32" height="32" rx="6" fill="url(#techBgFavicon)"/>
+  <rect width="32" height="32" rx="6" fill="url(#techBg)"/>
   
   <!-- 网格效果 -->
   <defs>
-    <pattern id="gridFavicon" width="4" height="4" patternUnits="userSpaceOnUse">
+    <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
       <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#00d4ff" stroke-width="0.2" opacity="0.3"/>
     </pattern>
   </defs>
-  <rect width="32" height="32" rx="6" fill="url(#gridFavicon)" opacity="0.4"/>
+  <rect width="32" height="32" rx="6" fill="url(#grid)" opacity="0.4"/>
   
   <!-- 外层光环 -->
-  <circle cx="16" cy="16" r="12" fill="none" stroke="url(#neonBlueFavicon)" stroke-width="0.5" opacity="0.6"/>
+  <circle cx="16" cy="16" r="12" fill="none" stroke="url(#neonBlue)" stroke-width="0.5" opacity="0.6"/>
   
   <!-- "名"字设计 -->
   <g transform="translate(16,16)">
     <!-- 夕字部分 -->
-    <g stroke="url(#neonBlueFavicon)" fill="none" stroke-width="1.5" filter="url(#glowFavicon)">
+    <g stroke="url(#neonBlue)" fill="none" stroke-width="1.5" filter="url(#glow)">
       <line x1="-6" y1="-4" x2="-2" y2="-4"/>
       <path d="M-5,-2 Q-6,0 -4,5"/>
-      <circle cx="-3" cy="-1" r="0.6" fill="url(#neonBlueFavicon)"/>
+      <circle cx="-3" cy="-1" r="0.6" fill="url(#neonBlue)"/>
     </g>
     
     <!-- 口字部分 -->
-    <g stroke="url(#neonPinkFavicon)" fill="none" stroke-width="1.2" filter="url(#glowFavicon)">
+    <g stroke="url(#neonPink)" fill="none" stroke-width="1.2" filter="url(#glow)">
       <rect x="1" y="-3" width="6" height="7" rx="1"/>
       <line x1="2" y1="-2" x2="6" y2="-2" stroke-width="0.4"/>
       <line x1="2" y1="0" x2="6" y2="0" stroke-width="0.4"/>
@@ -56,7 +56,7 @@
     </g>
     
     <!-- 科技装饰 -->
-    <g stroke="url(#neonBlueFavicon)" fill="none" stroke-width="0.5" opacity="0.7">
+    <g stroke="url(#neonBlue)" fill="none" stroke-width="0.5" opacity="0.7">
       <path d="M-8,-8 L-10,-8 L-10,-6"/>
       <path d="M8,-8 L10,-8 L10,-6"/>
       <path d="M-8,8 L-10,8 L-10,6"/>
@@ -65,5 +65,5 @@
   </g>
   
   <!-- 边框 -->
-  <rect width="32" height="32" rx="6" fill="none" stroke="url(#neonBlueFavicon)" stroke-width="0.5" opacity="0.8"/>
+  <rect width="32" height="32" rx="6" fill="none" stroke="url(#neonBlue)" stroke-width="0.5" opacity="0.8"/>
 </svg>
