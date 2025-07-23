@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info } from 'lucide-react';
+import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info, Users } from 'lucide-react';
 
 interface NameData {
   id: string;
@@ -12,6 +12,38 @@ interface NameData {
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
+  
+  // 龙虎生肖图标组件
+  const DragonTigerIcon: React.FC<{ className?: string }> = ({ className = "w-6 h-6" }) => {
+    return (
+      <div className={`${className} relative flex items-center justify-center`}>
+        <svg viewBox="0 0 24 24" className="w-full h-full">
+          <defs>
+            <linearGradient id="dragonGradientHome" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#fbbf24" />
+              <stop offset="100%" stopColor="#f59e0b" />
+            </linearGradient>
+            <linearGradient id="tigerGradientHome" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f97316" />
+              <stop offset="100%" stopColor="#ea580c" />
+            </linearGradient>
+          </defs>
+          
+          {/* 简化龙 */}
+          <path d="M4 10 Q6 8 9 9 Q11 10 10 12 Q9 14 7 13 Q5 12 4 10 Z" fill="url(#dragonGradientHome)" opacity="0.9" />
+          <circle cx="8" cy="10" r="1" fill="#fff" opacity="0.8" />
+          
+          {/* 简化虎 */}
+          <path d="M14 14 Q16 12 19 13 Q21 14 20 16 Q19 18 17 17 Q15 16 14 14 Z" fill="url(#tigerGradientHome)" opacity="0.9" />
+          <circle cx="18" cy="14" r="1" fill="#fff" opacity="0.8" />
+          
+          {/* 连接心形 */}
+          <path d="M10 11 Q12 12 14 13" stroke="#ec4899" strokeWidth="1.5" fill="none" opacity="0.6" />
+          <circle cx="12" cy="12" r="1.5" fill="#ec4899" opacity="0.4" />
+        </svg>
+      </div>
+    );
+  };
 
   const services = [
     {
@@ -21,6 +53,14 @@ const HomePage: React.FC = () => {
       description: 'Generate authentic Chinese names using BaZi principles and Chinese Astrology. Perfect for babies, business names, and personal use with detailed meaning explanations.',
       color: 'from-yellow-500/20 to-orange-500/20',
       iconColor: 'text-yellow-400'
+    },
+    {
+      id: 'compatibility',
+      icon: DragonTigerIcon,
+      title: 'Chinese Zodiac Compatibility',
+      description: 'Discover your Chinese Zodiac characteristics and compatibility analysis for relationships, business partnerships, and family harmony.',
+      color: 'from-pink-500/20 to-purple-500/20',
+      iconColor: 'text-pink-400'
     },
     {
       id: 'fengShuiTips',
@@ -37,14 +77,6 @@ const HomePage: React.FC = () => {
       description: 'Explore Chinese Astrology through detailed analysis and BaZi readings. Understand your destiny with personalized fortune predictions and compatibility analysis.',
       color: 'from-red-500/20 to-pink-500/20',
       iconColor: 'text-red-400'
-    },
-    {
-      id: 'compatibility',
-      icon: Yin,
-      title: 'Chinese Zodiac Compatibility',
-      description: 'Discover your Chinese Zodiac characteristics and compatibility analysis for relationships, business partnerships, and family harmony.',
-      color: 'from-pink-500/20 to-purple-500/20',
-      iconColor: 'text-pink-400'
     }
   ];
 
@@ -149,6 +181,7 @@ const HomePage: React.FC = () => {
               return (
                 <div
                   key={service.id}
+                  onClick={() => window.location.hash = `#${service.id}`}
                   className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl p-8 hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500 group relative overflow-hidden hover:scale-105 cursor-pointer"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
@@ -156,7 +189,11 @@ const HomePage: React.FC = () => {
                   
                   <div className="relative z-10">
                     <div className="w-16 h-16 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className={`w-8 h-8 ${service.iconColor}`} />
+                      {service.id === 'compatibility' ? (
+                        <Icon className="w-10 h-10" />
+                      ) : (
+                        <Icon className={`w-8 h-8 ${service.iconColor}`} />
+                      )}
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors duration-300 text-center">
                       {service.title}
@@ -164,6 +201,10 @@ const HomePage: React.FC = () => {
                     <p className="text-white/80 leading-relaxed">
                       {service.description}
                     </p>
+                    <div className="mt-4 flex items-center justify-center text-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-sm font-medium mr-2">Explore Now</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </div>
               );

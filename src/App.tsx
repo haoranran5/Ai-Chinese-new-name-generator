@@ -13,11 +13,26 @@ import AboutPage from './pages/AboutPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  
+  // 监听 hash 变化来切换页面
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash && ['nameGenerator', 'compatibility', 'fengShuiTips', 'astrology', 'about'].includes(hash)) {
+        setCurrentPage(hash);
+      }
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // 初始检查
+    
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <NameGeneratorPage />;
+        return <HomePage />;
       case 'nameGenerator':
         return <NameGeneratorPage />;
       case 'fengShuiTips':
@@ -29,7 +44,7 @@ function App() {
       case 'about':
         return <AboutPage />;
       default:
-        return <NameGeneratorPage />;
+        return <HomePage />;
     }
   };
 

@@ -1,6 +1,46 @@
 import React, { useState } from 'react';
 import { Heart, Users, Building, Home, Star, Sparkles, ArrowRight, Calendar } from 'lucide-react';
 
+// 龙虎生肖图标组件
+const DragonTigerIcon: React.FC<{ className?: string }> = ({ className = "w-10 h-10" }) => {
+  return (
+    <div className={`${className} relative flex items-center justify-center`}>
+      <svg viewBox="0 0 48 48" className="w-full h-full">
+        <defs>
+          <linearGradient id="dragonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fbbf24" />
+            <stop offset="50%" stopColor="#f59e0b" />
+            <stop offset="100%" stopColor="#d97706" />
+          </linearGradient>
+          <linearGradient id="tigerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#f97316" />
+            <stop offset="50%" stopColor="#ea580c" />
+            <stop offset="100%" stopColor="#c2410c" />
+          </linearGradient>
+        </defs>
+        
+        {/* 龙的简化图形 */}
+        <g fill="url(#dragonGradient)" opacity="0.9">
+          <path d="M8 20 Q12 16 18 18 Q22 20 20 24 Q18 28 14 26 Q10 24 8 20 Z" />
+          <circle cx="16" cy="20" r="2" fill="#fff" opacity="0.8" />
+          <path d="M18 18 Q24 16 26 20" stroke="url(#dragonGradient)" strokeWidth="2" fill="none" />
+        </g>
+        
+        {/* 虎的简化图形 */}
+        <g fill="url(#tigerGradient)" opacity="0.9">
+          <path d="M28 28 Q32 24 38 26 Q42 28 40 32 Q38 36 34 34 Q30 32 28 28 Z" />
+          <circle cx="36" cy="28" r="2" fill="#fff" opacity="0.8" />
+          <path d="M30 26 Q26 24 24 28" stroke="url(#tigerGradient)" strokeWidth="2" fill="none" />
+        </g>
+        
+        {/* 中心连接线 */}
+        <path d="M20 22 Q24 24 28 26" stroke="#ec4899" strokeWidth="2" fill="none" opacity="0.6" />
+        <circle cx="24" cy="24" r="3" fill="#ec4899" opacity="0.3" />
+      </svg>
+    </div>
+  );
+};
+
 const CompatibilityPage: React.FC = () => {
   const [person1Zodiac, setPerson1Zodiac] = useState('');
   const [person2Zodiac, setPerson2Zodiac] = useState('');
@@ -73,7 +113,7 @@ const CompatibilityPage: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full mb-6 backdrop-blur-sm border border-pink-400/20 relative group shadow-2xl">
-            <Heart className="w-10 h-10 text-pink-400 group-hover:animate-pulse drop-shadow-lg" />
+            <DragonTigerIcon className="w-12 h-12 group-hover:animate-pulse drop-shadow-lg" />
             <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-pink-200 to-purple-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
