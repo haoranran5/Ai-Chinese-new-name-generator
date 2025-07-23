@@ -2,6 +2,23 @@ import React from 'react';
 import { Sun, Moon, Star, Sparkles } from 'lucide-react';
 
 const AstrologyPage: React.FC = () => {
+  // SEO optimization for astrology page
+  React.useEffect(() => {
+    document.title = 'Chinese Astrology Guide - Zodiac Signs & BaZi Analysis | Free Chinese Horoscope';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Complete Chinese astrology guide with zodiac signs, BaZi analysis, and horoscope readings. Discover your Chinese zodiac characteristics, fortune predictions, and compatibility with free AI-powered insights.');
+    }
+    
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'chinese astrology, chinese zodiac signs, bazi analysis, chinese horoscope, chinese zodiac animals, chinese fortune telling, zodiac characteristics, chinese astrology guide');
+  }, []);
 
   const zodiacSigns = [
     { name: 'Rat', year: '2020, 2008, 1996', traits: 'Intelligent, Adaptable, Quick-witted', element: 'Water', color: 'Blue' },
@@ -66,23 +83,26 @@ const AstrologyPage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4 leading-tight drop-shadow-lg">
-            Chinese Astrology Guide - Zodiac Signs and BaZi Analysis
+            Chinese Astrology & Zodiac Signs Guide - Free BaZi Analysis
           </h1>
+          <h2 className="text-2xl font-semibold text-white/90 mb-4">
+            Complete Chinese Horoscope with 12 Zodiac Animals & Fortune Predictions
+          </h2>
           <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            Explore Chinese Astrology through detailed Chinese Zodiac analysis and BaZi readings. Understand your destiny with ancient wisdom and modern AI insights for Western users.
+            Explore Chinese astrology through detailed Chinese zodiac signs analysis and BaZi readings. Discover your zodiac animal characteristics, fortune predictions, and destiny insights with ancient wisdom and modern AI analysis designed for Western users.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <div className="flex items-center space-x-2 bg-yellow-500/10 backdrop-blur-sm border border-yellow-400/20 rounded-full px-4 py-2 shadow-lg">
               <Sun className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm text-yellow-300 font-medium">12 Zodiac Signs</span>
+              <span className="text-sm text-yellow-300 font-medium">12 Chinese Zodiac Animals</span>
             </div>
             <div className="flex items-center space-x-2 bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-full px-4 py-2 shadow-lg">
               <Star className="w-4 h-4 text-red-400" />
-              <span className="text-sm text-red-300 font-medium">BaZi Analysis</span>
+              <span className="text-sm text-red-300 font-medium">Free BaZi Readings</span>
             </div>
             <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-4 py-2 shadow-lg">
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-purple-300 font-medium">Fortune Prediction</span>
+              <span className="text-sm text-purple-300 font-medium">Chinese Horoscope</span>
             </div>
           </div>
         </div>
@@ -91,9 +111,9 @@ const AstrologyPage: React.FC = () => {
         <div className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-              Chinese Zodiac Signs
+              12 Chinese Zodiac Signs & Animal Characteristics
             </h2>
-            <p className="text-white/80">Discover the characteristics and traits of each zodiac animal</p>
+            <p className="text-white/80">Discover the unique characteristics, personality traits, and fortune predictions for each Chinese zodiac animal</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -141,9 +161,9 @@ const AstrologyPage: React.FC = () => {
         <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 shadow-2xl">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-              BaZi Five Elements
+              BaZi Five Elements Analysis - Chinese Astrology Foundation
             </h2>
-            <p className="text-white/80">Understanding the fundamental elements that shape your destiny</p>
+            <p className="text-white/80">Understanding the five fundamental elements in Chinese astrology that shape your destiny and personality according to BaZi principles</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -178,13 +198,13 @@ const AstrologyPage: React.FC = () => {
             <div className="relative z-10">
               <Moon className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
               <h3 className="text-2xl font-bold text-white mb-4">
-                Personalized BaZi Reading
+                Get Your Free Personalized BaZi Reading & Chinese Horoscope
               </h3>
               <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-                Get a detailed analysis of your birth chart using traditional BaZi principles combined with modern AI insights for accurate fortune telling and life guidance.
+                Get a detailed analysis of your Chinese astrology birth chart using traditional BaZi principles combined with modern AI insights for accurate fortune telling, zodiac compatibility, and personalized life guidance.
               </p>
               <button className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-8 py-3 rounded-xl font-bold hover:from-yellow-400 hover:to-orange-500 transform hover:scale-105 transition-all duration-300 shadow-xl">
-                Get Your BaZi Reading
+                Get Free BaZi Reading & Chinese Horoscope
               </button>
             </div>
           </div>

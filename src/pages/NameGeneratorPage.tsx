@@ -13,6 +13,24 @@ interface NameData {
 }
 
 const NameGeneratorPage: React.FC = () => {
+  // SEO optimization for name generator page
+  React.useEffect(() => {
+    document.title = 'Free Chinese Name Generator - BaZi Analysis & Cultural Meanings';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free Chinese name generator with BaZi analysis and cultural meanings. Generate authentic Chinese names for babies, business, and personal use with AI-powered pronunciation guides and zodiac compatibility.');
+    }
+    
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'free chinese name generator, chinese names with meanings, bazi analysis, chinese baby names, chinese business names, chinese name pronunciation, chinese astrology names');
+  }, []);
+
   const [englishName, setEnglishName] = useState('');
   const [gender, setGender] = useState('neutral');
   const [style, setStyle] = useState('neutral');
@@ -108,23 +126,26 @@ const NameGeneratorPage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"></div>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 leading-tight drop-shadow-lg px-2">
-            Free Chinese Name Generator - BaZi Based Naming Tool
+            Free Chinese Name Generator with BaZi Analysis
           </h1>
+          <h2 className="text-xl sm:text-2xl font-semibold text-white/90 mb-3 px-2">
+            Generate Authentic Chinese Names with Cultural Meanings
+          </h2>
           <p className="text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto px-2">
-            Generate authentic Chinese names using BaZi principles and Chinese Astrology. Our free AI-powered Chinese name generator creates meaningful names with cultural significance for babies, business, and personal use.
+            Generate authentic Chinese names using BaZi principles and Chinese Astrology. Our free AI-powered Chinese name generator creates meaningful names with cultural significance, pronunciation guides, and zodiac compatibility for babies, business, and personal use.
           </p>
           <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
             <div className="flex items-center space-x-2 bg-green-500/10 backdrop-blur-sm border border-green-400/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
               <Heart className="w-4 h-4 text-green-400" />
-              <span className="text-xs sm:text-sm text-green-300 font-medium">100% Free</span>
+              <span className="text-xs sm:text-sm text-green-300 font-medium">Free Chinese Names</span>
             </div>
             <div className="flex items-center space-x-2 bg-blue-500/10 backdrop-blur-sm border border-blue-400/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
               <Brain className="w-4 h-4 text-blue-400" />
-              <span className="text-xs sm:text-sm text-blue-300 font-medium">BaZi Analysis</span>
+              <span className="text-xs sm:text-sm text-blue-300 font-medium">BaZi & Zodiac</span>
             </div>
             <div className="flex items-center space-x-2 bg-purple-500/10 backdrop-blur-sm border border-purple-400/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg">
               <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-xs sm:text-sm text-purple-300 font-medium">Cultural Meaning</span>
+              <span className="text-xs sm:text-sm text-purple-300 font-medium">Cultural Meanings</span>
             </div>
           </div>
         </div>
@@ -239,7 +260,7 @@ const NameGeneratorPage: React.FC = () => {
                 ) : (
                   <>
                     <Brain className="w-5 h-5" />
-                    <span>Generate Chinese Names</span>
+                    <span>Generate Chinese Names with BaZi</span>
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -253,10 +274,10 @@ const NameGeneratorPage: React.FC = () => {
           <div>
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 px-2">
-                {hasGenerated ? 'Your Chinese Names' : 'Example Chinese Names'}
+                {hasGenerated ? 'Your Personalized Chinese Names with Meanings' : 'Example Chinese Names with Cultural Significance'}
               </h2>
               {!hasGenerated && (
-                <p className="text-white/70 text-sm sm:text-base px-2">Sample names to inspire you - enter your name for personalized results</p>
+                <p className="text-white/70 text-sm sm:text-base px-2">Sample Chinese names with BaZi analysis to inspire you - enter your name for personalized results with zodiac compatibility</p>
               )}
             </div>
             
@@ -278,7 +299,7 @@ const NameGeneratorPage: React.FC = () => {
                   className="inline-flex items-center space-x-2 bg-white/10 text-yellow-400 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl hover:bg-white/20 transition-all duration-300 disabled:opacity-50 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl text-sm sm:text-base"
                 >
                   <Sparkles className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                  <span>Generate New Names</span>
+                  <span>Generate More Chinese Names</span>
                 </button>
               </div>
             )}

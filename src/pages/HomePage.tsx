@@ -10,6 +10,26 @@ interface NameData {
 }
 
 const HomePage: React.FC = () => {
+  // SEO optimization - set page title and meta description
+  React.useEffect(() => {
+    document.title = 'Free Chinese Zodiac Compatibility & Name Generator - Chinese Astrology Tools';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free Chinese zodiac compatibility calculator and name generator. Discover your Chinese zodiac sign, love compatibility, BaZi analysis, and Feng Shui tips with AI-powered cultural intelligence.');
+    }
+    
+    // Update keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'chinese zodiac compatibility, chinese zodiac signs, free chinese name generator, chinese astrology, feng shui tips, bazi analysis, chinese zodiac calculator, zodiac love match');
+  }, []);
+
   // 龙虎生肖图标组件
   const DragonTigerIcon: React.FC<{ className?: string }> = ({ className = "w-6 h-6" }) => {
     return (
@@ -54,24 +74,24 @@ const HomePage: React.FC = () => {
     {
       id: 'compatibility',
       icon: DragonTigerIcon,
-      title: 'Chinese Zodiac Compatibility',
-      description: 'Discover your Chinese Zodiac characteristics and compatibility analysis for relationships, business partnerships, and family harmony.',
+      title: 'Chinese Zodiac Compatibility Calculator',
+      description: 'Free Chinese zodiac compatibility calculator for love matches. Discover rat and dragon compatibility, relationship analysis, and Chinese zodiac love match predictions with detailed compatibility scores.',
       color: 'from-pink-500/20 to-purple-500/20',
       iconColor: 'text-pink-400'
     },
     {
       id: 'fengShuiTips',
       icon: Compass,
-      title: 'Feng Shui Tips for Home & Office',
-      description: 'Master proven Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your home and office spaces. Practical guidance for Western homes.',
+      title: 'Feng Shui Tips - Home & Office Harmony',
+      description: 'Master proven Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your home and office. Expert guidance for Western homes with practical applications.',
       color: 'from-orange-500/20 to-red-500/20',
       iconColor: 'text-orange-400'
     },
     {
       id: 'astrology',
       icon: Sun,
-      title: 'Chinese Astrology & BaZi Analysis',
-      description: 'Explore Chinese Astrology through detailed analysis and BaZi readings. Understand your destiny with personalized fortune predictions and compatibility analysis.',
+      title: 'Chinese Astrology & Zodiac Signs Guide',
+      description: 'Comprehensive Chinese astrology guide with detailed zodiac signs analysis and BaZi readings. Understand your Chinese zodiac characteristics and destiny predictions.',
       color: 'from-red-500/20 to-pink-500/20',
       iconColor: 'text-red-400'
     }
@@ -132,28 +152,31 @@ const HomePage: React.FC = () => {
             <div className="absolute -inset-4 bg-gradient-conic from-yellow-400/10 via-orange-400/10 to-yellow-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           </div>
           <h1 className="text-6xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-6 leading-tight drop-shadow-lg">
-            Free Chinese Name Generator & Feng Shui
+            Free Chinese Zodiac Compatibility & Name Generator
           </h1>
-          <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-4">
-            Discover ancient wisdom with modern AI digital tools for perfect harmony and Chi balance
+          <h2 className="text-2xl font-semibold text-white/90 mb-4">
+            Chinese Astrology Tools - Zodiac Signs, Love Compatibility & Feng Shui
+          </h2>
+          <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto mb-4">
+            Discover your Chinese zodiac compatibility, generate authentic Chinese names, and master Feng Shui with our free AI-powered digital tools
           </p>
-          <p className="text-lg text-white/70 leading-relaxed max-w-4xl mx-auto">
-            Generate authentic Chinese names with BaZi analysis, master Feng Shui tips for home and office, explore Chinese Astrology, and unlock your Chinese Zodiac secrets with our revolutionary AI-powered digital tools.
+          <p className="text-base text-white/70 leading-relaxed max-w-4xl mx-auto">
+            Calculate Chinese zodiac love matches, explore rat and dragon compatibility, generate meaningful Chinese names with BaZi analysis, and get expert Feng Shui tips for home and office harmony. All tools are completely free and designed for Western users.
           </p>
           
           {/* Feng Shui Features */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <div className="flex items-center space-x-2 bg-yellow-500/10 backdrop-blur-sm border border-yellow-400/20 rounded-full px-4 py-2 shadow-lg">
               <Zap className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm text-yellow-300 font-medium">Free Tools</span>
+              <span className="text-sm text-yellow-300 font-medium">Free Chinese Zodiac</span>
             </div>
             <div className="flex items-center space-x-2 bg-orange-500/10 backdrop-blur-sm border border-orange-400/20 rounded-full px-4 py-2 shadow-lg">
               <Globe className="w-4 h-4 text-orange-400" />
-              <span className="text-sm text-orange-300 font-medium">AI Powered</span>
+              <span className="text-sm text-orange-300 font-medium">Compatibility Calculator</span>
             </div>
             <div className="flex items-center space-x-2 bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-full px-4 py-2 shadow-lg">
               <Sparkles className="w-4 h-4 text-red-400" />
-              <span className="text-sm text-red-300 font-medium">Cultural Authenticity</span>
+              <span className="text-sm text-red-300 font-medium">Chinese Astrology</span>
             </div>
           </div>
         </div>
@@ -165,10 +188,10 @@ const HomePage: React.FC = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4">
-              Our Feng Shui & Chinese Astrology Services
+              Free Chinese Zodiac & Feng Shui Digital Tools
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Comprehensive digital tools combining ancient Chinese wisdom with modern AI technology for Western users
+              Comprehensive Chinese zodiac compatibility calculator, name generator, and Feng Shui tools combining ancient wisdom with modern AI technology
             </p>
           </div>
           
@@ -213,10 +236,10 @@ const HomePage: React.FC = () => {
         <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 shadow-2xl mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-              Why Choose Our AI-Powered Feng Shui Tools?
+              Why Choose Our Chinese Zodiac & Feng Shui Platform?
             </h2>
             <p className="text-white/80 max-w-3xl mx-auto">
-              Designed specifically for Western users seeking authentic Chinese wisdom with modern convenience
+              The most comprehensive free Chinese zodiac compatibility calculator and Feng Shui platform designed for Western users
             </p>
           </div>
           
@@ -225,9 +248,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-green-400" />
               </div>
-              <h4 className="font-semibold text-white mb-2">100% Free Tools</h4>
+              <h4 className="font-semibold text-white mb-2">100% Free Chinese Zodiac Tools</h4>
               <p className="text-sm text-white/70">
-                All our core features are completely free. No hidden costs, no premium subscriptions required.
+                All Chinese zodiac compatibility calculations, name generation, and Feng Shui guidance are completely free with no hidden costs.
               </p>
             </div>
             
@@ -235,9 +258,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Brain className="w-8 h-8 text-blue-400" />
               </div>
-              <h4 className="font-semibold text-white mb-2">AI-Enhanced Accuracy</h4>
+              <h4 className="font-semibold text-white mb-2">AI-Enhanced Chinese Astrology</h4>
               <p className="text-sm text-white/70">
-                Modern AI technology combined with traditional Chinese wisdom for more accurate and personalized results.
+                Advanced AI technology combined with authentic Chinese zodiac principles for accurate compatibility analysis and personalized results.
               </p>
             </div>
             
@@ -245,9 +268,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Info className="w-8 h-8 text-purple-400" />
               </div>
-              <h4 className="font-semibold text-white mb-2">Cultural Bridge</h4>
+              <h4 className="font-semibold text-white mb-2">Authentic Chinese Culture</h4>
               <p className="text-sm text-white/70">
-                Authentic Chinese practices explained in Western terms, making ancient wisdom accessible to everyone.
+                Authentic Chinese zodiac traditions and Feng Shui practices explained for Western users, making ancient wisdom accessible and practical.
               </p>
             </div>
           </div>

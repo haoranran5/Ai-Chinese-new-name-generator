@@ -10,9 +10,9 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
 
   const navItems = [
     { id: 'nameGenerator', label: 'Name Generator', icon: Sparkles },
-    { id: 'compatibility', label: 'Chinese Zodiac Compatibility', icon: Users },
+    { id: 'compatibility', label: 'Zodiac Compatibility', icon: Users },
     { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Compass },
-    { id: 'astrology', label: 'Chinese Astrology', icon: Sun },
+    { id: 'astrology', label: 'Zodiac Signs', icon: Sun },
     { id: 'about', label: 'About', icon: Info },
     { id: 'home', label: 'Home', icon: Home }
   ];
@@ -57,7 +57,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
             </div>
             <div className="hidden xs:flex flex-col">
               <span className="text-sm sm:text-base font-bold text-white/90 leading-tight">Chinese Names</span>
-              <span className="text-xs text-cyan-400/80 font-medium">AI Powered</span>
+              <span className="text-xs text-cyan-400/80 font-medium">Zodiac & Feng Shui</span>
             </div>
           </div>
 
