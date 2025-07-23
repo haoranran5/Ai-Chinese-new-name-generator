@@ -13,7 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
 
   const navItems = [
     { id: 'nameGenerator', label: 'Name Generator', icon: Sparkles },
-    { id: 'compatibility', label: 'Compatibility', icon: Users },
+    { id: 'compatibility', label: 'Chinese Zodiac Compatibility', icon: Users },
     { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Compass },
     { id: 'astrology', label: 'Chinese Astrology', icon: Sun },
     { id: 'about', label: t('nav.about'), icon: Info },

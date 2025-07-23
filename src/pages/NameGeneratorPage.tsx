@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart } from 'lucide-react';
+import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart, Users, Star } from 'lucide-react';
 import { generateNames } from '../services/chineseNameGenerator';
 import NameCard from '../components/NameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
@@ -286,6 +286,90 @@ const NameGeneratorPage: React.FC = () => {
             )}
           </div>
         )}
+
+        {/* Chinese Zodiac Compatibility CTA Section */}
+        <div className="mt-12 sm:mt-16">
+          <div className="bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-blue-500/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-6 sm:p-8 relative overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-purple-500/5 to-blue-500/5 rounded-3xl"></div>
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-400/50 to-transparent"></div>
+            
+            {/* Floating zodiac icons */}
+            <div className="absolute top-4 right-4 text-2xl opacity-20 animate-float">🐲</div>
+            <div className="absolute bottom-4 left-4 text-2xl opacity-20 animate-float-delayed">🐭</div>
+            <div className="absolute top-1/2 left-8 text-xl opacity-15 animate-float-slow">🐅</div>
+            <div className="absolute top-1/3 right-8 text-xl opacity-15 animate-float">🐰</div>
+            
+            <div className="relative z-10 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full mb-4 sm:mb-6 backdrop-blur-sm border border-pink-400/20 shadow-xl">
+                <Users className="w-8 h-8 sm:w-10 sm:h-10 text-pink-400 drop-shadow-lg" />
+              </div>
+              
+              <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent mb-3 sm:mb-4">
+                Discover Your Chinese Zodiac Compatibility
+              </h3>
+              
+              <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-8">
+                Now that you have your perfect Chinese name, explore how compatible you are with others using our free Chinese Zodiac Compatibility Calculator. Perfect for love matches, business partnerships, and family harmony.
+              </p>
+              
+              {/* Feature highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 sm:mb-8">
+                <div className="flex items-center justify-center space-x-2 bg-pink-500/20 rounded-xl p-3 border border-pink-400/30">
+                  <Heart className="w-4 h-4 text-pink-400" />
+                  <span className="text-sm text-pink-300 font-medium">Love Matches</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 bg-purple-500/20 rounded-xl p-3 border border-purple-400/30">
+                  <Users className="w-4 h-4 text-purple-400" />
+                  <span className="text-sm text-purple-300 font-medium">Relationship Analysis</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 bg-blue-500/20 rounded-xl p-3 border border-blue-400/30">
+                  <Star className="w-4 h-4 text-blue-400" />
+                  <span className="text-sm text-blue-300 font-medium">Zodiac Insights</span>
+                </div>
+              </div>
+              
+              {/* CTA Button */}
+              <button
+                onClick={() => window.location.hash = '#compatibility'}
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-bold text-base sm:text-lg hover:from-pink-400 hover:to-purple-500 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-pink-500/30 relative overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-400/20 via-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                <span className="relative z-10 flex items-center space-x-2">
+                  <Users className="w-5 h-5" />
+                  <span>Check Chinese Zodiac Compatibility</span>
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </button>
+              
+              {/* Popular compatibility examples */}
+              <div className="mt-6 sm:mt-8">
+                <p className="text-white/60 text-sm mb-4">Popular Compatibility Matches:</p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <div className="flex items-center space-x-1 bg-green-500/20 rounded-full px-3 py-1 border border-green-400/30">
+                    <span className="text-sm">🐭</span>
+                    <Heart className="w-3 h-3 text-pink-400" />
+                    <span className="text-sm">🐲</span>
+                    <span className="text-xs text-green-300 ml-1">95%</span>
+                  </div>
+                  <div className="flex items-center space-x-1 bg-blue-500/20 rounded-full px-3 py-1 border border-blue-400/30">
+                    <span className="text-sm">🐂</span>
+                    <Heart className="w-3 h-3 text-pink-400" />
+                    <span className="text-sm">🐍</span>
+                    <span className="text-xs text-blue-300 ml-1">92%</span>
+                  </div>
+                  <div className="flex items-center space-x-1 bg-purple-500/20 rounded-full px-3 py-1 border border-purple-400/30">
+                    <span className="text-sm">🐅</span>
+                    <Heart className="w-3 h-3 text-pink-400" />
+                    <span className="text-sm">🐴</span>
+                    <span className="text-xs text-purple-300 ml-1">88%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
