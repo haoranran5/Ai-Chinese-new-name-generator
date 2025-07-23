@@ -273,12 +273,8 @@ const CompatibilityPage: React.FC = () => {
                   onChange={(e) => handleBirthdayChange(e.target.value, 'person1')}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400/50 focus:border-pink-400 transition-all duration-300 text-white backdrop-blur-sm"
                   lang="en-US"
-                  data-date-format="mm/dd/yyyy"
-                  style={{ 
-                    colorScheme: 'dark',
-                    direction: 'ltr',
-                    fontFamily: 'system-ui, -apple-system, sans-serif'
-                  }}
+                  placeholder="mm/dd/yyyy"
+                  style={{ colorScheme: 'dark' }}
                 />
                 {person1Zodiac && (
                   <div className="mt-2 p-3 bg-pink-500/20 rounded-lg border border-pink-400/30">
@@ -303,12 +299,8 @@ const CompatibilityPage: React.FC = () => {
                   onChange={(e) => handleBirthdayChange(e.target.value, 'person2')}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-400 transition-all duration-300 text-white backdrop-blur-sm"
                   lang="en-US"
-                  data-date-format="mm/dd/yyyy"
-                  style={{ 
-                    colorScheme: 'dark',
-                    direction: 'ltr',
-                    fontFamily: 'system-ui, -apple-system, sans-serif'
-                  }}
+                  placeholder="mm/dd/yyyy"
+                  style={{ colorScheme: 'dark' }}
                 />
                 {person2Zodiac && (
                   <div className="mt-2 p-3 bg-purple-500/20 rounded-lg border border-purple-400/30">
