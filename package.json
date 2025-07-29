@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run generate:sitemap && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:sitemap": "node scripts/generateSitemap.js",
+    "seo:validate": "node scripts/validateSEO.js"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
