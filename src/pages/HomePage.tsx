@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info, Users } from 'lucide-react';
+import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info, Users, Star } from 'lucide-react';
 
 interface NameData {
   id: string;
@@ -12,12 +12,12 @@ interface NameData {
 const HomePage: React.FC = () => {
   // SEO optimization - set page title and meta description
   React.useEffect(() => {
-    document.title = 'Free Chinese Zodiac Compatibility & Name Generator - Chinese Astrology Tools';
+    document.title = 'Chinese Name Generator - Generate Authentic Chinese Names Online';
     
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Free Chinese zodiac compatibility calculator and name generator. Discover your Chinese zodiac sign, love compatibility, BaZi analysis, and Feng Shui tips with AI-powered cultural intelligence.');
+      metaDescription.setAttribute('content', 'Free Chinese name generator with meanings. Generate authentic Chinese names, explore Chinese zodiac compatibility, and discover traditional Chinese male names and fantasy names.');
     }
     
     // Update keywords
@@ -27,7 +27,7 @@ const HomePage: React.FC = () => {
       metaKeywords.setAttribute('name', 'keywords');
       document.head.appendChild(metaKeywords);
     }
-    metaKeywords.setAttribute('content', 'chinese zodiac compatibility, chinese zodiac signs, free chinese name generator, chinese astrology, feng shui tips, bazi analysis, chinese zodiac calculator, zodiac love match');
+    metaKeywords.setAttribute('content', 'chinese names, chinese zodiac, chinese ai name, chinese male names, random chinese name generator, chinese name generator fantasy, chinese zodiac compatibility, chinese zodiac signs, free chinese name generator, chinese astrology, feng shui tips, bazi analysis, chinese zodiac calculator, zodiac love match');
   }, []);
 
   // 龙虎生肖图标组件
@@ -66,18 +66,42 @@ const HomePage: React.FC = () => {
     {
       id: 'nameGenerator',
       icon: Sparkles,
-      title: 'Free Chinese Name Generator',
-      description: 'Generate authentic Chinese names using BaZi principles and Chinese Astrology. Perfect for babies, business names, and personal use with detailed meaning explanations.',
+      title: 'Chinese AI Name Generator',
+      description: 'Generate authentic Chinese names using AI-powered BaZi principles and Chinese Astrology. Perfect for babies, business names, and personal use with detailed meaning explanations.',
       color: 'from-yellow-500/20 to-orange-500/20',
       iconColor: 'text-yellow-400'
     },
     {
-      id: 'compatibility',
+      id: 'maleNames',
+      icon: Users,
+      title: 'Chinese Male Names Collection',
+      description: 'Discover traditional Chinese male names with cultural significance. Our random Chinese name generator offers authentic male names perfect for babies and personal use.',
+      color: 'from-blue-500/20 to-indigo-500/20',
+      iconColor: 'text-blue-400'
+    },
+    {
+      id: 'zodiacNames',
       icon: DragonTigerIcon,
-      title: 'Chinese Zodiac Compatibility Calculator',
-      description: 'Free Chinese zodiac compatibility calculator for love matches. Discover rat and dragon compatibility, relationship analysis, and Chinese zodiac love match predictions with detailed compatibility scores.',
+      title: 'Chinese Zodiac Name Matching',
+      description: 'Match Chinese names with your zodiac sign for perfect compatibility. Our Chinese zodiac name generator ensures harmony between your name and astrological destiny.',
       color: 'from-pink-500/20 to-purple-500/20',
       iconColor: 'text-pink-400'
+    },
+    {
+      id: 'fantasyNames',
+      icon: Brain,
+      title: 'Chinese Name Generator Fantasy',
+      description: 'Create unique fantasy Chinese names for games, stories, and creative projects. Our Chinese name generator fantasy tool offers imaginative names with cultural depth.',
+      color: 'from-purple-500/20 to-pink-500/20',
+      iconColor: 'text-purple-400'
+    },
+    {
+      id: 'compatibility',
+      icon: Heart,
+      title: 'Chinese Zodiac Compatibility Calculator',
+      description: 'Free Chinese zodiac compatibility calculator for love matches. Discover rat and dragon compatibility, relationship analysis, and Chinese zodiac love match predictions with detailed compatibility scores.',
+      color: 'from-red-500/20 to-pink-500/20',
+      iconColor: 'text-red-400'
     },
     {
       id: 'fengShuiTips',
@@ -86,14 +110,6 @@ const HomePage: React.FC = () => {
       description: 'Master proven Feng Shui tips to improve Qi flow and achieve perfect Chi balance in your home and office. Expert guidance for Western homes with practical applications.',
       color: 'from-orange-500/20 to-red-500/20',
       iconColor: 'text-orange-400'
-    },
-    {
-      id: 'astrology',
-      icon: Sun,
-      title: 'Chinese Astrology & Zodiac Signs Guide',
-      description: 'Comprehensive Chinese astrology guide with detailed zodiac signs analysis and BaZi readings. Understand your Chinese zodiac characteristics and destiny predictions.',
-      color: 'from-red-500/20 to-pink-500/20',
-      iconColor: 'text-red-400'
     }
   ];
 
@@ -152,31 +168,31 @@ const HomePage: React.FC = () => {
             <div className="absolute -inset-4 bg-gradient-conic from-yellow-400/10 via-orange-400/10 to-yellow-400/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           </div>
           <h1 className="text-6xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-6 leading-tight drop-shadow-lg">
-            Free Chinese Zodiac Compatibility & Name Generator
+            Chinese Name Generator - Discover Your Perfect Chinese Name
           </h1>
           <h2 className="text-2xl font-semibold text-white/90 mb-4">
-            Chinese Astrology Tools - Zodiac Signs, Love Compatibility & Feng Shui
+            Chinese Name Generator - AI-Powered Name Creation & Zodiac Compatibility
           </h2>
           <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto mb-4">
-            Discover your Chinese zodiac compatibility, generate authentic Chinese names, and master Feng Shui with our free AI-powered digital tools
+            Generate authentic Chinese names with AI intelligence, explore Chinese zodiac compatibility, and discover traditional Chinese male names with our comprehensive name generator
           </p>
           <p className="text-base text-white/70 leading-relaxed max-w-4xl mx-auto">
-            Calculate Chinese zodiac love matches, explore rat and dragon compatibility, generate meaningful Chinese names with BaZi analysis, and get expert Feng Shui tips for home and office harmony. All tools are completely free and designed for Western users.
+            Create meaningful Chinese names using our random Chinese name generator, match names with Chinese zodiac signs, explore Chinese name generator fantasy options, and get expert cultural insights. All tools are completely free and designed for Western users.
           </p>
           
           {/* Feng Shui Features */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <div className="flex items-center space-x-2 bg-yellow-500/10 backdrop-blur-sm border border-yellow-400/20 rounded-full px-4 py-2 shadow-lg">
               <Zap className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm text-yellow-300 font-medium">Free Chinese Zodiac</span>
+              <span className="text-sm text-yellow-300 font-medium">Chinese AI Name Generator</span>
             </div>
             <div className="flex items-center space-x-2 bg-orange-500/10 backdrop-blur-sm border border-orange-400/20 rounded-full px-4 py-2 shadow-lg">
               <Globe className="w-4 h-4 text-orange-400" />
-              <span className="text-sm text-orange-300 font-medium">Compatibility Calculator</span>
+              <span className="text-sm text-orange-300 font-medium">Chinese Male Names</span>
             </div>
             <div className="flex items-center space-x-2 bg-red-500/10 backdrop-blur-sm border border-red-400/20 rounded-full px-4 py-2 shadow-lg">
               <Sparkles className="w-4 h-4 text-red-400" />
-              <span className="text-sm text-red-300 font-medium">Chinese Astrology</span>
+              <span className="text-sm text-red-300 font-medium">Random Chinese Name Generator</span>
             </div>
           </div>
         </div>
@@ -188,14 +204,14 @@ const HomePage: React.FC = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-4">
-              Free Chinese Zodiac & Feng Shui Digital Tools
+              Chinese Name Generator & Zodiac Compatibility Tools
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Comprehensive Chinese zodiac compatibility calculator, name generator, and Feng Shui tools combining ancient wisdom with modern AI technology
+              Comprehensive Chinese name generator with AI-powered features, zodiac compatibility calculator, and cultural tools combining ancient wisdom with modern technology
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
               const Icon = service.icon;
               return (
@@ -209,7 +225,7 @@ const HomePage: React.FC = () => {
                   
                   <div className="relative z-10">
                     <div className="w-16 h-16 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      {service.id === 'compatibility' ? (
+                      {service.id === 'compatibility' || service.id === 'zodiacNames' ? (
                         <Icon className="w-10 h-10" />
                       ) : (
                         <Icon className={`w-8 h-8 ${service.iconColor}`} />
@@ -232,14 +248,68 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
+        {/* Chinese Name Generator Features Section */}
+        <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 shadow-2xl mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
+              Advanced Chinese Name Generator Features
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+              Discover our comprehensive Chinese name generator with AI-powered features for authentic name creation
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-6 h-6 text-blue-400" />
+              </div>
+              <h4 className="font-semibold text-white mb-2">Chinese Male Names</h4>
+              <p className="text-sm text-white/70">
+                Traditional Chinese male names with cultural significance and meaning explanations
+              </p>
+            </div>
+            
+            <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+              <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-6 h-6 text-purple-400" />
+              </div>
+              <h4 className="font-semibold text-white mb-2">Chinese AI Name</h4>
+              <p className="text-sm text-white/70">
+                AI-powered Chinese name generation using advanced algorithms and cultural intelligence
+              </p>
+            </div>
+            
+            <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-6 h-6 text-green-400" />
+              </div>
+              <h4 className="font-semibold text-white mb-2">Random Chinese Name Generator</h4>
+              <p className="text-sm text-white/70">
+                Generate random Chinese names instantly with our advanced name generator tool
+              </p>
+            </div>
+            
+            <div className="text-center p-6 bg-white/5 rounded-2xl border border-white/10">
+              <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-6 h-6 text-yellow-400" />
+              </div>
+              <h4 className="font-semibold text-white mb-2">Chinese Name Generator Fantasy</h4>
+              <p className="text-sm text-white/70">
+                Create fantasy Chinese names for creative projects, games, and storytelling
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Value Proposition Section */}
         <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 shadow-2xl mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-              Why Choose Our Chinese Zodiac & Feng Shui Platform?
+              Why Choose Our Chinese Name Generator Platform?
             </h2>
             <p className="text-white/80 max-w-3xl mx-auto">
-              The most comprehensive free Chinese zodiac compatibility calculator and Feng Shui platform designed for Western users
+              The most comprehensive Chinese name generator with AI-powered features and authentic cultural intelligence
             </p>
           </div>
           
@@ -248,9 +318,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-green-400" />
               </div>
-              <h4 className="font-semibold text-white mb-2">100% Free Chinese Zodiac Tools</h4>
+              <h4 className="font-semibold text-white mb-2">100% Free Chinese Name Generator</h4>
               <p className="text-sm text-white/70">
-                All Chinese zodiac compatibility calculations, name generation, and Feng Shui guidance are completely free with no hidden costs.
+                All Chinese name generation, zodiac compatibility, and cultural analysis are completely free with no hidden costs.
               </p>
             </div>
             
@@ -258,9 +328,9 @@ const HomePage: React.FC = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Brain className="w-8 h-8 text-blue-400" />
               </div>
-              <h4 className="font-semibold text-white mb-2">AI-Enhanced Chinese Astrology</h4>
+              <h4 className="font-semibold text-white mb-2">AI-Enhanced Chinese Name Creation</h4>
               <p className="text-sm text-white/70">
-                Advanced AI technology combined with authentic Chinese zodiac principles for accurate compatibility analysis and personalized results.
+                Advanced AI technology combined with authentic Chinese naming principles for accurate name generation and cultural significance.
               </p>
             </div>
             
@@ -270,11 +340,46 @@ const HomePage: React.FC = () => {
               </div>
               <h4 className="font-semibold text-white mb-2">Authentic Chinese Culture</h4>
               <p className="text-sm text-white/70">
-                Authentic Chinese zodiac traditions and Feng Shui practices explained for Western users, making ancient wisdom accessible and practical.
+                Authentic Chinese naming traditions and zodiac practices explained for Western users, making cultural wisdom accessible and practical.
               </p>
             </div>
           </div>
         </div>
+
+        {/* Structured Data for SEO */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Chinese Name Generator - Generate Authentic Chinese Names Online",
+            "description": "Free Chinese name generator with meanings. Generate authentic Chinese names, explore Chinese zodiac compatibility, and discover traditional Chinese male names and fantasy names.",
+            "url": "https://chinesecharactername.top/",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires JavaScript",
+            "author": {
+              "@type": "Organization",
+              "name": "Chinese Name Generator Platform",
+              "url": "https://chinesecharactername.top/"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "description": "Free Chinese name generator with AI-powered features"
+            },
+            "featureList": [
+              "Chinese AI Name Generator",
+              "Chinese Male Names Collection", 
+              "Chinese Zodiac Name Matching",
+              "Chinese Name Generator Fantasy",
+              "Random Chinese Name Generator",
+              "Chinese Zodiac Compatibility Calculator"
+            ],
+            "keywords": "chinese names, chinese zodiac, chinese ai name, chinese male names, random chinese name generator, chinese name generator fantasy"
+          })
+        }} />
       </div>
     </div>
   );
