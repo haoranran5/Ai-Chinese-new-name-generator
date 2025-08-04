@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart, Users, Star } from 'lucide-react';
+import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart, Users, Star, Briefcase, Calendar } from 'lucide-react';
 import { generateNames } from '../services/chineseNameGenerator';
+import { generatePersonalizedNames } from '../services/personalizedNameGenerator';
+import { generateEnhancedNames } from '../services/enhancedNameGenerator';
+import { EnhancedUserProfile } from '../types/userProfile';
 import NameCard from '../components/NameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 
@@ -37,6 +40,17 @@ const NameGeneratorPage: React.FC = () => {
   const [names, setNames] = useState<NameData[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
+  
+  // 个性化选项
+  const [usePersonalization, setUsePersonalization] = useState(false);
+  const [useEnhancedAlgorithm, setUseEnhancedAlgorithm] = useState(false);
+  const [age, setAge] = useState(25);
+  const [profession, setProfession] = useState('');
+  const [zodiac, setZodiac] = useState('');
+  const [purpose, setPurpose] = useState('personal');
+  const [nameLength, setNameLength] = useState('medium');
+  const [uniqueness, setUniqueness] = useState('common');
+  const [formality, setFormality] = useState('casual');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,12 +58,102 @@ const NameGeneratorPage: React.FC = () => {
     
     setLoading(true);
     try {
-      const result = await generateNames({
-        englishName: englishName.trim(),
-        gender: gender as 'male' | 'female' | 'neutral',
-        style: style as 'traditional' | 'modern' | 'business' | 'cute' | 'neutral'
-      });
-      setNames(result.names);
+      if (useEnhancedAlgorithm) {
+        // 使用增强算法
+        const userProfile: EnhancedUserProfile = {
+          basic: {
+            englishName: englishName.trim(),
+            gender: gender as 'male' | 'female' | 'neutral',
+            age: age,
+            profession: profession
+          },
+          cultural: {
+            zodiac: zodiac,
+            birthYear: new Date().getFullYear() - age,
+            culturalBackground: 'western',
+            languageLevel: 'beginner'
+          },
+          preferences: {
+            nameLength: nameLength as 'short' | 'medium' | 'long',
+            style: style as 'traditional' | 'modern' | 'business' | 'cute' | 'neutral',
+            uniqueness: uniqueness as 'common' | 'unique' | 'very-unique',
+            formality: formality as 'casual' | 'formal' | 'very-formal'
+          },
+          context: {
+            purpose: purpose as 'personal' | 'business' | 'social' | 'creative',
+            targetAudience: 'international',
+            usageFrequency: 'one-time'
+          }
+        };
+        
+        const result = await generateEnhancedNames(userProfile, 5);
+        
+        // 转换格式以兼容现有组件
+        const convertedNames = result.map(rec => ({
+          id: rec.id,
+          name: rec.name,
+          pinyin: rec.pinyin,
+          meaning: rec.meaning,
+          gender: rec.gender,
+          score: rec.score,
+          reasons: rec.reasons
+        }));
+        
+        setNames(convertedNames);
+      } else if (usePersonalization) {
+        // 使用个性化生成
+        const userProfile: EnhancedUserProfile = {
+          basic: {
+            englishName: englishName.trim(),
+            gender: gender as 'male' | 'female' | 'neutral',
+            age: age,
+            profession: profession
+          },
+          cultural: {
+            zodiac: zodiac,
+            birthYear: new Date().getFullYear() - age,
+            culturalBackground: 'western',
+            languageLevel: 'beginner'
+          },
+          preferences: {
+            nameLength: nameLength as 'short' | 'medium' | 'long',
+            style: style as 'traditional' | 'modern' | 'business' | 'cute' | 'neutral',
+            uniqueness: uniqueness as 'common' | 'unique' | 'very-unique',
+            formality: formality as 'casual' | 'formal' | 'very-formal'
+          },
+          context: {
+            purpose: purpose as 'personal' | 'business' | 'social' | 'creative',
+            targetAudience: 'international',
+            usageFrequency: 'one-time'
+          }
+        };
+        
+        const result = await generatePersonalizedNames({
+          userProfile,
+          count: 5
+        });
+        
+        // 转换格式以兼容现有组件
+        const convertedNames = result.recommendations.map(rec => ({
+          id: rec.id,
+          name: rec.name,
+          pinyin: rec.pinyin,
+          meaning: rec.meaning,
+          gender: rec.gender,
+          score: rec.score,
+          reasons: rec.reasons
+        }));
+        
+        setNames(convertedNames);
+      } else {
+        // 使用原有生成方式
+        const result = await generateNames({
+          englishName: englishName.trim(),
+          gender: gender as 'male' | 'female' | 'neutral',
+          style: style as 'traditional' | 'modern' | 'business' | 'cute' | 'neutral'
+        });
+        setNames(result.names);
+      }
       setHasGenerated(true);
     } catch (error) {
       console.error('生成名字失败:', error);
@@ -255,7 +359,7 @@ const NameGeneratorPage: React.FC = () => {
                 {loading ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    <span>{t('home.form.generating')}</span>
+                    <span>Generating...</span>
                   </>
                 ) : (
                   <>
