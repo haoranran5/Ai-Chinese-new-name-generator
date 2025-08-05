@@ -1,6 +1,6 @@
 // 名人库起名服务 - 基于用户喜欢的名人生成个性化名字
 import { FamousPerson, famousChinesePeople } from '../data/famousChinesePeople';
-import { chineseCharacters, pinyinMap, meaningMap } from '../data/chineseNames';
+import { chineseCharacters, pinyinMap, meaningMapEnglish } from '../data/chineseNames';
 
 export interface FamousPersonNameRequest {
   englishName: string;
@@ -117,8 +117,8 @@ const generateInspiredNames = (
         gender,
         inspiredBy: {
           person,
-          elements: ['使用名人名字字符'],
-          connection: `借鉴${person.name}的名字结构`
+          elements: ['Using characters from the historical figure\'s name'],
+          connection: `Inspired by ${person.englishName || person.name}'s name structure`
         },
         culturalContext: {
           personality: person.personality,
@@ -138,11 +138,11 @@ const generateInspiredNames = (
       pinyin: name.pinyin,
       meaning: name.meaning,
       gender,
-      inspiredBy: {
-        person,
-        elements: person.personality,
-        connection: `体现${person.name}的性格特征`
-      },
+              inspiredBy: {
+          person,
+          elements: person.personality,
+          connection: `Reflecting ${person.englishName || person.name}'s personality traits`
+        },
       culturalContext: {
         personality: person.personality,
         achievements: person.achievements,
@@ -160,11 +160,11 @@ const generateInspiredNames = (
       pinyin: name.pinyin,
       meaning: name.meaning,
       gender,
-      inspiredBy: {
-        person,
-        elements: person.achievements,
-        connection: `传承${person.name}的成就精神`
-      },
+              inspiredBy: {
+          person,
+          elements: person.achievements,
+          connection: `Carrying forward ${person.englishName || person.name}'s legacy and achievements`
+        },
       culturalContext: {
         personality: person.personality,
         achievements: person.achievements,
@@ -195,7 +195,7 @@ const generateNameFromPersonChars = (personChars: string[], englishName: string,
   
   const name = chars.join('');
   const pinyin = chars.map(char => pinyinMap[char] || char).join(' ');
-  const meaning = chars.map(char => meaningMap[char] || '美好').join('，');
+  const meaning = chars.map(char => meaningMapEnglish[char] || 'beautiful').join(', ');
   
   return { name, pinyin, meaning };
 };
@@ -209,7 +209,7 @@ const generateNamesFromPersonality = (personality: string[], englishName: string
   // 根据性格特征选择字符
   personality.forEach((trait) => {
     const traitChars = styleChars.filter(char => {
-      const charMeaning = meaningMap[char] || '';
+      const charMeaning = meaningMapEnglish[char] || '';
       return charMeaning.includes(trait) || trait.includes(char);
     });
     
@@ -221,7 +221,7 @@ const generateNamesFromPersonality = (personality: string[], englishName: string
       
       const name = chars.join('');
       const pinyin = chars.map(char => pinyinMap[char] || char).join(' ');
-      const meaning = `${trait}，${chars.map(char => meaningMap[char] || '美好').join('，')}`;
+      const meaning = `${trait}, ${chars.map(char => meaningMapEnglish[char] || 'beautiful').join(', ')}`;
       
       names.push({ name, pinyin, meaning });
     }
@@ -240,7 +240,7 @@ const generateNamesFromAchievements = (achievements: string[], englishName: stri
     // 提取成就中的关键词
     const keywords = achievement.split(/[，、]/);
     const relevantChars = styleChars.filter(char => {
-      const charMeaning = meaningMap[char] || '';
+      const charMeaning = meaningMapEnglish[char] || '';
       return keywords.some(keyword => charMeaning.includes(keyword) || keyword.includes(char));
     });
     
@@ -252,7 +252,7 @@ const generateNamesFromAchievements = (achievements: string[], englishName: stri
       
       const name = chars.join('');
       const pinyin = chars.map(char => pinyinMap[char] || char).join(' ');
-      const meaning = `传承${achievement}的精神，${chars.map(char => meaningMap[char] || '美好').join('，')}`;
+      const meaning = `Inheriting the spirit of ${achievement}, ${chars.map(char => meaningMapEnglish[char] || 'beautiful').join(', ')}`;
       
       names.push({ name, pinyin, meaning });
     }
@@ -299,15 +299,15 @@ const analyzeCompatibility = (
     nameStyleCompatibility = 50;
   }
   
-  // 生成建议
+  // Generate recommendations
   if (personalityMatch < 50) {
-    recommendations.push(`建议选择与${person.name}性别或风格更匹配的选项`);
+    recommendations.push(`Consider choosing options that better match ${person.englishName || person.name}'s gender or style`);
   }
   if (culturalAlignment < 70) {
-    recommendations.push(`${person.name}的文化影响力很高，建议深入了解其背景`);
+    recommendations.push(`${person.englishName || person.name} has high cultural influence, consider learning more about their background`);
   }
   if (nameStyleCompatibility < 80) {
-    recommendations.push(`考虑调整名字风格以更好地体现${person.name}的特点`);
+    recommendations.push(`Consider adjusting the name style to better reflect ${person.englishName || person.name}'s characteristics`);
   }
   
   return {

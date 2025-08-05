@@ -60,7 +60,7 @@ export const pinyinMap: Record<string, string> = {
   '大': 'Dà', '新': 'Xīn', '老': 'Lǎo', '坏': 'Huài'
 };
 
-// 字符含义映射
+// 字符含义映射（中文）
 export const meaningMap: Record<string, string> = {
   '文': '文雅、文化、文学', '武': '武勇、武艺、武力', '明': '光明、聪明、明智', '德': '品德、道德、德行',
   '志': '志向、意志、志气', '华': '华丽、华贵、中华', '国': '国家、国土、爱国', '建': '建设、建立、建功',
@@ -96,6 +96,44 @@ export const meaningMap: Record<string, string> = {
   '果': '果实、成果、坚果', '朵': '花朵、云朵、可爱', '儿': '儿女、孩儿、可爱',
   '妮': '妮子、可爱、亲昵', '娃': '娃娃、孩子、可爱', '谐': '和谐、谐音、幽默', '纯': '纯洁、纯真、单纯',
   '好': '好人、美好、良好', '佳': '佳人、佳音、美好', '优': '优秀、优美、优雅', '秀': '秀美、秀丽、优秀'
+};
+
+// 字符含义映射（英文）
+export const meaningMapEnglish: Record<string, string> = {
+  '文': 'culture, literature, refined', '武': 'martial, brave, warrior', '明': 'bright, intelligent, wise', '德': 'virtue, morality, character',
+  '志': 'ambition, will, determination', '华': 'magnificent, splendid, China', '国': 'country, nation, patriotic', '建': 'build, establish, achieve',
+  '军': 'military, army, soldier', '伟': 'great, magnificent, grand', '强': 'strong, powerful, firm', '勇': 'brave, courage, warrior',
+  '刚': 'strong, firm, upright', '峰': 'peak, summit, mountain', '龙': 'dragon, auspicious, powerful',
+  '轩': 'tall, spacious, dignified', '宇': 'universe, space, grandeur', '晨': 'morning, dawn, fresh', '阳': 'sun, bright, masculine',
+  '浩': 'vast, grand, noble', '凯': 'victory, triumph, success', '睿': 'wise, intelligent, insightful',
+  '博': 'learned, extensive, broad', '涛': 'waves, ocean, majestic', '鹏': 'roc, great bird, ambitious', '飞': 'fly, soar, high',
+  '杰': 'outstanding, hero, excellent', '豪': 'heroic, bold, generous', '俊': 'handsome, talented, outstanding', '帅': 'handsome, commander, leader',
+  '美': 'beautiful, pretty, perfect', '丽': 'beautiful, elegant, graceful', '雅': 'elegant, refined, cultured', '静': 'quiet, peaceful, calm',
+  '淑': 'virtuous, gentle, refined', '贤': 'virtuous, wise, good', '慧': 'intelligent, wise, clever',
+  '琴': 'music, talent, art', '棋': 'chess, strategy, wisdom', '书': 'book, learning, culture', '画': 'painting, art, talent',
+  '诗': 'poetry, literature, romance', '词': 'lyrics, elegant, refined', '花': 'flower, beautiful, fragrant', '月': 'moon, pure, beautiful',
+  '欣': 'happy, joyful, pleased', '悦': 'joy, pleasure, happy', '萱': 'daylily, forget sorrow, happy', '琪': 'jade, precious, beautiful',
+  '瑶': 'jade, precious, fairyland', '婷': 'graceful, beautiful, elegant', '娜': 'graceful, beautiful, elegant',
+  '莉': 'jasmine, fragrant, pure', '薇': 'rose, beautiful, noble', '蕾': 'bud, hope, beautiful', '梦': 'dream, ideal, beautiful',
+  '雪': 'snow, pure, noble', '冰': 'ice, pure, noble', '晶': 'crystal, clear, pure', '珠': 'pearl, precious, beautiful',
+  '安': 'safe, peaceful, secure', '平': 'peaceful, calm, fair', '和': 'harmonious, gentle, peaceful', '宁': 'peaceful, calm, tranquil',
+  '清': 'clear, pure, fresh', '正': 'upright, just, correct', '直': 'straight, honest, direct',
+  '善': 'good, kind, virtuous', '良': 'good, kind, excellent', '真': 'true, genuine, sincere', '诚': 'honest, sincere, faithful',
+  '智': 'wisdom, intelligent, smart', '子': 'gentleman, child, scholar', '小': 'small, cute, lovely',
+  '乐': 'happy, music, joy', '欢': 'joyful, happy, cheerful', '喜': 'happy, joyful, pleased', '甜': 'sweet, lovely, cute',
+  '萌': 'bud, cute, innocent', '可': 'lovable, cute, agreeable', '爱': 'love, lovely, caring',
+  '宝': 'treasure, precious, baby', '贝': 'treasure, precious, cute', '心': 'heart, love, sincere', '星': 'star, bright, hope',
+  '成': 'success, achieve, accomplish', '达': 'reach, achieve, prosperous', '胜': 'victory, win, success',
+  '利': 'benefit, sharp, advantage', '富': 'wealthy, rich, abundant', '贵': 'precious, noble, valuable', '荣': 'glory, honor, prosperous',
+  '昌': 'prosperous, flourishing', '兴': 'prosperous, rise, flourish', '旺': 'prosperous, flourishing, strong',
+  '发': 'prosper, develop, wealth', '财': 'wealth, fortune, talent', '金': 'gold, precious, wealth', '银': 'silver, precious, wealth',
+  '敏': 'quick, sharp, intelligent', '能': 'ability, capable, talented', '才': 'talent, ability, gifted',
+  '艺': 'art, skill, talent', '巧': 'skillful, clever, ingenious', '思': 'think, thought, mind', '维': 'maintain, think, dimension',
+  '理': 'reason, manage, govern', '管': 'manage, control, govern', '领': 'lead, leader, guide',
+  '导': 'guide, lead, direct', '策': 'strategy, plan, policy', '划': 'plan, design, strategy', '糖': 'sweet, lovely, warm',
+  '果': 'fruit, result, achievement', '朵': 'flower, cloud, lovely', '儿': 'child, son, lovely',
+  '妮': 'girl, lovely, dear', '娃': 'baby, child, lovely', '谐': 'harmonious, humorous', '纯': 'pure, innocent, simple',
+  '好': 'good, nice, excellent', '佳': 'good, excellent, beautiful', '优': 'excellent, superior, elegant', '秀': 'elegant, beautiful, outstanding'
 };
 
 // 预定义的中文名字数据
