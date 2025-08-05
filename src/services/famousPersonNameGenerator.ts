@@ -323,7 +323,7 @@ export const getRecommendedFamousPeople = (gender: string, style: string) => {
   return famousChinesePeople
     .filter(person => 
       (person.gender === gender || person.gender === 'neutral') &&
-      person.popularity >= 7
+      person.popularity >= 6 // 降低人气要求，显示更多名人
     )
     .sort((a, b) => {
       // 优先考虑风格匹配和人气
@@ -331,7 +331,7 @@ export const getRecommendedFamousPeople = (gender: string, style: string) => {
       const bScore = (b.nameStyle === style ? 2 : 1) * b.popularity;
       return bScore - aScore;
     })
-    .slice(0, 10);
+    .slice(0, 20); // 增加显示数量
 };
 
 // 获取名人详细信息

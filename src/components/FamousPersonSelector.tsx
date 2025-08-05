@@ -27,11 +27,21 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
   }, [gender, style]);
 
   const filteredPeople = recommendedPeople.filter(person => {
-    const matchesSearch = searchTerm === '' || 
-      person.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      person.pinyin.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      person.englishName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      person.achievements.some(achievement => achievement.toLowerCase().includes(searchTerm.toLowerCase()));
+    if (searchTerm === '') {
+      return selectedCategory === '' || person.category === selectedCategory;
+    }
+    
+    const searchLower = searchTerm.toLowerCase();
+    
+    // Search in multiple fields
+    const matchesSearch = 
+      person.name.toLowerCase().includes(searchLower) ||
+      person.pinyin.toLowerCase().includes(searchLower) ||
+      person.englishName?.toLowerCase().includes(searchLower) ||
+      person.briefIntroduction?.toLowerCase().includes(searchLower) ||
+      person.achievements.some(achievement => achievement.toLowerCase().includes(searchLower)) ||
+      person.personality.some(trait => trait.toLowerCase().includes(searchLower)) ||
+      person.keyContributions.some(contribution => contribution.toLowerCase().includes(searchLower));
     
     const matchesCategory = selectedCategory === '' || person.category === selectedCategory;
     
@@ -39,14 +49,14 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
   });
 
   const categories = [
-    { key: 'philosopher', label: '哲学家', icon: Brain },
-    { key: 'poet', label: '诗人', icon: BookOpen },
-    { key: 'politician', label: '政治家', icon: Users },
-    { key: 'military', label: '军事家', icon: Shield },
-    { key: 'artist', label: '艺术家', icon: Palette },
-    { key: 'scientist', label: '科学家', icon: TestTube },
-    { key: 'business', label: '商业家', icon: Briefcase },
-    { key: 'entertainer', label: '演艺家', icon: Music }
+    { key: 'philosopher', label: 'Philosophers', icon: Brain },
+    { key: 'poet', label: 'Poets & Writers', icon: BookOpen },
+    { key: 'politician', label: 'Politicians', icon: Users },
+    { key: 'military', label: 'Military Leaders', icon: Shield },
+    { key: 'artist', label: 'Artists', icon: Palette },
+    { key: 'scientist', label: 'Scientists', icon: TestTube },
+    { key: 'business', label: 'Business Leaders', icon: Briefcase },
+    { key: 'entertainer', label: 'Entertainers', icon: Music }
   ];
 
   const getPopularityColor = (popularity: number) => {
@@ -63,25 +73,25 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* 标题和说明 */}
+      {/* Title and Description */}
       <div className="text-center">
         <h3 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
           <Users className="w-6 h-6 mr-2 text-yellow-400" />
-          选择您喜欢的中国名人
+          Choose Your Favorite Chinese Historical Figure
         </h3>
         <p className="text-white/70">
-          根据您选择的性别和风格，我们为您推荐了以下中国名人。选择您喜欢的名人，我们将基于其特点为您生成个性化的中文名字。
+          Based on your gender and style preferences, we've selected these influential Chinese figures. Choose someone you admire, and we'll generate personalized Chinese names inspired by their characteristics and legacy.
         </p>
       </div>
 
-      {/* 搜索和筛选 */}
+      {/* Search and Filter */}
       <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 w-4 h-4" />
             <input
               type="text"
-              placeholder="搜索名人..."
+              placeholder="Search by name, achievements, or keywords..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-white/10 border border-white/20 rounded-lg pl-10 pr-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
@@ -92,15 +102,44 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
             onChange={(e) => setSelectedCategory(e.target.value)}
             className="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
           >
-            <option value="">所有类别</option>
+            <option value="">All Categories</option>
             {categories.map(category => (
               <option key={category.key} value={category.key}>{category.label}</option>
             ))}
           </select>
         </div>
+        
+        {/* Search Tips */}
+        <div className="mt-3 pt-3 border-t border-white/10">
+          <p className="text-white/60 text-sm mb-2">💡 Search tips: Try searching for "Confucius", "poetry", "philosophy", "military", "art", or "wisdom"</p>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('Confucius')}>
+              Confucius
+            </span>
+            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('poetry')}>
+              Poetry
+            </span>
+            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('philosophy')}>
+              Philosophy
+            </span>
+            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('military')}>
+              Military
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* 名人列表 */}
+      {/* Results Count */}
+      <div className="text-center">
+        <p className="text-white/70 text-sm">
+          {filteredPeople.length === 0 
+            ? 'No results found. Try different search terms or categories.' 
+            : `Found ${filteredPeople.length} historical figures`
+          }
+        </p>
+      </div>
+
+      {/* Historical Figures List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredPeople.map((person) => (
           <div
@@ -121,6 +160,9 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
                 <div className="flex-1">
                   <h4 className="font-bold text-white text-lg">{person.name}</h4>
                   <p className="text-white/70 text-sm">{person.pinyin}</p>
+                  {person.englishName && (
+                    <p className="text-yellow-400 text-xs font-medium">{person.englishName}</p>
+                  )}
                 </div>
                 <div className={`px-2 py-1 rounded-full text-xs font-medium ${getPopularityBg(person.popularity)} ${getPopularityColor(person.popularity)}`}>
                   {person.popularity}/10
@@ -151,12 +193,12 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
                 </div>
               </div>
 
-              {/* 时代和类别 */}
+              {/* Era and Category */}
               <div className="flex justify-between items-center mt-3 pt-3 border-t border-white/10">
                 <span className="text-white/60 text-xs">
-                  {person.era === 'ancient' ? '古代' : 
-                   person.era === 'imperial' ? '帝国' : 
-                   person.era === 'modern' ? '近代' : '当代'}
+                  {person.era === 'ancient' ? 'Ancient' : 
+                   person.era === 'imperial' ? 'Imperial' : 
+                   person.era === 'modern' ? 'Modern' : 'Contemporary'}
                 </span>
                 <span className="text-white/60 text-xs">
                   {categories.find(c => c.key === person.category)?.label || person.category}
