@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, Sun, Compass, Pin as Yin, ArrowRight, Brain, Zap, Globe, Heart, Info, Users, Star } from 'lucide-react';
+import React from 'react';
+import { Sparkles, Compass, ArrowRight, Brain, Zap, Globe, Heart, Info, Users } from 'lucide-react';
 
-interface NameData {
-  id: string;
-  name: string;
-  pinyin: string;
-  meaning: string;
-  gender: string;
-}
+// interface NameData {
+//   id: string;
+//   name: string;
+//   pinyin: string;
+//   meaning: string;
+//   gender: string;
+// }
 
 const HomePage: React.FC = () => {
   // SEO optimization - set page title and meta description

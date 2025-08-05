@@ -1,10 +1,11 @@
 // 增强型姓名生成服务 - 技术改进版本
 import { EnhancedUserProfile, NameRecommendation } from '../types/userProfile';
-import { getProfessionalChars, getProfessionalContext } from '../data/professionalNames';
-import { getZodiacChars, getZodiacContext, getZodiacPersonality } from '../data/zodiacNames';
+import { getProfessionalChars } from '../data/professionalNames';
+import { getZodiacChars } from '../data/zodiacNames';
 import { chineseCharacters, pinyinMap, meaningMap } from '../data/chineseNames';
 
-// 改进的英文名到中文名映射
+// 改进的英文名到中文名映射 - 未使用，注释掉
+/*
 interface EnhancedNameMapping {
   englishName: string;
   chineseOptions: {
@@ -22,8 +23,10 @@ interface EnhancedNameMapping {
   };
   phoneticSimilarity: number;
 }
+*/
 
-// 扩展的英文名映射数据库
+// 扩展的英文名映射数据库 - 未使用，注释掉
+/*
 const enhancedNameMappings: Record<string, EnhancedNameMapping> = {
   'david': {
     englishName: 'David',
@@ -94,10 +97,11 @@ const enhancedNameMappings: Record<string, EnhancedNameMapping> = {
     phoneticSimilarity: 0.85
   }
 };
+*/
 
 // 语义分析函数
 const analyzeNameSemantics = (englishName: string) => {
-  const lowerName = englishName.toLowerCase();
+  // const lowerName = englishName.toLowerCase(); // 未使用
   
   return {
     syllables: extractSyllables(englishName),
@@ -206,14 +210,15 @@ const matchCulturalElements = (
 // 生成文化适配的名字
 const generateCulturallyAppropriateNames = (
   englishName: string,
-  culturalElements: any
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  culturalElements: Record<string, unknown>
 ): string[][] => {
   const nameVariations: string[][] = [];
   const semantics = analyzeNameSemantics(englishName);
   
   // 基于语义分析生成名字变体
   for (const syllable of semantics.syllables) {
-    const chars = mapSyllableToChinese(syllable, culturalElements);
+    const chars = mapSyllableToChinese(syllable);
     if (chars.length > 0) {
       nameVariations.push(chars);
     }
@@ -223,7 +228,7 @@ const generateCulturallyAppropriateNames = (
 };
 
 // 音节到中文字符的映射
-const mapSyllableToChinese = (syllable: string, culturalElements: any): string[] => {
+const mapSyllableToChinese = (syllable: string): string[] => {
   const chars: string[] = [];
   
   // 根据音节特征和文化元素选择字符
@@ -251,7 +256,7 @@ const getCharByPosition = (
   englishName: string, 
   position: number, 
   availableChars: string[],
-  culturalContext: any
+  culturalContext: { age: number; profession?: string }
 ): string => {
   const char = englishName[position] || englishName[0];
   const charCode = char.toLowerCase().charCodeAt(0);
@@ -325,15 +330,16 @@ export const generateEnhancedNames = async (
 const generateNameVariation = (
   englishName: string,
   userProfile: EnhancedUserProfile,
-  semantics: any,
-  culturalMatch: string[][]
+  semantics: Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _culturalMatch: string[][]
 ): NameRecommendation | null => {
   const gender = userProfile.basic.gender;
   const style = userProfile.preferences.style;
   
   // 获取可用字符
   const genderChars = chineseCharacters[gender as keyof typeof chineseCharacters] || chineseCharacters.male;
-  const styleChars = genderChars[style as keyof typeof genderChars] || genderChars.traditional;
+  const styleChars = genderChars[style as keyof typeof genderChars] || (genderChars as Record<string, string[]>).traditional || Object.values(genderChars)[0];
   
   // 生成字符组合
   const chars: string[] = [];
@@ -372,10 +378,10 @@ const generateNameVariation = (
   score += (zodiacMatch / nameChars.length) * 25;
   
   // 语义匹配度
-  if (semantics.meaning.includes('wisdom') && nameChars.includes('智')) {
+  if ((semantics.meaning as string).includes('wisdom') && nameChars.includes('智')) {
     score += 15;
   }
-  if (semantics.meaning.includes('beloved') && nameChars.includes('爱')) {
+  if ((semantics.meaning as string).includes('beloved') && nameChars.includes('爱')) {
     score += 15;
   }
   

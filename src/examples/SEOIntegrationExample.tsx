@@ -1,6 +1,5 @@
 import React from 'react';
 import SEOManager, { withSEO, useDynamicSEO, SEODebugger } from '../components/SEOManager';
-import { SEO_PAGES } from '../config/seoConfig';
 
 // Example 1: Using SEOManager directly
 const ExamplePage1: React.FC = () => {

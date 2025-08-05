@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Users, Building, Home, Star, Sparkles, ArrowRight, Calendar, Globe, Zap, Info } from 'lucide-react';
+import { Heart, Users, Star, ArrowRight, Globe, Sparkles, Calendar, Building, Home } from 'lucide-react';
 
 // 龙虎生肖图标组件
 const DragonTigerIcon: React.FC<{ className?: string }> = ({ className = "w-10 h-10" }) => {
@@ -46,7 +46,14 @@ const CompatibilityPage: React.FC = () => {
   const [person2Zodiac, setPerson2Zodiac] = useState('');
   const [person1Birthday, setPerson1Birthday] = useState('');
   const [person2Birthday, setPerson2Birthday] = useState('');
-  const [compatibilityResult, setCompatibilityResult] = useState<any>(null);
+  const [compatibilityResult, setCompatibilityResult] = useState<{
+    score: number;
+    description: string;
+    advice: string;
+    loveMatch: string;
+    person1: string;
+    person2: string;
+  } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
 
   // 设置页面标题和meta信息

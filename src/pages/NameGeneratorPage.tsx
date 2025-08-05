@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, User, Palette, ArrowRight, Brain, Zap, Globe, Heart, Users, Star, Briefcase, Calendar } from 'lucide-react';
+import { Sparkles, User, Palette, ArrowRight, Brain, Heart, Users, Star, Crown, Award } from 'lucide-react';
 import { generateNames } from '../services/chineseNameGenerator';
 import { generatePersonalizedNames } from '../services/personalizedNameGenerator';
 import { generateEnhancedNames } from '../services/enhancedNameGenerator';
+import { generateNamesInspiredByFamousPerson, FamousPersonNameResponse } from '../services/famousPersonNameGenerator';
 import { EnhancedUserProfile } from '../types/userProfile';
+import { FamousPerson } from '../data/famousChinesePeople';
 import NameCard from '../components/NameCard';
+import FamousPersonSelector from '../components/FamousPersonSelector';
+import FamousPersonNameCard from '../components/FamousPersonNameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 
 interface NameData {
@@ -38,18 +42,31 @@ const NameGeneratorPage: React.FC = () => {
   const [gender, setGender] = useState('neutral');
   const [style, setStyle] = useState('neutral');
   const [names, setNames] = useState<NameData[]>([]);
+  const [famousPersonNames, setFamousPersonNames] = useState<FamousPersonNameResponse['names']>([]);
   const [loading, setLoading] = useState(false);
   const [hasGenerated, setHasGenerated] = useState(false);
+  const [selectedFamousPerson, setSelectedFamousPerson] = useState<FamousPerson | null>(null);
+  const [showFamousPersonSelector, setShowFamousPersonSelector] = useState(false);
+  const [generationMode, setGenerationMode] = useState<'normal' | 'famous-person'>('normal');
   
-  // 个性化选项
+  // 个性化选项 - 这些变量在handleSubmit函数中使用
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [usePersonalization, setUsePersonalization] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [useEnhancedAlgorithm, setUseEnhancedAlgorithm] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [age, setAge] = useState(25);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [profession, setProfession] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [zodiac, setZodiac] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [purpose, setPurpose] = useState('personal');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [nameLength, setNameLength] = useState('medium');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [uniqueness, setUniqueness] = useState('common');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [formality, setFormality] = useState('casual');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -58,7 +75,18 @@ const NameGeneratorPage: React.FC = () => {
     
     setLoading(true);
     try {
-      if (useEnhancedAlgorithm) {
+      if (generationMode === 'famous-person' && selectedFamousPerson) {
+        // 使用名人库起名
+        const result = await generateNamesInspiredByFamousPerson({
+          englishName: englishName.trim(),
+          gender: gender as 'male' | 'female' | 'neutral',
+          favoritePersonId: selectedFamousPerson.id,
+          style: style as 'traditional' | 'modern' | 'business' | 'cute' | 'neutral'
+        });
+        
+        setFamousPersonNames(result.names);
+        setNames([]); // 清空普通名字
+      } else if (useEnhancedAlgorithm) {
         // 使用增强算法
         const userProfile: EnhancedUserProfile = {
           basic: {
@@ -100,6 +128,7 @@ const NameGeneratorPage: React.FC = () => {
         }));
         
         setNames(convertedNames);
+        setFamousPersonNames([]); // 清空名人名字
       } else if (usePersonalization) {
         // 使用个性化生成
         const userProfile: EnhancedUserProfile = {
@@ -145,6 +174,7 @@ const NameGeneratorPage: React.FC = () => {
         }));
         
         setNames(convertedNames);
+        setFamousPersonNames([]); // 清空名人名字
       } else {
         // 使用原有生成方式
         const result = await generateNames({
@@ -153,6 +183,7 @@ const NameGeneratorPage: React.FC = () => {
           style: style as 'traditional' | 'modern' | 'business' | 'cute' | 'neutral'
         });
         setNames(result.names);
+        setFamousPersonNames([]); // 清空名人名字
       }
       setHasGenerated(true);
     } catch (error) {
@@ -310,6 +341,87 @@ const NameGeneratorPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Generation Mode Selection */}
+          <div className="space-y-3 relative z-10">
+            <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
+              <Crown className="w-4 h-4" />
+              <span>起名模式</span>
+            </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                { value: 'normal', label: '传统起名', desc: '经典算法生成', icon: Sparkles },
+                { value: 'famous-person', label: '名人启发', desc: '基于中国名人', icon: Award }
+              ].map((option) => {
+                const Icon = option.icon;
+                return (
+                  <label key={option.value} className="relative">
+                    <input
+                      type="radio"
+                      name="generationMode"
+                      value={option.value}
+                      checked={generationMode === option.value}
+                      onChange={(e) => setGenerationMode(e.target.value as 'normal' | 'famous-person')}
+                      className="sr-only"
+                    />
+                    <div className={`flex items-center space-x-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 backdrop-blur-sm shadow-lg ${
+                      generationMode === option.value 
+                        ? 'border-yellow-400 bg-yellow-400/20 text-yellow-300 shadow-xl shadow-yellow-400/30 scale-105' 
+                        : 'border-white/20 hover:border-yellow-400/50 hover:bg-white/10 text-white/80 hover:scale-102'
+                    }`}>
+                      <Icon className="w-5 h-5" />
+                      <div>
+                        <div className="font-semibold text-sm">{option.label}</div>
+                        <div className="text-xs text-white/70">{option.desc}</div>
+                      </div>
+                    </div>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Famous Person Selection */}
+          {generationMode === 'famous-person' && (
+            <div className="space-y-3 relative z-10">
+              <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
+                <Users className="w-4 h-4" />
+                <span>选择喜欢的中国名人</span>
+              </label>
+              {selectedFamousPerson ? (
+                <div className="bg-yellow-500/10 backdrop-blur-sm rounded-xl border border-yellow-400/20 p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center">
+                        <span className="text-lg font-bold text-yellow-400">{selectedFamousPerson.name[0]}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white">{selectedFamousPerson.name}</h4>
+                        <p className="text-white/70 text-sm">{selectedFamousPerson.pinyin}</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => setShowFamousPersonSelector(true)}
+                      className="px-3 py-1 bg-white/10 text-white/80 rounded-lg hover:bg-white/20 transition-colors duration-300 text-sm"
+                    >
+                      更换
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setShowFamousPersonSelector(true)}
+                  className="w-full p-4 border-2 border-dashed border-white/20 rounded-xl text-white/70 hover:border-yellow-400/50 hover:text-yellow-400 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-center space-x-2">
+                    <Users className="w-5 h-5" />
+                    <span>点击选择喜欢的中国名人</span>
+                  </div>
+                </button>
+              )}
+            </div>
+          )}
+
           {/* Style Selection */}
           <div className="space-y-3 relative z-10">
             <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
@@ -350,7 +462,7 @@ const NameGeneratorPage: React.FC = () => {
           <div className="relative z-10">
             <button
               type="submit"
-              disabled={loading || !englishName.trim()}
+              disabled={loading || !englishName.trim() || (generationMode === 'famous-person' && !selectedFamousPerson)}
               className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 text-white py-4 sm:py-5 px-6 sm:px-8 rounded-xl font-bold text-base sm:text-lg hover:from-yellow-400 hover:to-orange-500 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-yellow-500/30 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -364,7 +476,12 @@ const NameGeneratorPage: React.FC = () => {
                 ) : (
                   <>
                     <Brain className="w-5 h-5" />
-                    <span>Generate Chinese Names with BaZi</span>
+                    <span>
+                      {generationMode === 'famous-person' 
+                        ? `基于${selectedFamousPerson?.name}生成中文名字`
+                        : 'Generate Chinese Names with BaZi'
+                      }
+                    </span>
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -374,11 +491,17 @@ const NameGeneratorPage: React.FC = () => {
         </form>
         
         {/* Results Section */}
-        {(hasGenerated || names.length > 0) && (
+        {(hasGenerated || names.length > 0 || famousPersonNames.length > 0) && (
           <div>
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-yellow-200 to-orange-200 bg-clip-text text-transparent mb-3 sm:mb-4 px-2">
-                {hasGenerated ? 'Your Personalized Chinese Names with Meanings' : 'Example Chinese Names with Cultural Significance'}
+                {hasGenerated 
+                  ? (generationMode === 'famous-person' 
+                      ? `基于${selectedFamousPerson?.name}启发的个性化中文名字`
+                      : 'Your Personalized Chinese Names with Meanings'
+                    )
+                  : 'Example Chinese Names with Cultural Significance'
+                }
               </h2>
               {!hasGenerated && (
                 <p className="text-white/70 text-sm sm:text-base px-2">Sample Chinese names with BaZi analysis to inspire you - enter your name for personalized results with zodiac compatibility</p>
@@ -388,11 +511,28 @@ const NameGeneratorPage: React.FC = () => {
             {loading ? (
               <LoadingSkeleton />
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {names.map((name) => (
-                  <NameCard key={name.id} name={name} />
-                ))}
-              </div>
+              <>
+                {/* 名人启发的名字 */}
+                {famousPersonNames.length > 0 && (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    {famousPersonNames.map((name) => (
+                      <FamousPersonNameCard 
+                        key={name.id} 
+                        name={name}
+                      />
+                    ))}
+                  </div>
+                )}
+                
+                {/* 普通名字 */}
+                {names.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    {names.map((name) => (
+                      <NameCard key={name.id} name={name} />
+                    ))}
+                  </div>
+                )}
+              </>
             )}
             
             {hasGenerated && (
@@ -494,6 +634,35 @@ const NameGeneratorPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* 名人选择器模态框 */}
+      {showFamousPersonSelector && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-white">选择您喜欢的中国名人</h3>
+                <button
+                  onClick={() => setShowFamousPersonSelector(false)}
+                  className="text-white/70 hover:text-white text-2xl"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <FamousPersonSelector
+                gender={gender}
+                style={style}
+                onPersonSelect={(person) => {
+                  setSelectedFamousPerson(person);
+                  setShowFamousPersonSelector(false);
+                }}
+                selectedPerson={selectedFamousPerson}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

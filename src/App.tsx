@@ -9,6 +9,7 @@ import FengShuiTipsPage from './pages/FengShuiTipsPage';
 import AstrologyPage from './pages/AstrologyPage';
 import CompatibilityPage from './pages/CompatibilityPage';
 import AboutPage from './pages/AboutPage';
+import FamousPeoplePage from './pages/FamousPeoplePage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -17,7 +18,7 @@ function App() {
   React.useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (hash && ['nameGenerator', 'compatibility', 'fengShuiTips', 'astrology', 'about'].includes(hash)) {
+      if (hash && ['nameGenerator', 'compatibility', 'fengShuiTips', 'astrology', 'about', 'famousPeople'].includes(hash)) {
         setCurrentPage(hash);
       }
     };
@@ -42,6 +43,8 @@ function App() {
         return <CompatibilityPage />;
       case 'about':
         return <AboutPage />;
+      case 'famousPeople':
+        return <FamousPeoplePage />;
       default:
         return <HomePage />;
     }

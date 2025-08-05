@@ -1,5 +1,5 @@
 // 纯前端中文名字生成服务
-import { chineseCharacters, pinyinMap, meaningMap, predefinedNames, ChineseName } from '../data/chineseNames';
+import { chineseCharacters, pinyinMap, meaningMap, predefinedNames } from '../data/chineseNames';
 
 export interface GenerateRequest {
   englishName: string;
@@ -288,7 +288,7 @@ const getFallbackNames = (gender: string): NameData[] => {
 };
 
 // 测试连接函数（纯前端版本）
-export const testConnection = async (): Promise<{ success: boolean; message: string; details?: any }> => {
+export const testConnection = async (): Promise<{ success: boolean; message: string; details?: Record<string, unknown> }> => {
   try {
     console.log('🔍 开始纯前端名字生成器测试...');
     
@@ -326,7 +326,7 @@ export const debugNameGenerator = async (): Promise<void> => {
     // 1. 环境检查
     console.log('🌍 环境检查:');
     console.log('- 浏览器环境:', typeof window !== 'undefined');
-    console.log('- 字符数据库大小:', Object.keys(chineseCharacters).length);
+          console.log('- 字符数据库大小:', Object.keys(chineseCharacters).length);
     console.log('- 拼音映射数量:', Object.keys(pinyinMap).length);
     console.log('- 预定义名字数量:', predefinedNames.length);
     
@@ -349,7 +349,7 @@ export const debugNameGenerator = async (): Promise<void> => {
     ];
     
     for (const testCase of testCases) {
-      const result = await generateNames(testCase as any);
+      const result = await generateNames(testCase as GenerateRequest);
       console.log(`- ${testCase.englishName} (${testCase.gender}, ${testCase.style}):`, result.names[0].name);
     }
     
