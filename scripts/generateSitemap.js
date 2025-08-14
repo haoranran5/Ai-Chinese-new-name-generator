@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 // Sitemap configuration
 const SITE_CONFIG = {
-  baseUrl: 'https://chinesecharactername.top',
+  baseUrl: 'https://www.chinesecharactername.top',
   outputPath: path.join(__dirname, '../public/sitemap.xml')
 };
 

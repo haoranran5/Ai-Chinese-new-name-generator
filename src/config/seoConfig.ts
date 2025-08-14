@@ -10,8 +10,8 @@ export interface PageSEOConfig {
 
 export const SITE_CONFIG = {
   siteName: 'Chinese Zodiac & Name Generator',
-  siteUrl: 'https://chinesecharactername.top',
-  defaultImage: 'https://chinesecharactername.top/android-chrome-512x512.png',
+  siteUrl: 'https://www.chinesecharactername.top',
+  defaultImage: 'https://www.chinesecharactername.top/android-chrome-512x512.png',
   author: 'Chinese Zodiac & Feng Shui Digital Tools',
   locale: 'en_US',
   twitterHandle: '@ChineseZodiacGen', // Add if you have Twitter

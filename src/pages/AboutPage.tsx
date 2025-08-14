@@ -27,23 +27,23 @@ const AboutPage: React.FC = () => {
   const features = [
     {
       icon: Sun,
-      title: 'Ancient Wisdom Integration',
-      description: 'Combining thousands of years of Feng Shui and Chinese Astrology wisdom with modern technology'
+      title: 'Old Wisdom, New Tech',
+      description: 'We mix thousands of years of Feng Shui and Chinese Astrology know-how with modern technology'
     },
     {
       icon: Globe,
-      title: 'Authentic Cultural Practices',
-      description: 'Respects traditional Chinese practices while making them accessible to modern practitioners'
+      title: 'Real Cultural Stuff',
+      description: 'We respect traditional Chinese practices but make them work for regular people like us'
     },
     {
       icon: Zap,
-      title: 'AI-Powered Analysis',
-      description: 'Get instant Feng Shui analysis and Chinese Astrology readings with advanced AI processing'
+      title: 'AI Magic',
+      description: 'Get instant Feng Shui readings and Chinese Astrology insights with our smart AI'
     },
     {
       icon: Heart,
-      title: 'Personalized Results',
-      description: 'Customized recommendations based on your specific needs and energy patterns'
+      title: 'Made Just for You',
+      description: 'We give you personalized recommendations based on what you actually need and how you vibe'
     }
   ];
 
@@ -60,7 +60,7 @@ const AboutPage: React.FC = () => {
             About Our Free Chinese Zodiac & Feng Shui Platform
           </h1>
           <p className="text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-            Our AI-powered platform combines ancient Chinese zodiac wisdom with modern technology to bring harmony and balance to Western users. All Chinese zodiac compatibility tools, name generators, and Feng Shui guidance are completely free and designed for cultural authenticity.
+            We built this platform to bring ancient Chinese wisdom to modern life. Our AI mixes old-school zodiac knowledge with new tech to help you find harmony and balance. All our zodiac tools, name pickers, and Feng Shui tips are totally free and actually work for regular folks like us.
           </p>
         </div>
 
@@ -95,17 +95,17 @@ const AboutPage: React.FC = () => {
           <div className="text-center mb-8">
             <Sparkles className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent mb-4">
-              How Our Free Chinese Zodiac Platform Works
+              How Our Platform Works
             </h2>
             <p className="text-white/80">
-              Designed specifically for Western users seeking authentic Chinese zodiac compatibility and Feng Shui wisdom
+              Built specifically for folks like us who want real Chinese zodiac compatibility and Feng Shui wisdom
             </p>
           </div>
           
           <div className="space-y-6 text-white/80 leading-relaxed">
             <p>
-              Our completely free AI platform combines ancient Chinese zodiac principles, Feng Shui wisdom, and Chinese Astrology with modern digital tools 
-              to provide comprehensive compatibility analysis, name generation, and harmony guidance for Western users. The process involves:
+              Our totally free AI platform mixes ancient Chinese zodiac principles, Feng Shui wisdom, and Chinese Astrology with modern digital tools 
+              to give you comprehensive compatibility analysis, name picking, and harmony guidance that actually works for regular folks. Here's how it works:
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">

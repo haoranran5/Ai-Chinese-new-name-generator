@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Info, Sparkles, Compass, Sun, Users } from 'lucide-react';
+import { Home, Info, Sparkles, Compass, Sun, Users, BookOpen, HelpCircle } from 'lucide-react';
 
 interface NavigationProps {
   currentPage: string;
@@ -14,6 +14,8 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) =>
     { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Compass },
     { id: 'astrology', label: 'Zodiac Signs', icon: Sun },
     { id: 'famousPeople', label: 'Famous People', icon: Users },
+    { id: 'blog', label: 'Blog', icon: BookOpen },
+    { id: 'faq', label: 'FAQ', icon: HelpCircle },
     { id: 'about', label: 'About', icon: Info },
     { id: 'home', label: 'Home', icon: Home }
   ];
