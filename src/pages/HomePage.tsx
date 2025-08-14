@@ -371,7 +371,7 @@ const HomePage: React.FC = () => {
               <div className="space-y-3 relative z-10">
                 <label className="flex items-center space-x-2 text-sm font-semibold text-white/90">
                   <Users className="w-4 h-4" />
-                  <span>Choose Your Favorite Chinese Celebrity</span>
+                  <span>Choose Your Favorite Chinese Historical Figure</span>
                 </label>
                 {selectedFamousPerson ? (
                   <div className="bg-yellow-500/10 backdrop-blur-sm rounded-xl border border-yellow-400/20 p-4">
@@ -402,7 +402,7 @@ const HomePage: React.FC = () => {
                   >
                     <div className="flex items-center justify-center space-x-2">
                       <Users className="w-5 h-5" />
-                      <span>Click to choose your favorite Chinese celebrity</span>
+                      <span>Click to choose your favorite Chinese historical figure</span>
                     </div>
                   </button>
                 )}
@@ -691,6 +691,34 @@ const HomePage: React.FC = () => {
             "keywords": "chinese names, chinese zodiac, chinese ai name, chinese male names, random chinese name generator, chinese name generator fantasy"
           })
         }} />
+
+        {/* Famous Person Selector Modal */}
+        {showFamousPersonSelector && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-2xl font-bold text-white">Choose Your Favorite Chinese Historical Figure</h3>
+                  <button
+                    onClick={() => setShowFamousPersonSelector(false)}
+                    className="text-white/70 hover:text-white text-2xl"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <FamousPersonSelector
+                  gender={gender}
+                  style={style}
+                  onPersonSelect={(person) => {
+                    setSelectedFamousPerson(person);
+                    setShowFamousPersonSelector(false);
+                  }}
+                  selectedPerson={selectedFamousPerson}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

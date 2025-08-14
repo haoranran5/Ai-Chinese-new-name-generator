@@ -80,7 +80,7 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
           Choose Your Favorite Chinese Historical Figure
         </h3>
         <p className="text-white/70">
-          Based on your gender and style preferences, we've selected these influential Chinese figures. Choose someone you admire, and we'll generate personalized Chinese names inspired by their characteristics and legacy.
+          Based on your gender and style preferences, we've selected these influential Chinese historical figures. Choose someone you admire, and we'll generate personalized Chinese names inspired by their characteristics and legacy.
         </p>
       </div>
 
