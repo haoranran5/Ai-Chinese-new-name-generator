@@ -4,7 +4,6 @@ import { FavoritesProvider } from './contexts/FavoritesContext';
 import Navigation from './components/Navigation';
 import FengShuiElements from './components/FengShuiElements';
 import HomePage from './pages/HomePage';
-import NameGeneratorPage from './pages/NameGeneratorPage';
 import FengShuiTipsPage from './pages/FengShuiTipsPage';
 import AstrologyPage from './pages/AstrologyPage';
 import CompatibilityPage from './pages/CompatibilityPage';
@@ -20,7 +19,7 @@ function App() {
   React.useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (hash && ['nameGenerator', 'compatibility', 'fengShuiTips', 'astrology', 'about', 'famousPeople', 'blog', 'faq'].includes(hash)) {
+      if (hash && ['compatibility', 'fengShuiTips', 'astrology', 'about', 'famousPeople', 'blog', 'faq'].includes(hash)) {
         setCurrentPage(hash);
       }
     };
@@ -35,8 +34,6 @@ function App() {
     switch (currentPage) {
       case 'home':
         return <HomePage />;
-      case 'nameGenerator':
-        return <NameGeneratorPage />;
       case 'fengShuiTips':
         return <FengShuiTipsPage />;
       case 'astrology':

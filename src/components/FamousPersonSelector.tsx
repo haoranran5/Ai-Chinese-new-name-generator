@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Users, Heart, Shield, Brain, BookOpen, Palette, TestTube, Briefcase, Music } from 'lucide-react';
-import { getRecommendedFamousPeople, getFamousPersonDetails } from '../services/famousPersonNameGenerator';
-import { FamousPerson } from '../data/famousChinesePeople';
+import { Search, Users, Heart, Shield, Brain, BookOpen, Palette, TestTube, Briefcase, Music, RefreshCw, Award } from 'lucide-react';
+import { FamousPerson, famousChinesePeople } from '../data/famousChinesePeople';
 
 interface FamousPersonSelectorProps {
   gender: string;
@@ -16,17 +15,37 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
   onPersonSelect,
   selectedPerson
 }) => {
-  const [recommendedPeople, setRecommendedPeople] = useState<FamousPerson[]>([]);
+  const [displayedPeople, setDisplayedPeople] = useState<FamousPerson[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [showDetails, setShowDetails] = useState<string | null>(null);
 
+  // 获取适合的名人列表
+  const getSuitablePeople = () => {
+    return famousChinesePeople.filter(person => 
+      person.gender === gender || person.gender === 'neutral'
+    );
+  };
+
+  // 随机选择10个名人
+  const selectRandomPeople = () => {
+    const suitablePeople = getSuitablePeople();
+    const shuffled = [...suitablePeople].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 10);
+  };
+
+  // 刷新名人列表
+  const refreshPeople = () => {
+    setDisplayedPeople(selectRandomPeople());
+    setSearchTerm('');
+    setSelectedCategory('');
+  };
+
   useEffect(() => {
-    const people = getRecommendedFamousPeople(gender, style);
-    setRecommendedPeople(people);
+    refreshPeople();
   }, [gender, style]);
 
-  const filteredPeople = recommendedPeople.filter(person => {
+  const filteredPeople = displayedPeople.filter(person => {
     if (searchTerm === '') {
       return selectedCategory === '' || person.category === selectedCategory;
     }
@@ -80,8 +99,19 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
           Choose Your Favorite Chinese Historical Figure
         </h3>
         <p className="text-white/70">
-          Based on your gender and style preferences, we've selected these influential Chinese historical figures. Choose someone you admire, and we'll generate personalized Chinese names inspired by their characteristics and legacy.
+          We've selected 10 random Chinese historical figures for you. If you're not satisfied, click the refresh button to get a new selection!
         </p>
+      </div>
+
+      {/* Refresh Button */}
+      <div className="flex justify-center">
+        <button
+          onClick={refreshPeople}
+          className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+        >
+          <RefreshCw className="w-5 h-5" />
+          Refresh Selection
+        </button>
       </div>
 
       {/* Search and Filter */}
@@ -108,214 +138,138 @@ const FamousPersonSelector: React.FC<FamousPersonSelectorProps> = ({
             ))}
           </select>
         </div>
-        
-        {/* Search Tips */}
-        <div className="mt-3 pt-3 border-t border-white/10">
-          <p className="text-white/60 text-sm mb-2">💡 Search tips: Try searching for "Confucius", "poetry", "philosophy", "military", "art", or "wisdom"</p>
-          <div className="flex flex-wrap gap-2">
-            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('Confucius')}>
-              Confucius
-            </span>
-            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('poetry')}>
-              Poetry
-            </span>
-            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('philosophy')}>
-              Philosophy
-            </span>
-            <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-full cursor-pointer hover:bg-yellow-500/30" onClick={() => setSearchTerm('military')}>
-              Military
-            </span>
-          </div>
-        </div>
       </div>
 
-      {/* Results Count */}
-      <div className="text-center">
-        <p className="text-white/70 text-sm">
-          {filteredPeople.length === 0 
-            ? 'No results found. Try different search terms or categories.' 
-            : `Found ${filteredPeople.length} historical figures`
-          }
-        </p>
-      </div>
-
-      {/* Historical Figures List */}
+      {/* People Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredPeople.map((person) => (
+        {filteredPeople.map(person => (
           <div
             key={person.id}
-            className={`bg-white/10 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 cursor-pointer hover:scale-105 ${
-              selectedPerson?.id === person.id
-                ? 'border-yellow-400 bg-yellow-400/20 shadow-lg shadow-yellow-400/30'
-                : 'border-white/20 hover:border-yellow-400/50 hover:bg-white/20'
+            className={`bg-white/10 backdrop-blur-sm rounded-xl border-2 transition-all duration-200 cursor-pointer hover:scale-105 ${
+              selectedPerson?.id === person.id 
+                ? 'border-yellow-400 bg-yellow-500/20' 
+                : 'border-white/20 hover:border-yellow-400/50'
             }`}
             onClick={() => onPersonSelect(person)}
           >
             <div className="p-4">
-              {/* 名人头像和基本信息 */}
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-lg font-bold text-yellow-400">{person.name[0]}</span>
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-white text-lg">{person.name}</h4>
-                  <p className="text-white/70 text-sm">{person.pinyin}</p>
+              {/* Header */}
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <h4 className="text-lg font-bold text-white">{person.name}</h4>
+                  <p className="text-yellow-400 text-sm">{person.pinyin}</p>
                   {person.englishName && (
-                    <p className="text-yellow-400 text-xs font-medium">{person.englishName}</p>
+                    <p className="text-white/70 text-sm">{person.englishName}</p>
                   )}
                 </div>
-                <div className={`px-2 py-1 rounded-full text-xs font-medium ${getPopularityBg(person.popularity)} ${getPopularityColor(person.popularity)}`}>
+                <div className={`px-2 py-1 rounded-full text-xs font-semibold ${getPopularityBg(person.popularity)} ${getPopularityColor(person.popularity)}`}>
                   {person.popularity}/10
                 </div>
               </div>
 
-              {/* 成就和性格 */}
-              <div className="space-y-2">
-                <div className="flex flex-wrap gap-1">
-                  {person.achievements.slice(0, 2).map((achievement, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {person.personality.slice(0, 3).map((trait, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full"
-                    >
-                      {trait}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Era and Category */}
-              <div className="flex justify-between items-center mt-3 pt-3 border-t border-white/10">
-                <span className="text-white/60 text-xs">
-                  {person.era === 'ancient' ? 'Ancient' : 
-                   person.era === 'imperial' ? 'Imperial' : 
-                   person.era === 'modern' ? 'Modern' : 'Contemporary'}
-                </span>
-                <span className="text-white/60 text-xs">
+              {/* Category and Era */}
+              <div className="flex items-center gap-2 mb-3">
+                <span className="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-full">
                   {categories.find(c => c.key === person.category)?.label || person.category}
                 </span>
+                <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full">
+                  {person.era}
+                </span>
               </div>
 
-              {/* 选择按钮 */}
-              {selectedPerson?.id === person.id && (
-                <div className="mt-3 pt-3 border-t border-yellow-400/30">
-                  <div className="flex items-center justify-center text-yellow-400 text-sm font-medium">
-                    <Heart className="w-4 h-4 mr-1" />
-                    已选择
+              {/* Brief Introduction */}
+              <p className="text-white/80 text-sm mb-3 line-clamp-2">
+                {person.briefIntroduction}
+              </p>
+
+              {/* Key Achievements */}
+              <div className="space-y-1">
+                {person.achievements.slice(0, 2).map((achievement, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <Award className="w-3 h-3 text-yellow-400 flex-shrink-0" />
+                    <span className="text-white/70 text-xs">{achievement}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Personality Traits */}
+              <div className="mt-3 flex flex-wrap gap-1">
+                {person.personality.slice(0, 3).map((trait, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full"
+                  >
+                    {trait}
+                  </span>
+                ))}
+              </div>
+
+              {/* Details Button */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowDetails(showDetails === person.id ? null : person.id);
+                }}
+                className="mt-3 w-full bg-white/10 hover:bg-white/20 text-white text-sm py-2 rounded-lg transition-colors"
+              >
+                {showDetails === person.id ? 'Hide Details' : 'View Details'}
+              </button>
+            </div>
+
+            {/* Expanded Details */}
+            {showDetails === person.id && (
+              <div className="px-4 pb-4 border-t border-white/10">
+                <div className="pt-4 space-y-3">
+                  {/* Key Contributions */}
+                  <div>
+                    <h5 className="text-white font-semibold mb-2">Key Contributions:</h5>
+                    <ul className="space-y-1">
+                      {person.keyContributions.slice(0, 3).map((contribution, index) => (
+                        <li key={index} className="text-white/80 text-sm flex items-start gap-2">
+                          <span className="text-yellow-400 mt-1">•</span>
+                          {contribution}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Famous Quotes */}
+                  {person.famousQuotes && person.famousQuotes.length > 0 && (
+                    <div>
+                      <h5 className="text-white font-semibold mb-2">Famous Quotes:</h5>
+                      <div className="space-y-1">
+                        {person.famousQuotes.slice(0, 2).map((quote, index) => (
+                          <p key={index} className="text-white/70 text-sm italic">
+                            "{quote}"
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Historical Impact */}
+                  <div>
+                    <h5 className="text-white font-semibold mb-2">Historical Impact:</h5>
+                    <p className="text-white/80 text-sm">{person.historicalImpact}</p>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* 详细信息模态框 */}
-      {showDetails && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="p-6">
-              {(() => {
-                const person = getFamousPersonDetails(showDetails);
-                if (!person) return null;
-                
-                return (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-2xl font-bold text-white">{person.name}</h3>
-                      <button
-                        onClick={() => setShowDetails(null)}
-                        className="text-white/70 hover:text-white"
-                      >
-                        ✕
-                      </button>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <h4 className="font-semibold text-white mb-2">基本信息</h4>
-                        <div className="space-y-2 text-white/80 text-sm">
-                          <p><strong>拼音：</strong>{person.pinyin}</p>
-                          <p><strong>英文名：</strong>{person.englishName}</p>
-                          <p><strong>生卒年：</strong>{person.birthYear} - {person.deathYear}</p>
-                          <p><strong>时代：</strong>{person.era}</p>
-                          <p><strong>类别：</strong>{person.category}</p>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-semibold text-white mb-2">性格特征</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {person.personality.map((trait, index) => (
-                            <span
-                              key={index}
-                              className="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-full"
-                            >
-                              {trait}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">主要成就</h4>
-                      <ul className="list-disc list-inside text-white/80 text-sm space-y-1">
-                        {person.achievements.map((achievement, index) => (
-                          <li key={index}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">名言名句</h4>
-                      <div className="space-y-2">
-                        {person.famousQuotes?.map((quote, index) => (
-                          <div key={index} className="bg-white/5 rounded-lg p-3 text-white/90 text-sm italic">
-                            "{quote}"
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">历史影响</h4>
-                      <p className="text-white/80 text-sm">{person.historicalImpact}</p>
-                    </div>
-                    
-                    <div className="flex justify-center pt-4">
-                      <button
-                        onClick={() => {
-                          onPersonSelect(person);
-                          setShowDetails(null);
-                        }}
-                        className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white px-6 py-2 rounded-lg font-medium hover:from-yellow-400 hover:to-orange-500 transition-all duration-300"
-                      >
-                        选择这位名人
-                      </button>
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 空状态 */}
+      {/* No Results */}
       {filteredPeople.length === 0 && (
         <div className="text-center py-8">
           <Users className="w-16 h-16 text-white/30 mx-auto mb-4" />
-          <p className="text-white/50">没有找到匹配的名人</p>
+          <p className="text-white/70">No historical figures match your search criteria.</p>
+          <button
+            onClick={refreshPeople}
+            className="mt-4 bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            Refresh Selection
+          </button>
         </div>
       )}
     </div>

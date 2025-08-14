@@ -9,7 +9,6 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentPage, onPageChange }) => {
 
   const navItems = [
-    { id: 'nameGenerator', label: 'Name Generator', icon: Sparkles },
     { id: 'compatibility', label: 'Zodiac Compatibility', icon: Users },
     { id: 'fengShuiTips', label: 'Feng Shui Tips', icon: Compass },
     { id: 'astrology', label: 'Zodiac Signs', icon: Sun },
