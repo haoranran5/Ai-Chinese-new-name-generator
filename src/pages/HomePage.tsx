@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Compass, ArrowRight, Brain, Zap, Globe, Heart, Info, Users } from 'lucide-react';
+import { trackPageView } from '../utils/analytics';
 
 // interface NameData {
 //   id: string;
@@ -28,6 +29,9 @@ const HomePage: React.FC = () => {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'chinese names, chinese zodiac, chinese ai name, chinese male names, random chinese name generator, chinese name generator fantasy, chinese zodiac compatibility, chinese zodiac signs, free chinese name generator, chinese astrology, feng shui tips, bazi analysis, chinese zodiac calculator, zodiac love match');
+    
+    // Track page view
+    trackPageView('Home Page', '/');
   }, []);
 
   // 龙虎生肖图标组件

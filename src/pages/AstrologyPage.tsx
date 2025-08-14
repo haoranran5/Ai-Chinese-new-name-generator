@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sun, Moon, Star, Sparkles } from 'lucide-react';
+import { trackPageView } from '../utils/analytics';
 
 const AstrologyPage: React.FC = () => {
   // SEO optimization for astrology page
@@ -18,6 +19,9 @@ const AstrologyPage: React.FC = () => {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'chinese astrology, chinese zodiac signs, bazi analysis, chinese horoscope, chinese zodiac animals, chinese fortune telling, zodiac characteristics, chinese astrology guide');
+    
+    // Track page view
+    trackPageView('Astrology Page', '/astrology');
   }, []);
 
   const zodiacSigns = [

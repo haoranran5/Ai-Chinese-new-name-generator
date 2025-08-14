@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Users, Star, ArrowRight, Globe, Sparkles, Calendar, Building, Home } from 'lucide-react';
+import { trackPageView, trackCompatibilityCheck } from '../utils/analytics';
 
 // 龙虎生肖图标组件
 const DragonTigerIcon: React.FC<{ className?: string }> = ({ className = "w-10 h-10" }) => {
@@ -74,6 +75,9 @@ const CompatibilityPage: React.FC = () => {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'chinese zodiac compatibility, chinese zodiac love match, rat and dragon compatibility, zodiac compatibility calculator, chinese astrology compatibility, love match calculator');
+    
+    // Track page view
+    trackPageView('Compatibility Page', '/compatibility');
   }, []);
 
   const zodiacSigns = [

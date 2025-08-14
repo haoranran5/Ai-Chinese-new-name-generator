@@ -10,6 +10,7 @@ import NameCard from '../components/NameCard';
 import FamousPersonSelector from '../components/FamousPersonSelector';
 import FamousPersonNameCard from '../components/FamousPersonNameCard';
 import LoadingSkeleton from '../components/LoadingSkeleton';
+import { trackPageView, trackNameGeneration } from '../utils/analytics';
 
 interface NameData {
   id: string;
@@ -36,6 +37,9 @@ const NameGeneratorPage: React.FC = () => {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'free chinese name generator, chinese names with meanings, bazi analysis, chinese baby names, chinese business names, chinese name pronunciation, chinese astrology names');
+    
+    // Track page view
+    trackPageView('Name Generator Page', '/name-generator');
   }, []);
 
   const [englishName, setEnglishName] = useState('');

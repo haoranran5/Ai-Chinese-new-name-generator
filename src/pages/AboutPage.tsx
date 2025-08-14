@@ -1,5 +1,6 @@
 import React from 'react';
 import { Info, Brain, Sparkles, Globe, Heart, Zap, Sun } from 'lucide-react';
+import { trackPageView } from '../utils/analytics';
 
 const AboutPage: React.FC = () => {
   // SEO optimization for about page
@@ -18,6 +19,9 @@ const AboutPage: React.FC = () => {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'about chinese zodiac platform, free chinese astrology tools, ai feng shui, chinese culture digital tools, zodiac compatibility platform');
+    
+    // Track page view
+    trackPageView('About Page', '/about');
   }, []);
 
   const features = [

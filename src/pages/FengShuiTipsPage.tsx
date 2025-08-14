@@ -1,5 +1,6 @@
 import React from 'react';
 import { Compass, Home, Building, Bed, DollarSign, Sparkles, Sun, Moon } from 'lucide-react';
+import { trackPageView } from '../utils/analytics';
 
 const FengShuiTipsPage: React.FC = () => {
   // SEO optimization for Feng Shui page
@@ -18,6 +19,9 @@ const FengShuiTipsPage: React.FC = () => {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'feng shui tips, feng shui home, feng shui office, qi flow, chi balance, feng shui bedroom, feng shui wealth corner, feng shui guide, home harmony, office feng shui');
+    
+    // Track page view
+    trackPageView('Feng Shui Tips Page', '/feng-shui-tips');
   }, []);
 
   const fengShuiTips = [

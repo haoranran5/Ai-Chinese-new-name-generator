@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Star, Search, Award } from 'lucide-react';
+import { trackPageView, trackFamousPersonSearch } from '../utils/analytics';
 import { FamousPeopleLibrary, FamousPerson } from '../data/famousChinesePeople';
 
 const eraLabels = {
@@ -29,8 +30,27 @@ const genderLabels = {
 };
 
 const FamousPeoplePage: React.FC = () => {
-  useEffect(() => {
+  // SEO optimization for famous people page
+  React.useEffect(() => {
     document.title = '中国名人库 - 历史名人传记与成就 | 中华文化名人录';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', '探索中国历史名人库，收录从古代圣贤到现代精英的完整传记。了解孔子、老子、李白、毛泽东等历史名人的生平、成就和文化影响，感受中华文明的深厚底蕴。');
+    }
+    
+    // Update keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', '中国名人库, 历史名人, 中华文化, 孔子, 老子, 李白, 毛泽东, 历史传记, 文化名人, 中华文明, 历史人物, 名人成就');
+    
+    // Track page view
+    trackPageView('Famous People Page', '/famous-people');
   }, []);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedEra, setSelectedEra] = useState('');
