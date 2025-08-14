@@ -1,5 +1,7 @@
 // 名人库起名服务 - 基于用户喜欢的名人生成个性化名字
 import { FamousPerson, famousChinesePeople } from '../data/famousChinesePeople';
+
+
 import { chineseCharacters, pinyinMap, meaningMapEnglish } from '../data/chineseNames';
 
 export interface FamousPersonNameRequest {
@@ -320,18 +322,17 @@ const analyzeCompatibility = (
 
 // 获取推荐名人列表
 export const getRecommendedFamousPeople = (gender: string, style: string) => {
+  // 简化过滤逻辑，确保能显示名人
   return famousChinesePeople
-    .filter(person => 
-      (person.gender === gender || person.gender === 'neutral') &&
-      person.popularity >= 6 // 降低人气要求，显示更多名人
-    )
-    .sort((a, b) => {
-      // 优先考虑风格匹配和人气
-      const aScore = (a.nameStyle === style ? 2 : 1) * a.popularity;
-      const bScore = (b.nameStyle === style ? 2 : 1) * b.popularity;
-      return bScore - aScore;
+    .filter(person => {
+      // 只检查性别匹配，不限制人气
+      return person.gender === gender || person.gender === 'neutral';
     })
-    .slice(0, 20); // 增加显示数量
+    .sort((a, b) => {
+      // 按人气排序
+      return b.popularity - a.popularity;
+    })
+    .slice(0, 30); // 显示更多名人
 };
 
 // 获取名人详细信息
