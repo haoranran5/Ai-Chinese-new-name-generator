@@ -1,0 +1,448 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./theme.css";
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  
+  /* 暗色主题优化 */
+  .dark {
+    color-scheme: dark;
+  }
+  
+  /* 滚动条样式优化 */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(217 33% 8%);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: hsl(217 33% 20%);
+    border-radius: 4px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(217 33% 30%);
+  }
+  
+  /* 选择文本样式 */
+  .dark ::selection {
+    background: hsl(217 33% 20%);
+    color: hsl(210 40% 98%);
+  }
+  
+  /* 输入框占位符文本 */
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: hsl(215 20% 65%);
+  }
+
+  /* 文档页面代码块样式优化 */
+  .prose pre {
+    max-width: 100%;
+    overflow-x: auto;
+    background-color: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .prose code {
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  /* 确保代码块在文档中有合适的宽度限制 */
+  .prose pre code {
+    max-width: 100ch;
+    display: block;
+  }
+
+  /* 文档布局一致性 */
+  .docs-layout {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* 卡片和按钮阴影优化 */
+  .dark .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  }
+  
+  .dark .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* 边框优化 */
+  .dark .border {
+    border-color: hsl(217 33% 17%);
+  }
+
+  .dark .border-gray-200 {
+    border-color: hsl(217 33% 17%);
+  }
+
+  .dark .border-gray-300 {
+    border-color: hsl(217 33% 22%);
+  }
+  
+  /* 渐变背景优化 */
+  .dark .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+  
+  .dark .from-blue-50 {
+    --tw-gradient-from: hsl(220 14% 96%);
+    --tw-gradient-to: hsl(220 14% 96% / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  
+  .dark .to-purple-50 {
+    --tw-gradient-to: hsl(270 20% 98%);
+  }
+  
+  /* 按钮悬停效果优化 */
+  .dark .hover\\:bg-gray-50:hover {
+    background-color: hsl(217 33% 12%);
+  }
+
+  .dark .hover\\:bg-gray-100:hover {
+    background-color: hsl(217 33% 17%);
+  }
+  
+  /* 文本选择优化 */
+  .dark .selection\\:bg-blue-200::-moz-selection {
+    background-color: hsl(214 95% 93%);
+  }
+  
+  .dark .selection\\:bg-blue-200::selection {
+    background-color: hsl(214 95% 93%);
+  }
+}
+
+/* 直接定义自定义颜色类，确保它们正确工作 */
+@layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background)) !important;
+  }
+  
+  .bg-popover {
+    background-color: hsl(var(--popover)) !important;
+  }
+  
+  .bg-card {
+    background-color: hsl(var(--card)) !important;
+  }
+  
+  .bg-primary {
+    background-color: hsl(var(--primary)) !important;
+  }
+  
+  .bg-secondary {
+    background-color: hsl(var(--secondary)) !important;
+  }
+  
+  .bg-muted {
+    background-color: hsl(var(--muted)) !important;
+  }
+  
+  .bg-accent {
+    background-color: hsl(var(--accent)) !important;
+  }
+  
+  .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .text-popover-foreground {
+    color: hsl(var(--popover-foreground)) !important;
+  }
+  
+  .text-card-foreground {
+    color: hsl(var(--card-foreground)) !important;
+  }
+  
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground)) !important;
+  }
+  
+  .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground)) !important;
+  }
+  
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  
+  .text-accent-foreground {
+    color: hsl(var(--accent-foreground)) !important;
+  }
+  
+  .border-border {
+    border-color: hsl(var(--border)) !important;
+  }
+  
+  .border-input {
+    border-color: hsl(var(--input)) !important;
+  }
+
+  /* 动画基础类 */
+  .animate-in {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+  }
+  
+  .animate-out {
+    animation-duration: 0.15s;
+    animation-fill-mode: both;
+  }
+  
+  /* 淡入淡出动画 */
+  .fade-in-0 {
+    animation-name: fade-in;
+  }
+  
+  .fade-out-0 {
+    animation-name: fade-out;
+  }
+  
+  /* 缩放动画 - Dialog 需要的 */
+  .zoom-in-95 {
+    animation-name: zoom-in-95;
+  }
+  
+  .zoom-out-95 {
+    animation-name: zoom-out-95;
+  }
+  
+  /* Sheet 滑动动画 */
+  .slide-in-from-top {
+    animation-name: slide-in-from-top;
+  }
+  
+  .slide-in-from-bottom {
+    animation-name: slide-in-from-bottom;
+  }
+  
+  .slide-in-from-left {
+    animation-name: slide-in-from-left;
+  }
+  
+  .slide-in-from-right {
+    animation-name: slide-in-from-right;
+  }
+  
+  .slide-out-to-top {
+    animation-name: slide-out-to-top;
+  }
+  
+  .slide-out-to-bottom {
+    animation-name: slide-out-to-bottom;
+  }
+  
+  .slide-out-to-left {
+    animation-name: slide-out-to-left;
+  }
+  
+  .slide-out-to-right {
+    animation-name: slide-out-to-right;
+  }
+  
+  /* Dialog 特殊滑动动画 */
+  .slide-in-from-left-1\/2 {
+    animation-name: slide-in-from-left-1-2;
+  }
+  
+  .slide-in-from-top-\[48\%\] {
+    animation-name: slide-in-from-top-48;
+  }
+  
+  .slide-out-to-left-1\/2 {
+    animation-name: slide-out-to-left-1-2;
+  }
+  
+  .slide-out-to-top-\[48\%\] {
+    animation-name: slide-out-to-top-48;
+  }
+  
+  /* 持续时间 */
+  .duration-200 {
+    animation-duration: 200ms;
+  }
+  
+  .duration-300 {
+    animation-duration: 300ms;
+  }
+  
+  .duration-500 {
+    animation-duration: 500ms;
+  }
+}
+
+/* 定义所有动画的 keyframes */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes zoom-in-95 {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes zoom-out-95 {
+  from { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  to { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+}
+
+@keyframes slide-in-from-top {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-in-from-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-in-from-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-out-to-top {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+@keyframes slide-out-to-bottom {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+@keyframes slide-out-to-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-out-to-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+/* Dialog 特殊动画 - 从中心位置开始的复杂变换 */
+@keyframes slide-in-from-left-1-2 {
+  from { 
+    transform: translateX(-50%) translateY(-50%) translateX(-100%); 
+  }
+  to { 
+    transform: translateX(-50%) translateY(-50%); 
+  }
+}
+
+@keyframes slide-in-from-top-48 {
+  from { 
+    transform: translateX(-50%) translateY(-50%) translateY(-100%); 
+  }
+  to { 
+    transform: translateX(-50%) translateY(-50%); 
+  }
+}
+
+@keyframes slide-out-to-left-1-2 {
+  from { 
+    transform: translateX(-50%) translateY(-50%); 
+  }
+  to { 
+    transform: translateX(-50%) translateY(-50%) translateX(-100%); 
+  }
+}
+
+@keyframes slide-out-to-top-48 {
+  from { 
+    transform: translateX(-50%) translateY(-50%); 
+  }
+  to { 
+    transform: translateX(-50%) translateY(-50%) translateY(-100%); 
+  }
+}
+
+ 
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--pulse-color);
+  }
+  50% {
+    box-shadow: 0 0 0 8px var(--pulse-color);
+  }
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+  }
+}
+@keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+  }
+  15%,
+  35% {
+    transform: translateZ(0) rotate(90deg);
+  }
+  65%,
+  85% {
+    transform: translateZ(0) rotate(270deg);
+  }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+  }
+}

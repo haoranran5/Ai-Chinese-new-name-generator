@@ -1,0 +1,21 @@
+@baseUrl = http://localhost:3000
+
+### ping api
+POST {{baseUrl}}/api/ping
+Content-Type: application/json
+
+{
+  "message": "hello"
+}
+
+
+@baseUrl = http://localhost:3000/
+
+### get user credits api
+POST {{baseUrl}}/api/debug-get-user-credits
+Content-Type: application/json
+Authorization: Bearer sk-f12960dc379f6e9cf97f691e62fd659247d4b60f0f213b
+
+{
+  "credits_to_deduct": 3
+}

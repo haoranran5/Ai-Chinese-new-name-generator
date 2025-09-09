@@ -1,0 +1,23 @@
+node_modules
+/.next/
+/.cursor/
+/pnpm-lock.yaml
+
+# env files
+.env
+.env.*
+.env.development
+.env.production
+.env.local
+!.env.example
+
+# wrangler
+wrangler.toml
+wrangler.json
+wrangler.jsonc
+wrangler.jsonc.example
+wrangler.json.example
+wrangler.toml.example
+.open-next/
+.vercel/
+.wrangler

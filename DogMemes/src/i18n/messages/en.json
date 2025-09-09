@@ -1,0 +1,734 @@
+{
+  "hero": {
+    "title": "Build your",
+    "description": "product in a weekend",
+    "specialOffer": "Special Offer: 20% off",
+    "subtitle": {
+      "main": "Complete Next.js boilerplate with authentication, payments, i18n, newsletter, dashboard, blog, docs, theming, SEO, and more.",
+      "highlight": "Focus on your core business, not starting from scratch."
+    },
+    "success": "Successful! All configurations have been completed. Start visiting your website!",
+    "users": {
+      "count": "30+",
+      "chooseRaven": "developers choose Raven"
+    },
+    "cta": {
+      "getStarted": "Get Started",
+      "doc": "Read Document"
+    },
+    "features": {
+      "lifetimeUpdates": "Lifetime Updates",
+      "unlimitedProjects": "Unlimited Projects",
+      "technicalSupport": "Technical Support"
+    },
+    "terminal": {
+      "start": "Start Your AI SaaS Journey"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "posts": "Blog",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "shadcnExamples": "Shadcn UI Examples",
+    "componentLibrary": "Component Library",
+    "magicui": "MagicUI",
+    "formExample": "Form Examples",
+    "menu": "Menu",
+    "loading": "Loading...",
+    "welcome": "Welcome",
+    "signOut": "Sign Out",
+    "signIn": "Sign In",
+    "toggleTheme": "Toggle Theme",
+    "toggleLanguage": "Toggle Language",
+    "myOrders": "My Orders",
+    "myInvitations": "My Invitations",
+    "myCredits": "My Credits",
+    "myApiKeys": "My API Keys"
+  },
+  "branding": {
+    "title": "RavenSaas is built on the shoulders of giants",
+    "description": "We've carefully selected these cutting-edge technologies to provide you with the best development and user experience.",
+    "badges": {
+      "modern": "Modern Architecture",
+      "fast": "Fast Loading",
+      "seo": "SEO Friendly",
+      "responsive": "Responsive Design"
+    }
+  },
+  "footer": {
+    "description": "Build your AI SaaS product in a weekend. Complete Next.js boilerplate with authentication, payments, i18n, and more.",
+    "categories": {
+      "product": "Product",
+      "resources": "Resources",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "links": {
+      "product": {
+        "features": "Features",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "demo": "Demo"
+      },
+      "resources": {
+        "blog": "Blog",
+        "docs": "Documentation",
+        "roadmap": "Roadmap",
+        "components": "Components"
+      },
+      "company": {
+        "about": "About Us",
+        "contact": "Contact Us",
+        "newsletter": "Newsletter",
+        "showcase": "Showcase"
+      },
+      "legal": {
+        "license": "License Policy",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+      },
+      "social": {
+        "email": "Email"
+      }
+    },
+    "copyright": "Copyright © 2025 {brandName}. All rights reserved."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions about RavenSaas",
+    "moreQuestions": "More questions? Contact us on Discord or via email.",
+    "questions": {
+      "what": {
+        "question": "What is RavenSaas and how does it work?",
+        "answer": "RavenSaas is a comprehensive NextJS boilerplate designed for building AI SaaS startups. It provides ready-made templates, infrastructure setup, and deployment tools to help you launch your AI business in hours, not days."
+      },
+      "skills": {
+        "question": "Do I need advanced technical skills to use RavenSaas?",
+        "answer": "While basic programming knowledge is helpful, RavenSaas is designed to be developer-friendly. Our templates and documentation make it easy to get started even if you're not an expert in AI or cloud infrastructure."
+      },
+      "types": {
+        "question": "What types of AI SaaS can I build with RavenSaas?",
+        "answer": "RavenSaas supports a wide range of AI applications, from content generation to data analysis tools. Our templates cover popular use cases such as AI chatbots, content generators, image processing applications, and more."
+      },
+      "time": {
+        "question": "How long does it typically take to launch using RavenSaas?",
+        "answer": "With RavenSaas, you can have a working prototype in hours and a production-ready application in days. Our one-click deployments and pre-configured infrastructure significantly reduce the development cycle that traditionally takes months."
+      },
+      "infrastructure": {
+        "question": "What does the RavenSaas infrastructure include?",
+        "answer": "RavenSaas provides a complete infrastructure stack including authentication, database setup, API integrations, payment processing, and scalable cloud deployment. Everything is pre-configured according to industry best practices."
+      },
+      "customization": {
+        "question": "Can I customize the templates to match my brand?",
+        "answer": "Absolutely! All RavenSaas templates are fully customizable. You can modify designs, features, and functionality to match your brand identity and specific business requirements while maintaining the robust underlying infrastructure."
+      }
+    },
+    "support": {
+      "title": "Still have questions?",
+      "description": "Our support team is here to help",
+      "email": "nullyangweiguang@gmail.com",
+      "chat": "Live Chat",
+      "docs": "Help Documents"
+    }
+  },
+  "testimonial": {
+    "title": "What Our Customers Say",
+    "subtitle": "Hear from satisfied customers who have built successful products with RavenSaas",
+    "screenshot": "{name}'s screenshot",
+    "items": {
+      "user1": {
+        "name": "John Doe",
+        "title": "Founder & CEO, TechStart",
+        "content": "RavenSaas cut our development time in half. We were able to focus on our core product features instead of spending weeks setting up infrastructure."
+      },
+      "user2": {
+        "name": "Sarah Johnson",
+        "title": "CTO, AIVentures",
+        "content": "The pre-built components and authentication system saved us months of development. The code quality is excellent and the documentation is comprehensive."
+      },
+      "user3": {
+        "name": "Michael Chang",
+        "title": "Solo Developer",
+        "content": "As a solo developer, RavenSaas gave me everything I needed to launch my SaaS in record time. Customer support has been fantastic whenever I had questions."
+      }
+    }
+  },
+  "cta": {
+    "title": "Launch Your First AI SaaS Startup",
+    "subtitle": "Start here, take off with RavenSaas.",
+    "buttons": {
+      "get": "Get RavenSaas",
+      "docs": "Read the Docs"
+    },
+    "stats": {
+      "customers": "Satisfied Customers",
+      "components": "Built-in Components",
+      "commits": "GitHub Commits"
+    },
+    "features": [
+      "Complete Next.js SaaS Boilerplate",
+      "Seamless Stripe Payments & Webhooks",
+      "Secure Authentication & Authorization",
+      "Beautiful UI Components & Marketing Blocks",
+      "Feature-Rich Blog System & Documentation",
+      "Auto-Generated Sitemap & OG Metadata",
+      "Free Showcase of Your Product on Raven",
+      "Unlimited Personal & Commercial Projects",
+      "Technical Support via Email & Discord 🛟",
+      "Access to 4 Official Github Repositories 🎁",
+      "Lifetime Updates, No Extra Fees 🔥"
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Get all features of RavenSaas, Ship your AI SaaS startups fast.",
+    "currency": "USD",
+    "popularBadge": "Popular",
+    "payOnce": "Pay once. Build unlimited projects!",
+    "payMonthly": "Pay monthly. Cancel anytime.",
+    "payYearly": "Pay yearly. Save 20%.",
+    "features": {
+      "nextjs": "NextJS Template",
+      "seo": "SEO-friendly Structure",
+      "blog": "Blog & Content Management System",
+      "payment": "Stripe Payment",
+      "data": "Supabase Data Storage",
+      "oauth": "Google, Github One-click Login",
+      "i18n": "Internationalization Support",
+      "deploy": "Vercel or Cloudflare Deployment",
+      "deploy_vercel": "Vercel Deployment",
+      "deploy_cloudflare": "Cloudflare Deployment",
+      "privacy": "Privacy and Terms Generation",
+      "analytics": "Google Analytics Integration",
+      "search": "Google Search Console Integration",
+      "discord": "Discord Community",
+      "support": "First Launch Technical Support",
+      "updates": "Lifetime Updates",
+      "components": "More Optional Components",
+      "ai": "AI Business Functions and SDK",
+      "console": "User Console",
+      "admin": "Admin Management System",
+      "credits": "Credits Management",
+      "api": "API Key Management",
+      "priority": "Priority Technical Support",
+      "coustom_develop": "Custom Development",
+      "all_components": "All Components Usage"
+    },
+    "plans": {
+      "starter": {
+        "title": "Starter",
+        "name": "RavenSaaS Boilerplate Starter",
+        "description": "Starter version, suitable for light usage",
+        "more": "Includes",
+        "buttonText": "Get RavenSaaS",
+        "paymentType": "one-time",
+        "isPopular": false,
+        "originalPrice": 19900,
+        "amount": 7900,
+        "cn_amount": 56700,
+        "additionalText": "",
+        "credits": 0,
+        "vaild_months": 999,
+        "features": [
+          "nextjs",
+          "seo",
+          "blog",
+          "payment",
+          "data",
+          "oauth",
+          "i18n"
+        ]
+      },
+      "standard": {
+        "title": "Standard",
+        "name": "RavenSaaS Boilerplate Standard",
+        "description": "Standard version, suitable for normal development use",
+        "buttonText": "Get RavenSaaS",
+        "paymentType": "one-time",
+        "isPopular": true,
+        "more": "Includes all Starter features, plus",
+        "originalPrice": 39900,
+        "amount": 9900,
+        "cn_amount": 72900,
+        "additionalText": "",
+        "credits": 30,
+        "vaild_months": 999,
+        "features": [
+          "all_components",
+          "deploy",
+          "ai",
+          "privacy",
+          "analytics",
+          "search",
+          "discord",
+          "support",
+          "admin",
+          "console",
+          "credits",
+          "api",
+          "updates"
+        ]
+      },
+      "premium": {
+        "title": "Premium",
+        "name": "RavenSaaS Boilerplate Premium",
+        "description": "Premium version, for custom development use",
+        "buttonText": "Get RavenSaaS",
+        "paymentType": "one-time",
+        "isPopular": false,
+        "more": "Includes all Standard features, plus",
+        "originalPrice": 99900,
+        "amount": 29900,
+        "cn_amount": 223200,
+        "credits": 120,
+        "vaild_months": 999,
+        "additionalText": "Custom Promotion Code 👉",
+        "features": [
+          "coustom_develop"
+        ]
+      }
+    },
+    "paymentTypes": {
+      "one-time": "One-time Payment",
+      "month": "Monthly Subscription",
+      "year": "Annual Subscription"
+    }
+  },
+  "stats": {
+    "title": "People Love RavenSaas",
+    "subtitle": "for it's easy to use and fast to ship.",
+    "items": {
+      "customers": {
+        "title": "Trusted by",
+        "value": "250+",
+        "description": "Customers"
+      },
+      "components": {
+        "title": "Built in",
+        "value": "30+",
+        "description": "Components"
+      },
+      "time": {
+        "title": "Ship Fast in",
+        "value": "5",
+        "description": "Minutes"
+      }
+    }
+  },
+  "showcase": {
+    "title": "AI SaaS Startups built with RavenSaas",
+    "subtitle": "Easy to use and fast to ship.",
+    "items": {
+      "raphael": {
+        "title": "Raphael AI",
+        "desc": "Create stunning AI-generated images in seconds"
+      },
+      "sitesnapper": {
+        "title": "SiteSnapper",
+        "desc": "Capture Any Website in One Click"
+      },
+      "seo": {
+        "title": "SEO Combine",
+        "desc": "All SEO Tools Combined in One Place"
+      },
+      "trends": {
+        "title": "TrendsBar",
+        "desc": "Google Trends Analysis Tool"
+      },
+      "deepseek": {
+        "title": "Deepseek Artifacts",
+        "desc": "Create React Apps Using the World's Leading Open-Source Model"
+      },
+      "rednote": {
+        "title": "Rednote Club",
+        "desc": "Share Your Life's Beautiful Moments in Rednote"
+      }
+    }
+  },
+  "introduce": {
+    "badge": "What is RavenSaas",
+    "title": {
+      "first": "RavenSaas is a NextJS template for building AI SaaS startups",
+      "highlight": "NextJS Template"
+    },
+    "description": "Built-in templates and components to help you launch and deploy your AI SaaS application quickly",
+    "features": {
+      "templates": {
+        "title": "Available Templates",
+        "description": "Choose from multiple production-ready AI SaaS templates to kickstart your project."
+      },
+      "infrastructure": {
+        "title": "Infrastructure Setup",
+        "description": "Get scalable infrastructure with built-in best practices, right away."
+      },
+      "deployment": {
+        "title": "Fast Deployment",
+        "description": "Deploy your AI SaaS application to production in hours, not days."
+      }
+    }
+  },
+  "benefit": {
+    "title": "Why Choose Our Platform",
+    "subtitle": "Get everything you need to launch your project - from ready-to-use templates to technical support.",
+    "items": {
+      "framework": {
+        "title": "Complete Framework",
+        "description": "Built on Next.js with authentication, payments, and AI integration - everything works out of the box."
+      },
+      "templates": {
+        "title": "Rich Templates Library",
+        "description": "Access to a wide range of pre-built templates and components to accelerate your development."
+      },
+      "guidance": {
+        "title": "Technical Guidance",
+        "description": "Get expert support and guidance throughout your development journey."
+      }
+    }
+  },
+  "usage": {
+    "title": "How to Launch Your RavenSaas",
+    "subtitle": "Start your AI SaaS startup in just a few simple steps",
+    "steps": {
+      "get": {
+        "title": "Get RavenSaas",
+        "description": "Purchase RavenSaas once. Check your email for the code and documentation."
+      },
+      "start": {
+        "title": "Start Your Project",
+        "description": "Read the documentation and clone the RavenSaas code. Start building your AI SaaS startup."
+      },
+      "customize": {
+        "title": "Customize Your Project",
+        "description": "Modify the templates with your data and content. Add your specific AI functionality requirements."
+      },
+      "deploy": {
+        "title": "Deploy to Production",
+        "description": "Deploy your project to production with a few simple steps and start serving customers immediately."
+      }
+    }
+  },
+  "features": {
+    "badge": "Powerful Features",
+    "title": {
+      "first": "Core Features that Make Raven",
+      "highlight": "Stand Out"
+    },
+    "description": "Raven provides all the features needed to build a SaaS, allowing you to focus on your core business logic",
+    "items": {
+      "auth": {
+        "title": "Authentication",
+        "description": "Let users sign up and sign in via email/password or social login, manage profiles.",
+        "loginPrompt": {
+          "title": "One-Click Login",
+          "description": "Sign in with Google to experience more features",
+          "googleLogin": "Google Login",
+          "notNow": "Not Now"
+        },
+        "details": [
+          "Email/Password Auth",
+          "Social Login",
+          "Password Reset",
+          "User Profile Management"
+        ]
+      },
+      "payment": {
+        "title": "Payment System",
+        "description": "Charge users via Stripe subscriptions and one-time payments, manage payments with webhooks.",
+        "details": [
+          "Price Configuration",
+          "Subscriptions & One-time Payments",
+          "Webhooks Integration",
+          "Billing Management"
+        ]
+      },
+      "marketing": {
+        "title": "Marketing Features",
+        "description": "Built-in marketing features to help you launch your SaaS faster and better.",
+        "details": [
+          "MDX Blog System",
+          "Documentation System",
+          "Newsletter",
+          "Email Templates"
+        ]
+      },
+      "config": {
+        "title": "Full Configuration",
+        "description": "Built-in components and blocks, customizable themes, multiple analytics, SEO optimization, and more.",
+        "details": [
+          "Customizable Themes",
+          "Components & Blocks",
+          "Multiple Analytics",
+          "Internationalization"
+        ]
+      },
+      "developer": {
+        "title": "Developer Friendly",
+        "description": "Build your next project with the latest industry-standard tech stack.",
+        "details": [
+          "Next.js 15",
+          "TypeScript",
+          "Tailwind CSS",
+          "Shadcn UI"
+        ]
+      },
+      "analytics": {
+        "title": "Analytics & Monitoring",
+        "description": "Integrate multiple analytics tools to monitor your SaaS performance in real-time.",
+        "details": [
+          "Google Analytics",
+          "Plausible",
+          "Umami",
+          "Vercel Analytics"
+        ]
+      }
+    },
+    "problems": {
+      "title": "Building a SaaS from scratch is a hassle",
+      "subtitle": "Don't waste time designing landing pages or Stripe subscriptions",
+      "items": {
+        "ui": {
+          "title": "UI Development Challenges",
+          "description": "Developers struggle to build modern UIs and responsive designs from scratch without ready-made components."
+        },
+        "payment": {
+          "title": "Payment Integration Complexity",
+          "description": "Integrating secure payment systems requires complex subscriptions, webhooks, and checkout flow implementations."
+        },
+        "foundation": {
+          "title": "Foundational Features Overhead",
+          "description": "Implementing authentication, i18n, blog, docs, newsletter, SEO, and theming core SaaS features is tedious and time-consuming."
+        }
+      }
+    }
+  },
+  "resizablePreview": {
+    "preview": "Preview",
+    "copy": "Copy",
+    "copied": "Copied",
+    "devicePreview": {
+      "desktop": "Responsive {componentId} Component Preview",
+      "tablet": "iPad (820px) {componentId} Component Preview",
+      "mobile": "iPhone (390px) {componentId} Component Preview",
+      "shortPreview": "{device} Preview"
+    }
+  },
+  "componentLibrary": {
+    "searchPlaceholder": "Search components...",
+    "noMatchingComponents": "No matching components found",
+    "preview": "Preview",
+    "code": "Code",
+    "hero": {
+      "title": "Hero Section",
+      "description": "Hero section component for showcasing core product value and attracting user attention"
+    },
+    "header": {
+      "title": "Header",
+      "description": "Website navigation header component with branding, navigation menu and user actions"
+    },
+    "feature": {
+      "title": "Feature",
+      "description": "Product feature showcase component highlighting core advantages"
+    },
+    "stats": {
+      "title": "Stats",
+      "description": "Statistics display component for showcasing key business metrics"
+    },
+    "cta": {
+      "title": "Call to Action",
+      "description": "Call-to-action component guiding users to take key actions"
+    },
+    "footer": {
+      "title": "Footer",
+      "description": "Website footer component with links, contact information and copyright notice"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Product pricing component supporting multiple pricing plan comparisons"
+    },
+    "table": {
+      "title": "Table",
+      "description": "Data table component with sorting, filtering and pagination features"
+    },
+    "form": {
+      "title": "Form",
+      "description": "Form component supporting various input types and validation features"
+    },
+    "benefit": {
+      "title": "Benefit",
+      "description": "Product benefits and value proposition showcase component"
+    },
+    "usage": {
+      "title": "Usage",
+      "description": "Product use cases and scenarios showcase component"
+    },
+    "showcase": {
+      "title": "Showcase",
+      "description": "Customer cases and success stories showcase component"
+    },
+    "testimonial": {
+      "title": "Testimonial",
+      "description": "User testimonials and recommendations display component"
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Frequently asked questions component"
+    },
+    "branding": {
+      "title": "Branding",
+      "description": "Branding component for showcasing your brand identity"
+    },
+    "introduce": {
+      "title": "Introduce",
+      "description": "Introduce component for showcasing your product"
+    }
+  },
+  "user": {
+    "my_orders": "My Orders",
+    "my_invites": "My Invites",
+    "my_credits": "My Credits",
+    "my_apikeys": "My API Keys",
+    "my_profile": "My Profile",
+    "settings": "Settings"
+  },
+  "my_orders": {
+    "title": "My Orders",
+    "description": "View your orders and manage your purchases",
+    "no_orders": "You have no orders",
+    "table": {
+      "order_no": "Order No",
+      "email": "Email",
+      "product_name": "Product Name",
+      "amount": "Amount",
+      "status": "Status",
+      "created_at": "Created At",
+      "actions": "Actions"
+    },
+    "read_docs": "Read Docs",
+    "join_discord": "Join Discord"
+  },
+  "my_credits": {
+    "title": "My Credits",
+    "description": "View your credits balance and transaction history",
+    "no_credits": "You have no credit transactions",
+    "current_balance": "Current Balance",
+    "total_earned": "Total Earned",
+    "total_spent": "Total Spent",
+    "recharge": "Recharge",
+    "total_transactions": "Total Transactions",
+    "table": {
+      "trans_no": "Transaction No",
+      "trans_type": "Type",
+      "credits": "Credits",
+      "order_no": "Order No",
+      "created_at": "Created At",
+      "expired_at": "Expires At"
+    },
+    "trans_types": {
+      "purchase": "Purchase",
+      "reward": "Reward",
+      "refund": "Refund",
+      "consumption": "Consumption",
+      "bonus": "Bonus",
+      "invite_reward": "Invite Reward"
+    }
+  },
+  "my_apikeys": {
+    "title": "My API Keys",
+    "description": "View and manage your API keys",
+    "no_apikeys": "You have no API keys",
+    "table": {
+      "api_key": "API Key",
+      "created_at": "Created At",
+      "actions": "Actions",
+      "name": "Name",
+      "status": "Status"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "revoke": "Revoke",
+    "revoking": "Revoking...",
+    "create": "Create API Key",
+    "edit": "Edit",
+    "delete": "Delete",
+    "delete_confirm": "Are you sure you want to delete this API key?",
+    "deleting": "Deleting...",
+    "back_to_list": "Back to List",
+    "edit_title": "Edit API Key",
+    "edit_description": "Edit the name and status of the API Key",
+    "delete_title": "Delete API Key",
+    "delete_description": "This action cannot be undone. Please confirm to delete this API Key."
+  },
+  "my_invites": {
+    "title": "My Invites",
+    "invite_code": "Invite Code",
+    "copy_invite_link": "Copy Invite Link",
+    "copied": "Copied",
+    "no_invites": "You have no invites",
+    "not_set": "Not Set",
+    "invite_reward": "Invite Reward",
+    "total_invites": "Total Invites",
+    "paid": "Paid",
+    "total_reward": "Total Reward",
+    "invite_records": "Invite Records",
+    "no_invite_records": "You have no invite records",
+    "table": {
+      "created_at": "Created At",
+      "user": "User",
+      "status": "Status",
+      "order_no": "Order No",
+      "paid_amount": "Paid Amount",
+      "reward_amount": "Reward Amount",
+      "completed": "Completed",
+      "pending": "Pending",
+      "prev_page": "Prev Page",
+      "next_page": "Next Page",
+      "unknown_user": "Unknown User"
+    }
+  },
+  "my_profile": {
+    "title": "My Profile",
+    "description": "View and manage your profile",
+    "nickname": "Nickname",
+    "nickname_description": "This is the name you will show on the platform",
+    "nickname_placeholder": "Enter your nickname",
+    "save_changes": "Save Changes",
+    "saving": "Saving..."
+  },
+  "auth": {
+    "signin": {
+      "welcome_back": "Welcome back",
+      "create_account": "Create an account",
+      "create_account_description": "Create an account to get started",
+      "welcome_back_description": "Welcome back to your account",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "processing": "Processing...",
+      "sign_in": "Sign In",
+      "sign_up": "Sign Up",
+      "or_continue_with": "Or continue with",
+      "sign_in_with_google": "Sign In with Google",
+      "sign_in_with_github": "Sign In with GitHub",
+      "already_have_an_account": "Already have an account?",
+      "dont_have_an_account": "Don't have an account?",
+      "by_continuing": "By continuing, you agree to our",
+      "terms_of_service": "Terms of Service",
+      "privacy_policy": "Privacy Policy",
+      "by_continuing_agree": "By continuing, you agree to our"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "News, resources, and updates about RavenSaaS"
+  },
+  "home" : {
+    "title": "RavenSaaS - Modern Website Template",
+    "description": "A modern website template built with component-based UI architecture, designed to help you build your next project faster."
+  },
+  "next_page":"Next Page",
+  "prev_page":"Prev Page"
+}
