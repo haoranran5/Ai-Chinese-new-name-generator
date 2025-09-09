@@ -11,6 +11,13 @@ import AboutPage from './pages/AboutPage';
 import FamousPeoplePage from './pages/FamousPeoplePage';
 import BlogPage from './pages/BlogPage';
 import FAQPage from './pages/FAQPage';
+import Footer from './components/Footer';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
+import ContactPage from './pages/ContactPage';
+import WuXingNamingGuide from './pages/blog/WuXingNamingGuide';
+import BabyChineseNameGuide from './pages/blog/BabyChineseNameGuide';
+import EnglishToChineseName from './pages/blog/EnglishToChineseName';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -19,7 +26,7 @@ function App() {
   React.useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (hash && ['compatibility', 'fengShuiTips', 'astrology', 'about', 'famousPeople', 'blog', 'faq'].includes(hash)) {
+      if (hash && ['compatibility', 'fengShuiTips', 'astrology', 'about', 'famousPeople', 'blog', 'faq', 'privacy', 'terms', 'contact', 'blog-wuxing', 'blog-baby-name', 'blog-en-to-zh'].includes(hash)) {
         setCurrentPage(hash);
       }
     };
@@ -48,6 +55,18 @@ function App() {
         return <BlogPage />;
       case 'faq':
         return <FAQPage />;
+      case 'privacy':
+        return <PrivacyPolicyPage />;
+      case 'terms':
+        return <TermsPage />;
+      case 'contact':
+        return <ContactPage />;
+      case 'blog-wuxing':
+        return <WuXingNamingGuide />;
+      case 'blog-baby-name':
+        return <BabyChineseNameGuide />;
+      case 'blog-en-to-zh':
+        return <EnglishToChineseName />;
       default:
         return <HomePage />;
     }
@@ -70,6 +89,7 @@ function App() {
       <FavoritesProvider>
         <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
         {renderPage()}
+        <Footer />
       </FavoritesProvider>
     </div>
   );

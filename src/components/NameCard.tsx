@@ -49,6 +49,10 @@ const NameCard: React.FC<NameCardProps> = ({ name, showRemove = false }) => {
 
   const genderInfo = getGenderInfo(name.gender);
 
+  // 简单占位解析（未来可替换为真实算法）
+  const toneHint = name.pinyin.match(/[1-5]/g)?.join(', ') || '—';
+  const initials = name.pinyin.split(' ').map(s => s[0]?.toUpperCase()).join('·');
+
   return (
     <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl p-4 sm:p-6 hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-500 group relative overflow-hidden hover:scale-105">
       {/* Card background glow */}
@@ -109,6 +113,18 @@ const NameCard: React.FC<NameCardProps> = ({ name, showRemove = false }) => {
       <div className="bg-white/5 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/10 relative z-10 shadow-inner">
         <div className="text-xs sm:text-sm text-white/70 mb-2 font-semibold">含义</div>
         <p className="text-sm sm:text-base text-white/90 leading-relaxed">{name.meaning}</p>
+      </div>
+
+      {/* Extra Analysis (placeholders) */}
+      <div className="grid grid-cols-2 gap-2 mt-3">
+        <div className="bg-white/5 rounded-lg p-2 border border-white/10">
+          <div className="text-xs text-white/60">声母/缩写</div>
+          <div className="text-white/90 text-sm font-medium">{initials || '—'}</div>
+        </div>
+        <div className="bg-white/5 rounded-lg p-2 border border-white/10">
+          <div className="text-xs text-white/60">声调提示</div>
+          <div className="text-white/90 text-sm font-medium">{toneHint}</div>
+        </div>
       </div>
     </div>
   );
